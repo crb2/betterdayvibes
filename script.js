@@ -208,6 +208,12 @@ function deleteSearch(term) {
 function selectSuggestion(term) {
 
     searchInput.value = term;
+
+    const clearBtn =
+        document.getElementById("clearSearch");
+
+    clearBtn.style.display = "block";
+
     saveSearch(term);
     suggestions.style.display = "none";
     updatePosts();
@@ -430,3 +436,4 @@ clearBtn.addEventListener("click", () => {
     clearBtn.style.display = "none";
     updatePosts();
 });
+
