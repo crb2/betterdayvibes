@@ -98,6 +98,8 @@ function updatePosts() {
         if (categoryMatch && searchMatch) {
 
             card.style.display = "";
+            card.classList.remove("hidden");
+
             visibleCards.push(card);
 
         } else {
