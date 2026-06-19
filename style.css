@@ -279,8 +279,8 @@ nav a:hover {
 .search-text {
     flex: 1;
     cursor: pointer;
-     display:block;
-    width:100%;
+    display: block;
+    width: 100%;
 }
 
 .suggestion-item:hover .search-text {
@@ -567,7 +567,7 @@ footer p {
     }
 
     .logo span {
-        font-size: 0.95rem;
+        font-size: 1.25rem;
     }
 
     nav {
