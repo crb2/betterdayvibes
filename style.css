@@ -170,10 +170,32 @@ nav a:hover {
 
 #searchInput {
     width: 100%;
-    padding: 15px;
+    padding: 16px 55px 16px 20px;
+    background: #414141;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
+    color: #ffffff;
     font-size: 16px;
+    outline: none;
+}
+
+#searchInput::placeholder {
+    color: #9b9b9b;
+}
+
+.search-box {
+    width: 100%;
+    padding: 16px 20px;
+    background: #414141;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-box::placeholder {
+    color: #9b9b9b;
 }
 
 .clear-search {
@@ -183,8 +205,8 @@ nav a:hover {
     transform: translateY(-50%);
     background: none;
     border: none;
-    color: #64748b;
-    font-size: 22px;
+    color: #ff4d4d !important;
+    font-size: 20px;
     font-weight: 700;
     cursor: pointer;
     display: none;
@@ -197,7 +219,22 @@ nav a:hover {
 
 #searchInput {
     width: 100%;
-    padding: 15px 55px 15px 15px;
+    padding: 16px 55px 16px 20px;
+    background: #414141;
+    border: none;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 16px;
+    outline: none;
+}
+
+#searchInput::placeholder {
+    color: #9b9b9b;
+}
+
+#searchInput::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .search-suggestions {
@@ -348,8 +385,8 @@ nav a:hover {
     color: #d1d5db;
 }
 
-.hidden{
-    display:none;
+.hidden {
+    display: none;
 }
 
 

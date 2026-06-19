@@ -7,6 +7,7 @@ const quoteSection = document.getElementById("quoteSection");
 const noResults = document.getElementById("noResults");
 const currentCategory = document.getElementById("currentCategory");
 
+
 let activeCategory = "all";
 
 const aliases = {
@@ -416,3 +417,16 @@ function loadMoreCards(){
     });
 
 }
+
+const clearBtn = document.getElementById("clearSearch");
+
+searchInput.addEventListener("input", () => {
+    clearBtn.style.display =
+        searchInput.value ? "block" : "none";
+});
+
+clearBtn.addEventListener("click", () => {
+    searchInput.value = "";
+    clearBtn.style.display = "none";
+    updatePosts();
+});
