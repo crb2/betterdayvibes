@@ -52,6 +52,15 @@ document.addEventListener("click", (e) => {
     }
 });
 
+function filterCategory(category) {
+
+    activeCategory = category;
+    searchInput.value = "";
+    document.getElementById("clearSearch").style.display = "none";
+    sidebar.classList.remove("active");
+    updatePosts();
+}
+
 function updatePosts() {
 
     const search =
@@ -82,9 +91,9 @@ function updatePosts() {
 
         const searchMatch =
             search === "" ||
-            text.includes(search) ||
+            text.includes(searchTerm) ||
             category.includes(searchTerm) ||
-            keywords.includes(search);
+            keywords.includes(searchTerm);
 
         if (categoryMatch && searchMatch) {
 
@@ -115,15 +124,17 @@ function updatePosts() {
         currentCategory.textContent =
             "Search Results: " + search;
 
-    } else {
-
-        const categoryName =
-            activeCategory === "all"
-                ? "All Posts"
-                : activeCategory;
+    } else if (activeCategory !== "all") {
 
         currentCategory.textContent =
-            "Showing: " + categoryName;
+            "Category: " +
+            activeCategory;
+
+    } else {
+
+        currentCategory.textContent =
+            "All Posts";
+
     }
 }
 
@@ -137,12 +148,9 @@ document
 
             e.preventDefault();
 
-            activeCategory =
-                link.dataset.filter;
-
-            sidebar.classList.remove("active");
-
-            updatePosts();
+            filterCategory(
+                link.dataset.filter
+            );
 
         });
 
@@ -207,6 +215,8 @@ function deleteSearch(term) {
 
 function selectSuggestion(term) {
 
+    activeCategory = "all";
+
     searchInput.value = term;
 
     const clearBtn =
@@ -215,8 +225,11 @@ function selectSuggestion(term) {
     clearBtn.style.display = "block";
 
     saveSearch(term);
+
     suggestions.style.display = "none";
+
     updatePosts();
+
     searchInput.blur();
 }
 
@@ -265,8 +278,9 @@ function showSuggestions() {
                 term;
 
             text.addEventListener(
-                "click",
-                () => {
+                "mousedown",
+                (e) => {
+                    e.preventDefault();
                     selectSuggestion(term);
                 }
             );
@@ -323,8 +337,9 @@ function showSuggestions() {
             term;
 
         item.addEventListener(
-            "click",
-            () => {
+            "mousedown",
+            (e) => {
+                e.preventDefault();
                 selectSuggestion(term);
             }
         );
@@ -384,35 +399,35 @@ document.addEventListener(
 
 
 const trigger =
-document.getElementById("load-trigger");
+    document.getElementById("load-trigger");
 
 const observer =
-new IntersectionObserver(entries => {
+    new IntersectionObserver(entries => {
 
-    if(entries[0].isIntersecting){
+        if (entries[0].isIntersecting) {
 
-        loadMoreCards();
+            loadMoreCards();
 
-    }
+        }
 
-},{
-    rootMargin:"500px"
-});
+    }, {
+        rootMargin: "500px"
+    });
 
 observer.observe(trigger);
 
 let currentIndex = 12;
 
-function loadMoreCards(){
+function loadMoreCards() {
 
     const hiddenCards =
-    document.querySelectorAll(".quote-card.hidden");
+        document.querySelectorAll(".quote-card.hidden");
 
     let count = 0;
 
     hiddenCards.forEach(card => {
 
-        if(count < 12){
+        if (count < 12) {
 
             card.classList.remove("hidden");
 
