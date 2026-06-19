@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <title>Better Day Vibes</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon.png">
+    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/android-chrome-512x512.png">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="/">
+                <img src="Better Day Vibes Logo.jpg" alt="Better Day Vibes Logo">
+                <span>Better Day Vibes</span>
+            </a>
+        </div>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="#" id="quoteLink">Quote Of The Day</a>
+
+            <button id="menuBtn" class="menu-btn">
+                &#9776;
+            </button>
+        </nav>
+    </header>
+
+    <div class="main-layout">
+
+        <main>
+
+            <section class="quote-day" id="quoteSection">
+                <h2>Quote Of The Day</h2>
+
+                <p>
+                    Keep being authentic.
+                    The right people will naturally find their way to you.
+                </p>
+            </section>
+
+            <section class="search-section">
+                <div class="search-wrapper">
+
+                    <input type="search" id="searchInput" placeholder="Search motivational quotes...">
+                    <button id="clearSearch" class="clear-search">
+                        ✕
+                    </button>
+                    <div id="searchSuggestions" class="search-suggestions"></div>
+
+                </div>
+            </section>
+
+            <div class="current-category" id="currentCategory">
+                Showing: All Posts
+            </div>
+
+
+            <section class="quotes-container" id="quotesContainer">
+
+                <div class=" quote-card " data-category="positivity">
+                    <img src="Motivation/keep-being-authentic.png" alt="Quote">
+                    <div class="quote-content">
+
+                        <p>
+                            Keep being authentic. <br> The right people will naturally find their way to you.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="quote-card" data-category="healing"
+                    data-keywords="healing healed recovery emotional healing personal growth inner peace strength resilience trauma recovery self healing overcoming pain">
+                    <img src="Motivation/when-you-can-share-your-story-without-shedding-a-tear.png"
+                        alt="When you can share your story without shedding a tear">
+
+                    <div class="quote-content">
+                        <p>
+                            When you can share your story without shedding a tear, that's when you know you've truly
+                            healed.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="quote-card" data-category="gratitude"
+                    data-keywords="gratitude grateful thankful blessings blessed appreciation thankful heart abundance positivity happiness appreciate what you have">
+                    <img src="Motivation/you-are-blessed-in-countless-ways.png" alt="You are blessed in countless ways">
+
+                    <div class="quote-content">
+                        <p>
+                            You are blessed in countless ways already, appreciate what you have.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="quote-card" data-category="positivity"
+                    data-keywords="positivity happy happiness mental health emotional well being spiritual well being let things go focus on yourself self care peace positive mindset">
+                    <img src="Motivation/if-you-want-to-be-happy.png" alt="If you want to be happy">
+
+                    <div class="quote-content">
+                        <p>
+                            If you want to be happy, don't take everything personally. Let things go, allow people to be
+                            themselves, and focus on your own mental, emotional, and spiritual well-being.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="quote-card" data-category="positivity"
+                    data-keywords="kind heart kindness love compassion caring giving generosity positivity good deeds loving heart return of love karma">
+                    <img src="Motivation/kind-heart-love-returns.png" alt="Never regret having a kind heart">
+
+                    <div class="quote-content">
+                        <p>
+                            Never regret having a kind heart. One day, all the love you give will return to you many
+                            times over.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="quote-card" data-category="self-growth"
+                    data-keywords="self growth boundaries healthy boundaries personal growth self respect let go healing mindset confidence protect your peace honor your worth focus on growth">
+
+                    <img src="Motivation/set-healthy-boundaries.png" alt="Set healthy boundaries">
+
+                    <div class="quote-content">
+                        <p>
+                            Set healthy boundaries and be willing to let go of people who aren't meant for your life.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="quote-card" data-category="gratitude"
+                    data-keywords="gratitude thankful blessings grateful happiness smile positive mindset focus on blessings">
+
+                    <img src="Motivation/a-smile-on-my-face-isnt-a-sign-of-a-perfect-life.png"
+                        alt="A smile on my face isn't a sign of a perfect life">
+
+                    <div class="quote-content">
+                        <p>
+                            A smile on my face isn't a sign of a perfect life.
+                            It's a reflection of my decision to focus on my blessings rather than my struggles.
+                        </p>
+                        <span style="display:none">
+                            gratitude thankful blessings grateful happiness smile positive mindset focus on blessings
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card" data-category="relationships"
+                    data-keywords="parent parenting parents mother father family children kids unconditional love family bond caring support parenting wisdom">
+                    <img src="Motivation/being-a-parent-means-loving-your-children.png"
+                        alt="Being a parent means loving your children">
+
+                    <div class="quote-content">
+                        <p>
+                            Being a parent means loving your children more deeply than you have ever loved yourself.
+                        </p>
+                        <span style="display:none">
+                            parent parenting parents mother father family children kids unconditional love family bond
+                            caring support parenting wisdom
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card" data-category="positivity"
+                    data-keywords="positive positivity happiness difficult days brighter days optimism hope mindset encouragement motivation resilience mental strength confidence growth">
+
+                    <img src="Motivation/being-positive-doesnt-mean-you-need-to-be-happy-all-the-time.png"
+                        alt="Being positive doesn't mean you need to be happy all the time">
+
+                    <div class="quote-content">
+                        <p>
+                            Being positive doesn't mean you need to be happy all the time. It means that even during
+                            difficult days, you trust that brighter days are on the way.
+                        </p>
+
+                        <span style="display:none">
+                            positive positivity happiness difficult days brighter days optimism hope mindset
+                            encouragement motivation resilience mental strength confidence growth
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card" data-category="relationships"
+                    data-keywords="respect respect others kindness kind words character integrity reputation loyalty trust friendship relationships speak well encouragement positive people good heart">
+
+                    <img src="Motivation/i-respect-people-who-speak-well-of-me.png"
+                        alt="I respect people who speak well of me">
+
+                    <div class="quote-content">
+                        <p>
+                            I respect people who speak well of me even when I'm not around.
+                        </p>
+
+                        <span style="display:none">
+                            respect respect others kindness kind words character integrity reputation loyalty trust
+                            friendship relationships speak well encouragement positive people good heart
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card" data-category="self-growth"
+                    data-keywords="life change growth self growth personal growth courage bravery change mindset success goals future regret opportunity transformation progress motivation">
+
+                    <img src="Motivation/making-a-big-life-change-is-scary.png" alt="Making a big life change is scary">
+
+                    <div class="quote-content">
+                        <p>
+                            Making a big life change is scary. But, you know what's scarier? Regret.
+                        </p>
+
+                        <span style="display:none">
+                            life change growth self growth personal growth courage bravery change mindset success goals
+                            future regret opportunity transformation progress motivation take risks comfort zone new
+                            beginnings
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card" data-category="positivity"
+                    data-keywords="happiness happy gratitude grateful present moment enjoy life live now positivity positive mindset joy peace contentment life lessons motivation inspiration time appreciation">
+
+                    <img src="Motivation/dont-wait-for-things-to-get-easier.png"
+                        alt="Don't wait for things to get easier">
+
+                    <div class="quote-content">
+                        <p>
+                            Don't wait for things to get easier, simpler, or better. Life will always be complicated.
+                            Learn to be happy right now. Otherwise, you'll run out of time.
+                        </p>
+
+                        <span style="display:none">
+                            happiness happy gratitude grateful present moment enjoy life live now positivity positive
+                            mindset joy peace contentment life lessons motivation inspiration time appreciation be
+                            present be grateful be happy
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card hidden" data-category="faith-hope"
+                    data-keywords="faith hope dreams prayer praying breakthrough trust god believe perseverance keep going stay faithful blessings future success encouragement inspiration spiritual growth">
+
+                    <img src="Motivation/the-day-is-coming-when-youll-be-living-the-dreams-youve-been-praying-for.png"
+                        alt="The day is coming when you'll be living the dreams you've been praying for">
+
+                    <div class="quote-content">
+                        <p>
+                            The day is coming when you'll be living the dreams you've been praying for. Stay faithful.
+                            Keep going.
+                        </p>
+
+                        <span style="display:none">
+                            faith hope dreams prayer praying breakthrough trust god believe perseverance keep going stay
+                            faithful blessings future success encouragement inspiration spiritual growth answered
+                            prayers motivation never give up
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card hidden" data-category="self-growth"
+                    data-keywords="mindset self growth personal development wisdom discipline calm emotional intelligence mental strength better thinking self improvement learning growth focus resilience mindset training">
+
+                    <img src="Motivation/training-my-mind-to-think-wiser-respond-calmer-and-react-better-each-day.png"
+                        alt="Training my mind to think wiser respond calmer and react better each day">
+
+                    <div class="quote-content">
+                        <p>
+                            Training my mind to think wiser, respond calmer, and react better each day.
+                        </p>
+
+                        <span style="display:none">
+                            mindset self growth personal development wisdom discipline calm emotional intelligence
+                            mental strength better thinking self improvement learning growth focus resilience mindset
+                            training think wiser respond calmer react better growth mindset positive habits daily
+                            improvement stronger mind better life self mastery self control
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card hidden" data-category="relationships"
+                    data-keywords="genuine intentions loyalty trust relationships friendship respect character integrity people value self worth healthy relationships authentic connections boundaries emotional maturity kindness loyalty trustworthiness">
+
+                    <img src="Motivation/when-your-intentions-are-genuine-you-dont-lose-people.png"
+                        alt="When your intentions are genuine">
+
+                    <div class="quote-content">
+                        <p>
+                            When your intentions are genuine, you don't lose people. Those who walk away are the ones
+                            who lose someone valuable.
+                        </p>
+
+                        <span style="display:none">
+                            genuine intentions loyalty trust relationships friendship respect character integrity people
+                            value self worth healthy relationships authentic connections boundaries emotional maturity
+                            kindness loyalty trustworthiness honesty sincerity real people meaningful connections good
+                            heart valuable person personal growth emotional intelligence
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card hidden" data-category="self-growth"
+                    data-keywords="life purpose mortality time value of time motivation priorities meaningful life legacy goals dreams personal growth self reflection mindset purpose intentional living success productivity life choices">
+
+                    <img src="Motivation/you-wake-up-knowing-exactly-how-much-time-you-have-left-to-live.png"
+                        alt="You wake up knowing exactly how much time you have left to live">
+
+                    <div class="quote-content">
+                        <p>
+                            You wake up knowing exactly how much time you have left to live. What is the very first
+                            thing you do?
+                        </p>
+
+                        <span style="display:none">
+                            life purpose mortality time value of time motivation priorities meaningful life legacy goals
+                            dreams personal growth self reflection mindset purpose intentional living success
+                            productivity life choices make every day count time management bucket list fulfillment
+                            purpose driven life focus on what matters urgency inspiration motivation quote
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card hidden" data-category="healing"
+                    data-keywords="healing recovery growth resilience emotional healing moving forward life lessons self growth inner peace strength wisdom overcoming pain healing journey personal development mental health hope">
+
+                    <img src="Motivation/healing-doesnt-erase-your-past.png" alt="Healing doesn't erase your past">
+
+                    <div class="quote-content">
+                        <p>
+                            Healing doesn't erase your past. It teaches you how to move forward while carrying the
+                            lessons it left behind.
+                        </p>
+
+                        <span style="display:none">
+                            healing recovery growth resilience emotional healing moving forward life lessons self growth
+                            inner peace strength wisdom overcoming pain healing journey personal development mental
+                            health hope forgiveness learning from the past personal transformation healing process
+                            emotional strength growth mindset resilience wisdom self improvement
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card hidden" data-category="relationships"
+                    data-keywords="boundaries self respect relationships trust loyalty respect toxic people second chances personal growth emotional strength walking away letting go healthy boundaries self worth respect yourself">
+
+                    <img src="Motivation/i-often-give-people-more-chances-than-they-deserve.png"
+                        alt="I often give people more chances than they deserve">
+
+                    <div class="quote-content">
+                        <p>
+                            I often give people more chances than they deserve, but once I've had enough, there's no
+                            turning back.
+                        </p>
+
+                        <span style="display:none">
+                            boundaries self respect relationships trust loyalty respect toxic people second chances
+                            personal growth emotional strength walking away letting go healthy boundaries self worth
+                            respect yourself enough is enough protect your peace know your value strong mindset toxic
+                            relationships emotional maturity self care personal boundaries life lessons
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card hidden" data-category="relationships"
+                    data-keywords="relationships people true colors reality acceptance boundaries self respect emotional intelligence toxic people life lessons wisdom trust awareness personal growth authenticity red flags healthy relationships">
+
+                    <img src="Motivation/i-stopped-seeing-people-for-who-i-hoped-they-were.png"
+                        alt="I stopped seeing people for who I hoped they were">
+
+                    <div class="quote-content">
+                        <p>
+                            I stopped seeing people for who I hoped they were and started seeing them for who they
+                            really are.
+                        </p>
+
+                        <span style="display:none">
+                            relationships people true colors reality acceptance boundaries self respect emotional
+                            intelligence toxic people life lessons wisdom trust awareness personal growth authenticity
+                            red flags healthy relationships seeing people clearly realistic expectations maturity
+                            discernment self worth emotional growth relationship advice human nature
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card hidden" data-category="healing"
+                    data-keywords="healing self reflection judgment compassion empathy emotional healing self awareness personal growth inner healing forgiveness understanding kindness emotional intelligence heart healing self improvement">
+
+                    <img src="Motivation/judging-someone-else-can-reveal-the-parts-of-your-own-heart-that-still-need-healing.png"
+                        alt="Judging someone else can reveal the parts of your own heart that still need healing">
+
+                    <div class="quote-content">
+                        <p>
+                            Judging someone else can reveal the parts of your own heart that still need healing.
+                        </p>
+
+                        <span style="display:none">
+                            healing self reflection judgment compassion empathy emotional healing self awareness
+                            personal growth inner healing forgiveness understanding kindness emotional intelligence
+                            heart healing self improvement personal transformation self discovery mindfulness emotional
+                            maturity self acceptance healing journey growth mindset love beyond heal within
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card hidden" data-category="self-growth"
+                    data-keywords="big change life change courage growth personal growth self growth decision making risk taking fear overcoming fear confidence success mindset motivation transformation life choices progress future dreams goals change is scary what if regret opportunity">
+
+                    <img src="Motivation/making-a-big-change-in-life-is-scary-but-whats-even-scarier-wondering-what-if-for-the-rest-of-your-life.png"
+                        alt="Making a big change in life is scary but what's even scarier wondering what if for the rest of your life">
+
+                    <div class="quote-content">
+                        <p>
+                            Making a big change in life is scary. But what's even scarier? Wondering "what if" for the
+                            rest of your life.
+                        </p>
+
+                        <span style="display:none">
+                            big change life change courage growth personal growth self growth decision making risk
+                            taking overcoming fear confidence success mindset motivation transformation life choices
+                            progress future dreams goals change is scary what if regret opportunity self improvement
+                            personal development take the chance new beginnings life lessons growth mindset fearless
+                            action
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card hidden" data-category="gratitude"
+                    data-keywords="gratitude grateful thankful appreciation blessings thankfulness thankful heart grateful heart gratitude journal gratitude prompt appreciation post thankful for life family friends support love kindness happiness positive mindset gratitude mindset daily gratitude thankful moments">
+
+                    <img src="Motivation/name-one-thing-youre-truly-grateful-for-at-this-moment.png"
+                        alt="Name one thing you're truly grateful for at this moment">
+
+                    <div class="quote-content">
+                        <p>
+                            Name one thing you're truly grateful for at this moment. The people who love and support me.
+                        </p>
+
+                        <span style="display:none">
+                            gratitude grateful thankful appreciation blessings thankfulness thankful heart grateful
+                            heart gratitude journal gratitude prompt appreciation post thankful for life family friends
+                            support love kindness happiness positive mindset gratitude mindset daily gratitude thankful
+                            moments count your blessings appreciation for life gratitude challenge thankful living
+                            positivity joy peace encouragement
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card hidden" data-category="healing"
+                    data-keywords="forgive forgiveness healing let go growth personal growth emotional healing self healing inner peace move on release pain healing journey forgiveness quote self growth resilience mental wellness healing mindset forgive and heal let go and grow">
+
+                    <img src="Motivation/remember-when-you-forgive-you-heal-and-when-you-let-go-you-grow.png"
+                        alt="Remember when you forgive you heal and when you let go you grow">
+
+                    <div class="quote-content">
+                        <p>
+                            Remember, when you forgive, you heal. And when you let go, you grow.
+                        </p>
+
+                        <span style="display:none">
+                            forgive forgiveness healing let go growth personal growth emotional healing self healing
+                            inner peace move on release pain healing journey forgiveness quote self growth resilience
+                            mental wellness healing mindset forgive and heal let go and grow personal development self
+                            improvement acceptance peace freedom recovery transformation wisdom strength mindfulness
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card hidden" data-category="gratitude"
+                    data-keywords="gratitude thankful blessed grateful joy happiness positive mindset appreciation evening gratitude night gratitude morning joy gratitude practice thankfulness gratitude quote grateful heart blessings peace mindfulness self improvement daily gratitude positive thinking optimism">
+
+                    <img src="Motivation/start-your-night-with-gratitude-and-youll-wake-up-with-joy.png"
+                        alt="Start your night with gratitude and you'll wake up with joy">
+
+                    <div class="quote-content">
+                        <p>
+                            Start your night with gratitude, and you'll wake up with joy.
+                        </p>
+
+                        <span style="display:none">
+                            gratitude thankful blessed grateful joy happiness positive mindset appreciation evening
+                            gratitude night gratitude morning joy gratitude practice thankfulness gratitude quote
+                            grateful heart blessings peace mindfulness self improvement daily gratitude positive
+                            thinking optimism abundance contentment serenity encouragement inspiration thankful living
+                            gratitude journal count your blessings
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card hidden" data-category="mindfulness"
+                    data-keywords="calm mind mindfulness peace inner peace mental clarity clear thinking self awareness meditation calm thoughts focus wisdom mindful living emotional balance stress relief personal growth self improvement conscious choices peaceful mindset clarity of mind">
+
+                    <img src="Motivation/the-calmer-your-mind-is-the-clearer-your-thoughts-become.png"
+                        alt="The calmer your mind is the clearer your thoughts become">
+
+                    <div class="quote-content">
+                        <p>
+                            The calmer your mind is, the clearer your thoughts become. Make your choices from a place of
+                            peace, not from impulse or reaction.
+                        </p>
+
+                        <span style="display:none">
+                            calm mind mindfulness peace inner peace mental clarity clear thinking self awareness
+                            meditation calm thoughts focus wisdom mindful living emotional balance stress relief
+                            personal growth self improvement conscious choices peaceful mindset clarity of mind
+                            emotional intelligence self control patience tranquility mental wellness positive mindset
+                            thoughtful decisions peace over impulse
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card hidden" data-category="faith-hope"
+                    data-keywords="trust the journey faith hope trust god patience destiny future believe keep going let go have faith encouragement motivation inspiration positive mindset life journey perseverance optimism confidence trust the process self growth resilience">
+
+                    <img src="Motivation/things-will-eventually-turn-out-the-way-theyre-meant-to.png"
+                        alt="Things will eventually turn out the way they're meant to">
+
+                    <div class="quote-content">
+                        <p>
+                            Things will eventually turn out the way they're meant to. You don't need to figure out every
+                            step. Just trust the journey.
+                        </p>
+
+                        <span style="display:none">
+                            trust the journey faith hope trust god patience destiny future believe keep going let go
+                            have faith encouragement motivation inspiration positive mindset life journey perseverance
+                            optimism confidence trust the process self growth resilience purpose guidance spiritual
+                            growth personal development inner peace strength courage faith over fear hope for the future
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card hidden" data-category="relationships"
+                    data-keywords="family relationships love family bond togetherness meaningful relationships people matter most loved ones connection friendship support family values life lessons gratitude relationships happiness community caring sharing life">
+
+                    <img src="Motivation/what-matters-most-isnt-what-we-own-in-life-but-the-people-we-share-it-with.png"
+                        alt="What matters most isn't what we own in life but the people we share it with">
+
+                    <div class="quote-content">
+                        <p>
+                            What matters most isn't what we own in life, but the people we share it with.
+                        </p>
+
+                        <span style="display:none">
+                            family relationships love family bond togetherness meaningful relationships people matter
+                            most loved ones connection friendship support family values life lessons gratitude
+                            relationships happiness community caring sharing life memories belonging kindness compassion
+                            emotional connection family time quality time relationships matter human connection joy
+                            appreciation
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card hidden" data-category="faith-hope"
+                    data-keywords="keep moving forward trust the journey hope faith encouragement motivation perseverance resilience stress relief future perspective personal growth self improvement positive mindset optimism keep going life journey patience trust the process">
+
+                    <img src="Motivation/a-few-years-from-now-most-of-whats-stressing-you-today-wont-even-matter.png"
+                        alt="A few years from now most of what's stressing you today won't even matter">
+
+                    <div class="quote-content">
+                        <p>
+                            A few years from now, most of what's stressing you today won't even matter. Keep moving
+                            forward and trust the journey.
+                        </p>
+
+                        <span style="display:none">
+                            keep moving forward trust the journey hope faith encouragement motivation perseverance
+                            resilience stress relief future perspective personal growth self improvement positive
+                            mindset optimism keep going life journey patience trust the process growth mindset
+                            confidence courage determination inner strength mental wellness overcoming challenges
+                            brighter future success mindset
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card hidden" data-category="purpose-passion"
+                    data-keywords="discover your passion pursue your dreams purpose meaningful life motivation inspiration personal growth self improvement courage commitment heart passion goals ambition fulfillment happiness life purpose authentic living success mindset determination self discovery purpose driven life">
+
+                    <img src="Motivation/discover-what-makes-you-feel-truly-alive-and-pursue-it-with-all-your-heart.png"
+                        alt="Discover what makes you feel truly alive and pursue it with all your heart">
+
+                    <div class="quote-content">
+                        <p>
+                            Discover what makes you feel truly alive, and pursue it with all your heart.
+                        </p>
+
+                        <span style="display:none">
+                            discover your passion pursue your dreams purpose meaningful life motivation inspiration
+                            personal growth self improvement courage commitment heart passion goals ambition fulfillment
+                            happiness life purpose authentic living success mindset determination self discovery purpose
+                            driven life finding purpose living fully inner calling passion project dream big purpose and
+                            meaning growth journey
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card hidden" data-category="patience-trust"
+                    data-keywords="everything will come to you when the time is right patience trust timing faith hope perseverance motivation inspiration personal growth self improvement life journey trust the process divine timing positive mindset resilience waiting with purpose success mindset future blessings">
+
+                    <img src="Motivation/everything-will-come-to-you-when-the-time-is-right.png"
+                        alt="Everything will come to you when the time is right">
+
+                    <div class="quote-content">
+                        <p>
+                            Everything will come to you when the time is right.
+                        </p>
+
+                        <span style="display:none">
+                            everything will come to you when the time is right patience trust timing faith hope
+                            perseverance motivation inspiration personal growth self improvement life journey trust the
+                            process divine timing positive mindset resilience waiting with purpose success mindset
+                            future blessings optimism encouragement inner peace patience pays off trust your journey
+                            good things take time growth and healing
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card hidden" data-category="manifestation-positive-thinking"
+                    data-keywords="manifestation is powerful positive thinking positive words positive thoughts law of attraction mindset motivation inspiration self improvement personal growth abundance success confidence gratitude affirmations visualization optimistic mindset mental wellness self belief attract positivity">
+
+                    <img src="Motivation/manifestation-is-powerful-start-filling-your-life-with-positive-words-and-thoughts.png"
+                        alt="Manifestation is powerful. Start filling your life with positive words and thoughts">
+
+                    <div class="quote-content">
+                        <p>
+                            Manifestation is powerful. Start filling your life with positive words and thoughts.
+                        </p>
+
+                        <span style="display:none">
+                            manifestation is powerful positive thinking positive words positive thoughts law of
+                            attraction mindset motivation inspiration self improvement personal growth abundance success
+                            confidence gratitude affirmations visualization optimistic mindset mental wellness self
+                            belief attract positivity positive energy empowering thoughts growth mindset intentional
+                            living dream life happiness encouragement focus on possibilities
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card hidden" data-category="positive-mindset-mental-strength"
+                    data-keywords="staying positive negative thoughts mental strength resilience mindset motivation inspiration personal growth self improvement emotional strength positive thinking self control mental wellness overcoming negativity confidence courage growth mindset emotional resilience inner peace self awareness">
+
+                    <img src="Motivation/staying-positive-doesnt-mean-you-never-experience-negative-thoughts-it-means-you-choose-not-to-let-those-thoughts-take-control-of-your-life.png"
+                        alt="Staying positive doesn't mean you never experience negative thoughts. It means you choose not to let those thoughts take control of your life">
+
+                    <div class="quote-content">
+                        <p>
+                            Staying positive doesn't mean you never experience negative thoughts. It means you choose
+                            not to let those thoughts take control of your life.
+                        </p>
+
+                        <span style="display:none">
+                            staying positive negative thoughts mental strength resilience mindset motivation inspiration
+                            personal growth self improvement emotional strength positive thinking self control mental
+                            wellness overcoming negativity confidence courage growth mindset emotional resilience inner
+                            peace self awareness self belief mental clarity optimism healthy mindset emotional balance
+                            choose positivity stronger than your thoughts personal empowerment
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card hidden" data-category="mental-health-self-care"
+                    data-keywords="mental well being mental health self care mindfulness emotional wellness self improvement personal growth motivation inspiration self love healthy mindset stress management mental strength boundaries self awareness inner peace wellness self care journey positive living">
+
+                    <img src="Motivation/put-your-mental-well-being-first.png" alt="Put Your Mental Well-Being First">
+
+                    <div class="quote-content">
+                        <p>
+                            Put Your Mental Well-Being First.
+                        </p>
+
+                        <span style="display:none">
+                            mental well being mental health self care mindfulness emotional wellness self improvement
+                            personal growth motivation inspiration self love healthy mindset stress management mental
+                            strength boundaries self awareness inner peace wellness self care journey positive living
+                            emotional balance self respect self worth mental clarity self healing healthy habits
+                            prioritize yourself take care of your mind
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card hidden" data-category="faith-blessings"
+                    data-keywords="god blessings faith christian inspiration bible verse encouragement hope prayer spiritual growth gods blessings trust god abundance gratitude motivation positive faith divine favor religious inspiration christian motivation">
+
+                    <img src="Motivation/this-week-god-will-shower-you-with-twice-the-blessings-get-ready-to-receive-them.png"
+                        alt="This week, God will shower you with twice the blessings. Get ready to receive them">
+
+                    <div class="quote-content">
+                        <p>
+                            This week, God will shower you with twice the blessings. Get ready to receive them.
+                        </p>
+
+                        <span style="display:none">
+                            god blessings faith christian inspiration bible verse encouragement hope prayer spiritual
+                            growth gods blessings trust god abundance gratitude motivation positive faith divine favor
+                            religious inspiration christian motivation gods plan spiritual encouragement heavenly
+                            blessings miracles favor grace scripture faith journey trusting god daily blessings answered
+                            prayers positive christian message
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="quote-card hidden" data-category="gratitude-blessings"
+                    data-keywords="gratitude blessings thankful waking up gratitude mindset appreciation daily blessings morning gratitude thankfulness inspiration motivation personal growth positive thinking mindfulness happiness faith self improvement grateful heart life blessing optimism abundance">
+
+                    <img src="Motivation/we-often-forget-that-simply-waking-up-each-day-is-the-very-first-blessing-we-should-be-thankful-for.png"
+                        alt="We often forget that simply waking up each day is the very first blessing we should be thankful for">
+
+                    <div class="quote-content">
+                        <p>
+                            We often forget that simply waking up each day is the very first blessing we should be
+                            thankful for.
+                        </p>
+
+                        <span style="display:none">
+                            gratitude blessings thankful waking up gratitude mindset appreciation daily blessings
+                            morning gratitude thankfulness inspiration motivation personal growth positive thinking
+                            mindfulness happiness faith self improvement grateful heart life blessing optimism abundance
+                            count your blessings grateful living morning inspiration thank god for today simple joys
+                            appreciation of life daily encouragement thankful heart
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div id="load-trigger"></div>
+
+                <div id="loading" style="display:none;">
+                    Loading...
+                </div>
+
+
+                <div id="noResults" class="no-results">
+                    No quotes found.
+                </div>
+
+            </section>
+        </main>
+
+
+        <aside id="sidebar" class="sidebar">
+            <button id="closeBtn" class="close-btn">
+                ✕
+            </button>
+            <h3>Categories</h3>
+
+            <ul>
+                <li><a href="#" data-filter="all">All Posts</a></li>
+                <li><a href="#" data-filter="gratitude">Gratitude</a></li>
+                <li><a href="#" data-filter="positivity">Positivity</a></li>
+                <li><a href="#" data-filter="healing">Healing</a></li>
+                <li><a href="#" data-filter="relationships">Relationships</a></li>
+                <li><a href="#" data-filter="self-growth">Self-Growth</a></li>
+                <li><a href="#" data-filter="faith-hope">Faith & Hope</a></li>
+            </ul>
+        </aside>
+
+    </div>
+
+
+
+    <footer>
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <span>|</span>
+            <a href="/privacy-policy">Privacy Policy</a>
+            <span>|</span>
+            <a href="/terms-and-conditions">Terms & Conditions</a>
+            <span>|</span>
+            <a href="/feedback">Feedback</a>
+        </div>
+
+        <p>© 2026 Better Day Vibes. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
