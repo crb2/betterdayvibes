@@ -6,4 +6,24 @@
 <priority>1.0</priority>
 </url>
 
+<url>
+<loc>https://betterdayvibes.life/about.html</loc>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://betterdayvibes.life/privacy-policy.html</loc>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://betterdayvibes.life/terms-and-conditions.html</loc>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://betterdayvibes.life/feedback.html</loc>
+<priority>0.8</priority>
+</url>
+
 </urlset>
