@@ -467,7 +467,14 @@ document.querySelectorAll(".quote-card").forEach(card => {
     const whatsapp = card.querySelector(".share-whatsapp");
     const pinterest = card.querySelector(".share-pinterest");
 
-    const pageUrl = encodeURIComponent(window.location.href);
+    const slug =
+        card.dataset.slug;
+
+    const pageUrl =
+        encodeURIComponent(
+            "https://betterdayvibes.life/photo/?slug=" +
+            slug
+        );
     const text = encodeURIComponent(quote);
 
     if (facebook) {

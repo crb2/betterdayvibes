@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Better Day Vibes</title>
+</head>
+<body>
+
+<img id="quoteImage">
+
+<script>
+
+const params =
+new URLSearchParams(window.location.search);
+
+const slug =
+params.get("slug");
+
+document.getElementById("quoteImage").src =
+"/photo/" + slug + ".webp";
+
+</script>
+
+</body>
+</html>
