@@ -391,6 +391,48 @@ nav a:hover {
     display: none;
 }
 
+.share-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.share-buttons a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    transition: .3s;
+}
+
+.share-facebook {
+    background: #1877f2;
+}
+
+.share-x {
+    background: #000;
+}
+
+.share-whatsapp {
+    background: #25d366;
+}
+
+.share-pinterest {
+    background: #e60023;
+}
+
+.share-link {
+    background: #64748b;
+}
+
+.share-buttons a:hover {
+    transform: translateY(-3px);
+}
+
 
 
 .about-wrapper {

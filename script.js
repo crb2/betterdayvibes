@@ -454,3 +454,50 @@ clearBtn.addEventListener("click", () => {
     updatePosts();
 });
 
+
+
+
+
+document.querySelectorAll(".quote-card").forEach(card => {
+
+    const quote = card.querySelector("p")?.innerText || "";
+
+    const facebook = card.querySelector(".share-facebook");
+    const twitter = card.querySelector(".share-x");
+    const whatsapp = card.querySelector(".share-whatsapp");
+    const pinterest = card.querySelector(".share-pinterest");
+
+    const pageUrl = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent(quote);
+
+    if (facebook) {
+        facebook.href =
+            `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+    }
+
+    if (twitter) {
+        twitter.href =
+            `https://twitter.com/intent/tweet?text=${text}&url=${pageUrl}`;
+    }
+
+    if (whatsapp) {
+        whatsapp.href =
+            `https://wa.me/?text=${text}%20${pageUrl}`;
+    }
+
+    if (pinterest) {
+        pinterest.href =
+            `https://pinterest.com/pin/create/button/?url=${pageUrl}&description=${text}`;
+    }
+
+});
+
+document.querySelectorAll('.share-link').forEach(btn => {
+    btn.addEventListener('click', e => {
+        e.preventDefault();
+
+        navigator.clipboard.writeText(window.location.href);
+
+        alert('Link copied!');
+    });
+});
