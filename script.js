@@ -472,8 +472,7 @@ document.querySelectorAll(".quote-card").forEach(card => {
 
     const pageUrl =
         encodeURIComponent(
-            "https://betterdayvibes.life/photo/?slug=" +
-            slug
+            "https://betterdayvibes.life/photo/" + slug + ".html"
         );
     const text = encodeURIComponent(quote);
 
