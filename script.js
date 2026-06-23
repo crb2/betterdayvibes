@@ -472,7 +472,7 @@ document.querySelectorAll(".quote-card").forEach(card => {
 
     const pageUrl =
         encodeURIComponent(
-            "https://betterdayvibes.life/photo/" + slug + ".html"
+            "https://betterdayvibes.life/photo/" + slug + "/"
         );
     const text = encodeURIComponent(quote);
 
@@ -494,6 +494,13 @@ document.querySelectorAll(".quote-card").forEach(card => {
     if (pinterest) {
         pinterest.href =
             `https://pinterest.com/pin/create/button/?url=${pageUrl}&description=${text}`;
+    }
+
+    const threads = card.querySelector(".share-threads");
+
+    if (threads) {
+        threads.href =
+            `https://www.threads.net/intent/post?text=${text}%20${pageUrl}`;
     }
 
 });
