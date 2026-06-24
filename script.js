@@ -9,6 +9,8 @@ const currentCategory = document.getElementById("currentCategory");
 
 
 let activeCategory = "all";
+let visibleCardLimit = 10;
+const cardsPerLoad = 10;
 
 const aliases = {
     positive: "positivity",
@@ -55,6 +57,7 @@ document.addEventListener("click", (e) => {
 function filterCategory(category) {
 
     activeCategory = category;
+    visibleCardLimit = cardsPerLoad;
     searchInput.value = "";
     document.getElementById("clearSearch").style.display = "none";
     sidebar.classList.remove("active");
@@ -96,10 +99,6 @@ function updatePosts() {
             keywords.includes(searchTerm);
 
         if (categoryMatch && searchMatch) {
-
-            card.style.display = "";
-            card.classList.remove("hidden");
-
             visibleCards.push(card);
 
         } else {
@@ -109,6 +108,22 @@ function updatePosts() {
         }
 
         card.classList.remove("single-card");
+
+    });
+
+    visibleCards.forEach((card, index) => {
+
+        if (index < visibleCardLimit) {
+
+            card.style.display = "";
+            card.classList.remove("hidden");
+
+        } else {
+
+            card.style.display = "none";
+            card.classList.add("hidden");
+
+        }
 
     });
 
@@ -140,7 +155,10 @@ function updatePosts() {
     }
 }
 
-searchInput.addEventListener("input", updatePosts);
+searchInput.addEventListener("input", () => {
+    visibleCardLimit = cardsPerLoad;
+    updatePosts();
+});
 
 document
     .querySelectorAll("[data-filter]")
@@ -418,26 +436,10 @@ const observer =
 
 observer.observe(trigger);
 
-let currentIndex = 12;
-
 function loadMoreCards() {
 
-    const hiddenCards =
-        document.querySelectorAll(".quote-card.hidden");
-
-    let count = 0;
-
-    hiddenCards.forEach(card => {
-
-        if (count < 12) {
-
-            card.classList.remove("hidden");
-
-            count++;
-
-        }
-
-    });
+    visibleCardLimit += cardsPerLoad;
+    updatePosts();
 
 }
 
