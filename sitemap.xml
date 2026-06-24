@@ -1,29 +1,379 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 
-<url>
-<loc>https://betterdayvibes.life/</loc>
-<priority>1.0</priority>
-</url>
+    <url>
+        <loc>https://betterdayvibes.life/</loc>
+        <priority>1.0</priority>
+    </url>
 
-<url>
-<loc>https://betterdayvibes.life/about.html</loc>
-<priority>0.8</priority>
-</url>
+    <url>
+        <loc>https://betterdayvibes.life/about.html</loc>
+        <priority>0.8</priority>
+    </url>
 
-<url>
-<loc>https://betterdayvibes.life/privacy-policy.html</loc>
-<priority>0.8</priority>
-</url>
+    <url>
+        <loc>https://betterdayvibes.life/privacy-policy.html</loc>
+        <priority>0.8</priority>
+    </url>
 
-<url>
-<loc>https://betterdayvibes.life/terms-and-conditions.html</loc>
-<priority>0.8</priority>
-</url>
+    <url>
+        <loc>https://betterdayvibes.life/terms-and-conditions.html</loc>
+        <priority>0.8</priority>
+    </url>
 
-<url>
-<loc>https://betterdayvibes.life/feedback.html</loc>
-<priority>0.8</priority>
-</url>
+    <url>
+        <loc>https://betterdayvibes.life/photo/a-few-years-from-now-most-of-whats-stressing-you-today-wont-even-matter/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/all-we-get-is-time-and-choices-be-wise-with-both/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/already-living-a-moment-you-once-prayed-for/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/always-remember-that-everything-happens-for-a-reason/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/a-smile-on-my-face-isnt-a-sign-of-a-perfect-life/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/a-true-relationship-is-built-by-two-imperfect-people-who-choose-not-to-give-up-on-each-other/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/being-a-parent-means-loving-your-children/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/being-positive-doesnt-mean-you-need-to-be-happy-all-the-time/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/be-thankful-for-the-difficult-people-in-your-life/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/discover-what-makes-you-feel-truly-alive-and-pursue-it-with-all-your-heart/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/dont-wait-for-things-to-get-easier/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/even-in-the-dark-there-is-a-light-inside-you/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/every-ending-can-be-the-start-of-the-life-youve-been-hoping-and-praying-for/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/everything-will-come-to-you-when-the-time-is-right/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/funny-thing-about-getting-older/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/god-got-us-through-it/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/healing-doesnt-erase-your-past/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/if-one-million-was-put-in-your-account-tonight/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/If-you-could-thank-God-for-just-one-thing-today-what-would-it-be.png/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/if-you-want-to-be-happy/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/i-know-that-was-you-thank-you/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/i-love-real-people-who-say-what-they-mean/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/in-case-no-one-told-you-today-youre-doing-amazing/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/i-often-give-people-more-chances-than-they-deserve/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/i-respect-people-who-speak-well-of-me/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/i-stopped-seeing-people-for-who-i-hoped-they-were/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/its-okay-to-have-doubts/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/judging-someone-else-can-reveal-the-parts-of-your-own-heart-that-still-need-healing/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/keep-being-authentic/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/kind-heart-love-returns/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/life-can-change-more-than-you-imagine/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/love-is-not-what-you-say-love-is-what-you-do/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/making-a-big-change-in-life/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/making-a-big-life-change-is-scary/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/manifestation-is-powerful-start-filling-your-life-with-positive-words-and-thoughts/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/my-first-blessing-of-the-day-i-woke-up-if-it-requires-me-to-fake-a-smile-ill-probably-pass/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/name-one-thing-youre-truly-grateful-for-at-this-moment/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/never-give-up-on-joy/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/no-matter-how-you-feel-get-up-dress-up-show-up-and-never-give-up/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/people-in-your-life-should-reduce-stress/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/put-your-mental-well-being-first/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/remain-patient-and-trust-the-process/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/remember-when-you-forgive-you-heal-and-when-you-let-go-you-grow/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/set-healthy-boundaries/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/sometimes-the-best-thing-you-can-do-is-stay-silent/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/sometimes-the-reason-good-things-arent-happening-to-you/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/sometimes-what-you-lose-is-making-room-for-something-even-better-to-arrive/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/start-of-something-better/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/start-your-night-with-gratitude-and-youll-wake-up-with-joy/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/staying-positive-thoughts/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/stop-comparing-your-beginning-to-someone-elses-middle/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/the-calmer-your-mind-is-the-clearer-your-thoughts-become/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/the-calmer-your-mind-the-clearer-your-decisions-become/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/the-day-is-coming-when-youll-be-living-the-dreams-youve-been-praying-for/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/the-storm-youre-facing-today-is-preparing-you-for-the-future-youve-been-praying-for/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/things-will-eventually-turn-out-the-way-theyre-meant-to/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/this-week-god-will-shower-you-with-twice-the-blessings-get-ready-to-receive-them/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/training-my-mind-to-think-wiser-respond-calmer-and-react-better-each-day/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/trust-the-healing-process/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/waking-up-is-a-blessing/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/we-often-forget-that-waking-up-each-morning-is-the-very-first-blessing/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/what-matters-most-isnt-what-we-own-in-life-but-the-people-we-share-it-with/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/when-you-can-share-your-story-without-shedding-a-tear/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/when-your-intentions-are-genuine-you-dont-lose-people/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/you-are-blessed-in-countless-ways/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/you-are-still-worthy-of-love-peace-and-joy/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/you-have-to-wake-up-every-day-believing-that-you-deserve-the-very-best-life-has-to-offer/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/youre-allowed-to-feel-stuck-and-still-believe-in-your-ability-to-move-forward/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/your-healing-journey/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/your-next-chapter/</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://betterdayvibes.life/photo/you-wake-up-knowing-exactly-how-much-time-you-have-left-to-live/</loc>
+        <priority>0.7</priority>
+    </url>
 
 </urlset>
