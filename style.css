@@ -492,42 +492,7 @@ nav a:hover {
     padding: 20px;
 }
 
-.feedback-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
 
-.feedback-form textarea,
-.feedback-form input {
-    width: 100%;
-    margin: 0px 300px 0px 0px;
-    padding: 15px;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    font-family: 'Poppins', sans-serif;
-}
-
-.feedback-form textarea {
-    resize: vertical;
-}
-
-.feedback-form button {
-    padding: 15px;
-    border: none;
-    border-radius: 10px;
-    background: #fbbf24;
-    color: #0f172a;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: .3s;
-}
-
-.feedback-form button:hover {
-    background: #f59e0b;
-}
 
 footer {
     background: #111827;
