@@ -6,7 +6,15 @@ const quoteLink = document.getElementById("quoteLink");
 const quoteSection = document.getElementById("quoteSection");
 const noResults = document.getElementById("noResults");
 const currentCategory = document.getElementById("currentCategory");
+const quotesContainer = document.getElementById("quotesContainer");
 
+if (window.location.pathname.endsWith("/index.html")) {
+    window.history.replaceState(
+        null,
+        "",
+        window.location.pathname.replace(/\/index\.html$/, "/") + window.location.search + window.location.hash
+    );
+}
 
 let activeCategory = "all";
 let visibleCardLimit = 10;
@@ -176,6 +184,31 @@ document
 
     });
 
+function shuffleQuoteCards() {
+
+    const cards =
+        Array.from(document.querySelectorAll(".quote-card"));
+
+    const loadTrigger =
+        document.getElementById("load-trigger");
+
+    for (let index = cards.length - 1; index > 0; index--) {
+
+        const randomIndex =
+            Math.floor(Math.random() * (index + 1));
+
+        [cards[index], cards[randomIndex]] =
+            [cards[randomIndex], cards[index]];
+
+    }
+
+    cards.forEach(card => {
+        quotesContainer.insertBefore(card, loadTrigger);
+    });
+
+}
+
+shuffleQuoteCards();
 updatePosts();
 
 const suggestions =
