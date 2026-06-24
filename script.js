@@ -467,8 +467,19 @@ document.querySelectorAll(".quote-card").forEach(card => {
     const whatsapp = card.querySelector(".share-whatsapp");
     const pinterest = card.querySelector(".share-pinterest");
 
+    const image =
+        card.querySelector("img");
+
     const slug =
-        card.dataset.slug;
+        card.dataset.slug ||
+        image?.getAttribute("src")
+            ?.split("/")
+            ?.filter(Boolean)
+            ?.slice(-2, -1)[0];
+
+    if (!slug) {
+        return;
+    }
 
     const pageUrl =
         encodeURIComponent(
