@@ -339,6 +339,7 @@ nav a:hover {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     justify-content: center;
     gap: 30px;
+    align-items: start;
 }
 
 .quote-card {
@@ -380,11 +381,14 @@ nav a:hover {
 
 .quote-content {
     padding: 8px 22px 14px 22px;
+    display: flex;
+    flex-direction: column;
 }
 
 .quote-content p {
     line-height: 1.8;
     color: #d1d5db;
+    min-height: 120px;
 }
 
 .hidden {
@@ -394,7 +398,7 @@ nav a:hover {
 .share-buttons {
     display: flex;
     gap: 10px;
-    margin-top: 12px;
+    margin-top: auto;
 }
 
 .share-buttons a {
