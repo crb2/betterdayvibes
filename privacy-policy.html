@@ -17,10 +17,44 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
-    <a href="/" class="back-home">← Back to Home</a>
+    <header>
+        <div class="logo">
+            <a href="./">
+                <img src="better-day-vibes-logo.jpg" alt="Better Day Vibes Logo">
+                <span>Better Day Vibes</span>
+            </a>
+        </div>
+
+        <nav>
+            <a href="./">Home</a>
+            <a href="./#recent-quotes">Recent Quotes</a>
+            <a href="./#popular-quotes">Popular Quotes</a>
+            <a href="./#related-quotes">Related Quotes</a>
+
+            <button id="menuBtn" class="menu-btn">
+                &#9776;
+            </button>
+        </nav>
+    </header>
+
+    <aside id="sidebar" class="sidebar">
+        <button id="closeBtn" class="close-btn">
+            &#10005;
+        </button>
+        <h3>Categories</h3>
+
+        <ul>
+            <li><a href="./#categories">Categories</a></li>
+            <li><a href="./#recent-quotes">Recent Quotes</a></li>
+            <li><a href="./#popular-quotes">Popular Quotes</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </aside>
+
     <div class="about-wrapper">
         <section class="about">
             <h1>Privacy Policy</h1>
@@ -111,17 +145,45 @@
 
     <footer>
         <div class="footer-links">
-            <a href="/about">About Us</a>
+            <a href="about.html">About Us</a>
             <span>|</span>
-            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="contact.html">Contact</a>
             <span>|</span>
-            <a href="/terms-and-conditions">Terms & Conditions</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <span>|</span>
+            <a href="terms-and-conditions.html">Terms & Conditions</a>
         </div>
 
-        <p>© 2026 Better Day Vibes. All Rights Reserved.</p>
+        <div class="footer-social" aria-label="Better Day Vibes social links">
+            <a href="https://www.instagram.com/betterdayvibe" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/betterdayvibe" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://threads.com/@betterdayvibe" target="_blank" rel="noopener" aria-label="Threads"><i class="fa-brands fa-threads"></i></a>
+            <a href="https://pinterest.com/betterdayvibe" target="_blank" rel="noopener" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+            <a href="https://x.com/betterdayvibe" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+
+        <p>&copy; 2026 Better Day Vibes. All Rights Reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const sidebar = document.getElementById("sidebar");
+        const closeBtn = document.getElementById("closeBtn");
+
+        menuBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("active");
+        });
+
+        closeBtn.addEventListener("click", () => {
+            sidebar.classList.remove("active");
+        });
+
+        document.addEventListener("click", event => {
+            if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+                sidebar.classList.remove("active");
+            }
+        });
+    </script>
 
 </body>
 

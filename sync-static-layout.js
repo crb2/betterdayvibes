@@ -1,28 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+const fs = require("fs");
+const path = require("path");
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0f172a">
-    <title>About Us - Better Day Vibes</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon.png">
-    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/android-chrome-512x512.png">
+const ROOT_DIR = __dirname;
+const PAGES = ["about.html", "privacy-policy.html", "terms-and-conditions.html"];
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-</head>
-
-<body>
-    <header>
+function header() {
+    return `<header>
         <div class="logo">
             <a href="./">
                 <img src="better-day-vibes-logo.jpg" alt="Better Day Vibes Logo">
@@ -54,45 +37,11 @@
             <li><a href="./#popular-quotes">Popular Quotes</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-    </aside>
+    </aside>`;
+}
 
-    <div class="about-wrapper">
-        <section class="about">
-            <h1>About Us</h1>
-
-            <p>
-                Welcome to Better Day Vibes, a place dedicated to spreading positivity,
-                inspiration, and motivation through meaningful quotes and uplifting content.
-            </p>
-
-            <p>
-                Our mission is simple: to help brighten your day with encouraging words
-                that inspire personal growth, gratitude, healing, hope, and stronger
-                relationships.
-            </p>
-
-            <p>
-                We believe that a few positive words can make a difference, whether you
-                are facing challenges, pursuing your goals, or simply looking for daily
-                encouragement.
-            </p>
-
-            <p>
-                On Better Day Vibes, you'll discover motivational quotes organized into
-                categories such as Gratitude, Positivity, Healing, Relationships,
-                Self-Growth, and Faith & Hope, making it easy to find inspiration that
-                speaks to your current journey.
-            </p>
-
-            <p>
-                Thank you for visiting Better Day Vibes. We hope our content helps you
-                stay inspired, stay hopeful, and create a better day—every day.
-            </p>
-
-        </section>
-    </div>
-
-    <footer>
+function footer() {
+    return `<footer>
         <div class="footer-links">
             <a href="about.html">About Us</a>
             <span>|</span>
@@ -112,9 +61,11 @@
         </div>
 
         <p>&copy; 2026 Better Day Vibes. All Rights Reserved.</p>
-    </footer>
+    </footer>`;
+}
 
-    <script>
+function menuScript() {
+    return `<script>
         const menuBtn = document.getElementById("menuBtn");
         const sidebar = document.getElementById("sidebar");
         const closeBtn = document.getElementById("closeBtn");
@@ -132,8 +83,34 @@
                 sidebar.classList.remove("active");
             }
         });
-    </script>
+    </script>`;
+}
 
-</body>
+function ensureFontAwesome(html) {
+    if (html.includes("cdnjs.cloudflare.com/ajax/libs/font-awesome")) {
+        return html;
+    }
 
-</html>
+    return html.replace(
+        "</head>",
+        `    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">\n</head>`
+    );
+}
+
+for (const page of PAGES) {
+    const file = path.join(ROOT_DIR, page);
+    let html = fs.readFileSync(file, "utf8");
+
+    html = ensureFontAwesome(html);
+    html = html.replace(/<body>[\s\S]*?<div class="about-wrapper">/, `<body>\n    ${header()}\n\n    <div class="about-wrapper">`);
+    html = html.replace(/<footer>[\s\S]*?<\/footer>/, footer());
+    html = html.replace(/\s*<script src="script\.js"><\/script>/, "");
+
+    if (!html.includes("const menuBtn = document.getElementById(\"menuBtn\")")) {
+        html = html.replace("</body>", `    ${menuScript()}\n\n</body>`);
+    }
+
+    fs.writeFileSync(file, html, "utf8");
+}
+
+console.log(`Synced ${PAGES.length} static pages.`);
