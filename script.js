@@ -158,7 +158,7 @@ function updatePosts() {
     } else {
 
         currentCategory.textContent =
-            "All Posts";
+            "Category: All Posts";
 
     }
 }
