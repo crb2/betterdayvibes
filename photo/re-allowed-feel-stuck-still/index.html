@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -119,19 +119,46 @@
         </nav>
     </header>
 
-    <aside id="sidebar" class="sidebar">
+        <aside id="sidebar" class="sidebar">
         <button id="closeBtn" class="close-btn">
             &#10005;
         </button>
-        <h3>Categories</h3>
+        <h3 id="categories">Categories</h3>
 
         <ul>
-            <li><a href="../../#categories">All Categories</a></li>
-            <li><a href="../../#recent-quotes">Recent Quotes</a></li>
-            <li><a href="../../#popular-quotes">Popular Quotes</a></li>
+            <li><a href="../../?category=all#quotesContainer">Category: All Posts</a></li>
+            <li><a href="../../?category=gratitude#quotesContainer">Gratitude</a></li>
+            <li><a href="../../?category=positivity#quotesContainer">Positivity</a></li>
+            <li><a href="../../?category=healing#quotesContainer">Healing</a></li>
+            <li><a href="../../?category=relationships#quotesContainer">Relationships</a></li>
+            <li><a href="../../?category=self-growth#quotesContainer">Self-Growth</a></li>
+            <li><a href="../../?category=faith-hope#quotesContainer">Faith & Hope</a></li>
+            <li><a href="../../?category=faith-blessings#quotesContainer">Faith Blessings</a></li>
+            <li><a href="../../?category=manifestation-positive-thinking#quotesContainer">Manifestation</a></li>
+            <li><a href="../../?category=mental-health-self-care#quotesContainer">Mental Health</a></li>
+            <li><a href="../../?category=mindfulness#quotesContainer">Mindfulness</a></li>
+            <li><a href="../../?category=patience-trust#quotesContainer">Patience & Trust</a></li>
+            <li><a href="../../?category=positive-mindset-mental-strength#quotesContainer">Positive Mindset</a></li>
+            <li><a href="../../?category=purpose-passion#quotesContainer">Purpose & Passion</a></li>
+            <li><a href="../../?category=new-beginnings#quotesContainer">New-Beginnings</a></li>
+            <li><a href="../../?category=perseverance#quotesContainer">Perseverance</a></li>
+            <li><a href="../../?category=aging#quotesContainer">Aging</a></li>
+            <li><a href="../../?category=motivation#quotesContainer">Motivation</a></li>
             <li><a href="../../contact.html">Contact</a></li>
-        </ul>
-    </aside>
+        </ul>    </aside>
+    <section class="search-section">
+        <form class="search-wrapper page-search-form" data-search-root="../../" role="search">
+            <input type="text" id="searchInput" placeholder="Search motivational quotes..." autocomplete="off">
+            <button type="button" id="clearSearch" class="clear-search" aria-label="Clear search">
+                &#10005;
+            </button>
+            <div id="searchSuggestions" class="search-suggestions"></div>
+        </form>
+    </section>
+
+    <div class="current-category" id="currentCategory">
+        Category: All Posts
+    </div>
 
     <main class="post-container">
         <img class="post-image" src="re-allowed-feel-stuck-still.webp" alt="You&#39;re allowed to feel stuck and still believe in your ability to move forward.">
@@ -177,25 +204,69 @@
         <p>&copy; 2026 Better Day Vibes. All Rights Reserved.</p>
     </footer>
 
-    <script>
+        <script>
         const menuBtn = document.getElementById("menuBtn");
         const sidebar = document.getElementById("sidebar");
         const closeBtn = document.getElementById("closeBtn");
+        const searchForm = document.querySelector(".page-search-form");
+        const searchInput = document.getElementById("searchInput");
+        const clearSearch = document.getElementById("clearSearch");
 
-        menuBtn.addEventListener("click", () => {
-            sidebar.classList.toggle("active");
-        });
+        if (menuBtn && sidebar) {
+            menuBtn.addEventListener("click", () => {
+                sidebar.classList.toggle("active");
+            });
+        }
 
-        closeBtn.addEventListener("click", () => {
-            sidebar.classList.remove("active");
-        });
+        if (closeBtn && sidebar) {
+            closeBtn.addEventListener("click", () => {
+                sidebar.classList.remove("active");
+            });
+        }
 
         document.addEventListener("click", event => {
-            if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+            if (sidebar && menuBtn && !sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
                 sidebar.classList.remove("active");
             }
         });
+
+        if (searchForm && searchInput) {
+            const goToSearch = () => {
+                const root = searchForm.dataset.searchRoot || "./";
+                const term = searchInput.value.trim();
+                const url = new URL(root, window.location.href);
+
+                if (term) {
+                    url.searchParams.set("search", term);
+                } else {
+                    url.searchParams.set("category", "all");
+                }
+
+                url.hash = "quotesContainer";
+                window.location.href = url.toString();
+            };
+
+            searchForm.addEventListener("submit", event => {
+                event.preventDefault();
+                goToSearch();
+            });
+
+            searchInput.addEventListener("input", () => {
+                if (clearSearch) {
+                    clearSearch.style.display = searchInput.value ? "block" : "none";
+                }
+            });
+
+            if (clearSearch) {
+                clearSearch.addEventListener("click", () => {
+                    searchInput.value = "";
+                    clearSearch.style.display = "none";
+                    goToSearch();
+                });
+            }
+        }
     </script>
 </body>
 
 </html>
+

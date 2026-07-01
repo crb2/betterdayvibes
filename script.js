@@ -19,6 +19,9 @@ if (window.location.pathname.endsWith("/index.html")) {
 let activeCategory = "all";
 let visibleCardLimit = 10;
 const cardsPerLoad = 10;
+const initialParams = new URLSearchParams(window.location.search);
+const initialSearch = initialParams.get("search") || "";
+const initialCategory = initialParams.get("category") || "";
 
 const aliases = {
     positive: "positivity",
@@ -39,6 +42,15 @@ const aliases = {
     faith: "faith-hope",
     hope: "faith-hope"
 };
+
+if (initialCategory) {
+    activeCategory = initialCategory.toLowerCase().trim();
+}
+
+if (initialSearch) {
+    searchInput.value = initialSearch;
+    document.getElementById("clearSearch").style.display = "block";
+}
 
 quoteLink.addEventListener("click", (e) => {
     e.preventDefault();
