@@ -226,14 +226,6 @@ updatePosts();
 const suggestions =
     document.getElementById("searchSuggestions");
 
-const trendingKeywords = [
-    "positivity",
-    "gratitude",
-    "healing",
-    "self-growth",
-    "kindness"
-];
-
 function getRecentSearches() {
     return JSON.parse(
         localStorage.getItem("recentSearches") || "[]"
@@ -304,10 +296,7 @@ function showSuggestions() {
 
     suggestions.innerHTML = "";
 
-    if (
-        recent.length === 0 &&
-        trendingKeywords.length === 0
-    ) {
+    if (recent.length === 0) {
         suggestions.style.display = "none";
         return;
     }
@@ -378,40 +367,6 @@ function showSuggestions() {
         });
 
     }
-
-    const trendingTitle =
-        document.createElement("div");
-
-    trendingTitle.className =
-        "suggestion-title";
-
-    trendingTitle.textContent =
-        "Trending Searches";
-
-    suggestions.appendChild(trendingTitle);
-
-    trendingKeywords.forEach(term => {
-
-        const item =
-            document.createElement("div");
-
-        item.className =
-            "suggestion-item";
-
-        item.textContent =
-            term;
-
-        item.addEventListener(
-            "mousedown",
-            (e) => {
-                e.preventDefault();
-                selectSuggestion(term);
-            }
-        );
-
-        suggestions.appendChild(item);
-
-    });
 
     suggestions.style.display =
         "block";
