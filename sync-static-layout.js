@@ -50,8 +50,11 @@ function footer() {
             <a href="privacy-policy.html">Privacy Policy</a>
             <span>|</span>
             <a href="terms-and-conditions.html">Terms & Conditions</a>
+            <span>|</span>
+            <a href="all-quotes.html">All Quotes</a>
         </div>
 
+        <p class="footer-follow">Follow on our social media</p>
         <div class="footer-social" aria-label="Better Day Vibes social links">
             <a href="https://www.instagram.com/betterdayvibe" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://www.facebook.com/betterdayvibe" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>

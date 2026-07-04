@@ -16,9 +16,92 @@
     <meta property="og:image" content="https://betterdayvibes.life/photo/training-mind-think-wiser-respond/training-mind-think-wiser-respond.webp">
     <meta property="og:image:alt" content="Training my mind to think wiser respond calmer and react better each day">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@betterdayvibe">
+    <meta name="twitter:creator" content="@betterdayvibe">
     <meta name="twitter:title" content="Training my mind to think wiser respond calmer and react better each day | Better Day Vibes">
     <meta name="twitter:description" content="Training my mind to think wiser, respond calmer, and react better each day. Read a thoughtful reflection and related motivational quotes from Better Day Vibes.">
     <meta name="twitter:image" content="https://betterdayvibes.life/photo/training-mind-think-wiser-respond/training-mind-think-wiser-respond.webp">
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Training my mind to think wiser respond calmer and react better each day",
+    "description": "Training my mind to think wiser, respond calmer, and react better each day.",
+    "image": "https://betterdayvibes.life/photo/training-mind-think-wiser-respond/training-mind-think-wiser-respond.webp",
+    "datePublished": "2026-07-04",
+    "dateModified": "2026-07-04",
+    "author": {
+      "@type": "Organization",
+      "name": "Better Day Vibes"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Better Day Vibes",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://betterdayvibes.life/better-day-vibes-logo.jpg"
+      }
+    },
+    "mainEntityOfPage": "https://betterdayvibes.life/photo/training-mind-think-wiser-respond/",
+    "keywords": "Self Growth, Mindset"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://betterdayvibes.life/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Self Growth",
+        "item": "https://betterdayvibes.life/#self-growth"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Training my mind to think wiser respond calmer and react better each day",
+        "item": "https://betterdayvibes.life/photo/training-mind-think-wiser-respond/"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the meaning of this quote?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Training my mind to think wiser, respond calmer, and react better each day. is a reminder to pause, reflect, and choose a hopeful mindset while moving through life with patience and self-respect."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I share this Better Day Vibes quote?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can share this quote using the social sharing buttons on this page."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where can I find more related quotes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can explore related quote cards, popular quotes, recent quotes, and quote categories on Better Day Vibes."
+        }
+      }
+    ]
+  }
+]
+    </script>
 
     <link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png">
@@ -53,6 +136,33 @@
             text-align: center;
         }
 
+        .post-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px 16px;
+            margin: 0 auto 18px;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .breadcrumb {
+            max-width: 760px;
+            margin: 0 auto 18px;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .breadcrumb a {
+            color: #fbbf24;
+            text-decoration: none;
+        }
+
+        .quote-share {
+            justify-content: center;
+            margin: -10px 0 28px;
+        }
+
         .post-description {
             max-width: 760px;
             margin: 0 auto;
@@ -81,18 +191,129 @@
             padding: 0;
             margin: 0;
             display: grid;
-            gap: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 14px;
         }
 
-        .related-quotes a {
-            color: #fbbf24;
+        .related-card {
+            display: block;
+            overflow: hidden;
+            background: #111827;
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 8px;
+        }
+
+        .related-card a {
+            display: block;
+            color: #f8fafc;
             text-decoration: none;
             font-weight: 600;
+        }
+
+        .related-card img {
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            display: block;
+        }
+
+        .related-card span {
+            display: block;
+            padding: 12px;
+            line-height: 1.45;
+        }
+
+        .related-card .quote-share {
+            justify-content: center;
+            margin: 0;
+            padding: 0 10px 14px;
+        }
+
+        .related-card .share-buttons a {
+            width: 34px;
+            height: 34px;
+        }
+
+        .post-panel {
+            margin-top: 28px;
+            padding-top: 22px;
+            border-top: 1px solid rgba(255, 255, 255, 0.14);
+        }
+
+        .post-panel h2 {
+            margin: 0 0 12px;
+            font-size: 24px;
+        }
+
+        .post-panel p,
+        .post-panel li {
+            color: #d1d5db;
+            line-height: 1.7;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag-list a {
+            color: #0f172a;
+            background: #fbbf24;
+            border-radius: 999px;
+            padding: 8px 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .post-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .post-nav a {
+            color: #fbbf24;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            min-width: 0;
+            padding: 12px 14px;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            background: #111827;
+            color: #fff;
+            font-family: inherit;
+        }
+
+        .newsletter-form button {
+            border: 0;
+            border-radius: 8px;
+            padding: 12px 16px;
+            background: #fbbf24;
+            color: #0f172a;
+            font-weight: 800;
+            font-family: inherit;
         }
 
         @media (max-width: 640px) {
             .post-container {
                 padding: 18px;
+            }
+
+            .post-nav,
+            .newsletter-form {
+                flex-direction: column;
             }
         }
     </style>
@@ -129,13 +350,29 @@
             <li><a href="../../#categories">All Categories</a></li>
             <li><a href="../../#recent-quotes">Recent Quotes</a></li>
             <li><a href="../../#popular-quotes">Popular Quotes</a></li>
+            <li><a href="../../all-quotes.html">All Quotes</a></li>
             <li><a href="../../contact.html">Contact</a></li>
         </ul>
     </aside>
 
     <main class="post-container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../">Home</a> / <a href="../../#quotesContainer">Self Growth</a> / <span>Training my mind to think wiser respond calmer and react better each day</span>
+        </nav>
+        <div class="post-meta">
+            <span>Published: July 4, 2026</span>
+            <span>Updated: July 4, 2026</span>
+            <span>Reading time: 3 min</span>
+        </div>
         <img class="post-image" src="training-mind-think-wiser-respond.webp" alt="Training my mind to think wiser respond calmer and react better each day">
         <p class="post-quote">Training my mind to think wiser, respond calmer, and react better each day.</p>
+        <div class="share-buttons quote-share" aria-label="Share this quote">
+                <a class="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Ftraining-mind-think-wiser-respond%2F" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a class="share-x" href="https://twitter.com/intent/tweet?text=Training%20my%20mind%20to%20think%20wiser%2C%20respond%20calmer%2C%20and%20react%20better%20each%20day.&amp;url=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Ftraining-mind-think-wiser-respond%2F" target="_blank" rel="noopener" aria-label="Share on X"><i class="fab fa-twitter"></i></a>
+                <a class="share-whatsapp" href="https://wa.me/?text=Training%20my%20mind%20to%20think%20wiser%2C%20respond%20calmer%2C%20and%20react%20better%20each%20day.%20https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Ftraining-mind-think-wiser-respond%2F" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a class="share-pinterest" href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Ftraining-mind-think-wiser-respond%2F&amp;media=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Ftraining-mind-think-wiser-respond%2Ftraining-mind-think-wiser-respond.webp&amp;description=Training%20my%20mind%20to%20think%20wiser%2C%20respond%20calmer%2C%20and%20react%20better%20each%20day." target="_blank" rel="noopener" aria-label="Share on Pinterest"><i class="fab fa-pinterest"></i></a>
+                <a class="share-threads" href="https://www.threads.net/intent/post?text=Training%20my%20mind%20to%20think%20wiser%2C%20respond%20calmer%2C%20and%20react%20better%20each%20day.%20https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Ftraining-mind-think-wiser-respond%2F" target="_blank" rel="noopener" aria-label="Share on Threads"><i class="fa-brands fa-threads"></i></a>
+            </div>
 
         <section class="post-description">
             <p>This quote is a gentle reminder about inner peace. It encourages you to protect your energy and respond to life with more calm than fear, especially on the days when life feels noisy, uncertain, or emotionally heavy. A meaningful quote does not have to solve everything at once. Sometimes it simply gives you a calmer way to look at the moment in front of you. When you pause with these words, you give yourself room to breathe before reacting, room to understand what you really feel, and room to choose a response that protects your peace.</p>
@@ -144,15 +381,106 @@
             <p>If this message connects with your current season, save it, share it, or return to it when you need encouragement. Quotes like this can become anchors during stressful seasons because they point your attention back toward hope instead of fear. They remind you that your story is still moving, your heart is still learning, and your future can still hold peace, love, confidence, and joy. Let this be more than a sentence on a page. Let it be a quiet push toward a better day.</p>
         </section>
 
+        <section class="post-panel about-bdv">
+            <h2>About Better Day Vibes</h2>
+            <p>Better Day Vibes shares motivational quotes, positive thoughts, and daily inspiration to encourage personal growth, resilience, gratitude, and mindfulness.</p>
+        </section>
+
+        <section class="post-panel tag-section">
+            <h2>Tags</h2>
+            <div class="tag-list">
+                <a href="../../#quotesContainer" data-filter="self-growth">Self Growth</a>
+                <a href="../../#quotesContainer" data-filter="self-growth">Mindset</a>
+            </div>
+        </section>
+
         <section class="related-quotes" id="related-quotes">
             <h2>Related Quotes</h2>
             <ul>
-                <li><a href="../making-a-big-change-in-life/">Making a big change in life is scary but what&#39;s even scarier wondering what if for the rest of your life</a></li>
-                <li><a href="../life-can-change-more-than-you-imagine/">Life can change more than you imagine in just a few short months. Keep moving forward.</a></li>
-                <li><a href="../matter-feel-get-up-dress/">No matter how you feel. Get up. Dress up. Show up. And never give up.</a></li>
-                <li><a href="../start-of-something-better/">When it feels like you&#39;ve reached the end, remember it may just be the start of something even better.</a></li>
+                <li class="related-card">
+                    <a href="../making-a-big-change-in-life/">
+                        <img src="../making-a-big-change-in-life/making-a-big-change-in-life.webp" loading="lazy" alt="Making a big change in life is scary but what&#39;s even scarier wondering what if for the rest of your life">
+                        <span>Making a big change in life is scary but what&#39;s even scarier wondering what if for the rest of your life</span>
+                    </a>
+                    <div class="share-buttons quote-share" aria-label="Share this quote">
+                <a class="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fmaking-a-big-change-in-life%2F" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a class="share-x" href="https://twitter.com/intent/tweet?text=Making%20a%20big%20change%20in%20life%20is%20scary.%20But%20what&#39;s%20even%20scarier%3F%20Wondering%20%22what%20if%22%20for%20the%20rest%20of%20your%20life.&amp;url=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fmaking-a-big-change-in-life%2F" target="_blank" rel="noopener" aria-label="Share on X"><i class="fab fa-twitter"></i></a>
+                <a class="share-whatsapp" href="https://wa.me/?text=Making%20a%20big%20change%20in%20life%20is%20scary.%20But%20what&#39;s%20even%20scarier%3F%20Wondering%20%22what%20if%22%20for%20the%20rest%20of%20your%20life.%20https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fmaking-a-big-change-in-life%2F" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a class="share-pinterest" href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fmaking-a-big-change-in-life%2F&amp;media=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fmaking-a-big-change-in-life%2Fmaking-a-big-change-in-life.webp&amp;description=Making%20a%20big%20change%20in%20life%20is%20scary.%20But%20what&#39;s%20even%20scarier%3F%20Wondering%20%22what%20if%22%20for%20the%20rest%20of%20your%20life." target="_blank" rel="noopener" aria-label="Share on Pinterest"><i class="fab fa-pinterest"></i></a>
+                <a class="share-threads" href="https://www.threads.net/intent/post?text=Making%20a%20big%20change%20in%20life%20is%20scary.%20But%20what&#39;s%20even%20scarier%3F%20Wondering%20%22what%20if%22%20for%20the%20rest%20of%20your%20life.%20https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fmaking-a-big-change-in-life%2F" target="_blank" rel="noopener" aria-label="Share on Threads"><i class="fa-brands fa-threads"></i></a>
+            </div>
+                </li>
+                <li class="related-card">
+                    <a href="../life-can-change-more-than-you-imagine/">
+                        <img src="../life-can-change-more-than-you-imagine/life-can-change-more-than-you-imagine.webp" loading="lazy" alt="Life can change more than you imagine in just a few short months. Keep moving forward.">
+                        <span>Life can change more than you imagine in just a few short months. Keep moving forward.</span>
+                    </a>
+                    <div class="share-buttons quote-share" aria-label="Share this quote">
+                <a class="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Flife-can-change-more-than-you-imagine%2F" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a class="share-x" href="https://twitter.com/intent/tweet?text=Life%20can%20change%20more%20than%20you%20imagine%20in%20just%20a%20few%20short%20months.%20Keep%20moving%20forward.&amp;url=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Flife-can-change-more-than-you-imagine%2F" target="_blank" rel="noopener" aria-label="Share on X"><i class="fab fa-twitter"></i></a>
+                <a class="share-whatsapp" href="https://wa.me/?text=Life%20can%20change%20more%20than%20you%20imagine%20in%20just%20a%20few%20short%20months.%20Keep%20moving%20forward.%20https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Flife-can-change-more-than-you-imagine%2F" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a class="share-pinterest" href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Flife-can-change-more-than-you-imagine%2F&amp;media=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Flife-can-change-more-than-you-imagine%2Flife-can-change-more-than-you-imagine.webp&amp;description=Life%20can%20change%20more%20than%20you%20imagine%20in%20just%20a%20few%20short%20months.%20Keep%20moving%20forward." target="_blank" rel="noopener" aria-label="Share on Pinterest"><i class="fab fa-pinterest"></i></a>
+                <a class="share-threads" href="https://www.threads.net/intent/post?text=Life%20can%20change%20more%20than%20you%20imagine%20in%20just%20a%20few%20short%20months.%20Keep%20moving%20forward.%20https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Flife-can-change-more-than-you-imagine%2F" target="_blank" rel="noopener" aria-label="Share on Threads"><i class="fa-brands fa-threads"></i></a>
+            </div>
+                </li>
+                <li class="related-card">
+                    <a href="../matter-feel-get-up-dress/">
+                        <img src="../matter-feel-get-up-dress/matter-feel-get-up-dress.webp" loading="lazy" alt="No matter how you feel. Get up. Dress up. Show up. And never give up.">
+                        <span>No matter how you feel. Get up. Dress up. Show up. And never give up.</span>
+                    </a>
+                    <div class="share-buttons quote-share" aria-label="Share this quote">
+                <a class="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fmatter-feel-get-up-dress%2F" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a class="share-x" href="https://twitter.com/intent/tweet?text=No%20matter%20how%20you%20feel.%20Get%20up.%20Dress%20up.%20Show%20up.%20And%20never%20give%20up.&amp;url=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fmatter-feel-get-up-dress%2F" target="_blank" rel="noopener" aria-label="Share on X"><i class="fab fa-twitter"></i></a>
+                <a class="share-whatsapp" href="https://wa.me/?text=No%20matter%20how%20you%20feel.%20Get%20up.%20Dress%20up.%20Show%20up.%20And%20never%20give%20up.%20https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fmatter-feel-get-up-dress%2F" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a class="share-pinterest" href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fmatter-feel-get-up-dress%2F&amp;media=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fmatter-feel-get-up-dress%2Fmatter-feel-get-up-dress.webp&amp;description=No%20matter%20how%20you%20feel.%20Get%20up.%20Dress%20up.%20Show%20up.%20And%20never%20give%20up." target="_blank" rel="noopener" aria-label="Share on Pinterest"><i class="fab fa-pinterest"></i></a>
+                <a class="share-threads" href="https://www.threads.net/intent/post?text=No%20matter%20how%20you%20feel.%20Get%20up.%20Dress%20up.%20Show%20up.%20And%20never%20give%20up.%20https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fmatter-feel-get-up-dress%2F" target="_blank" rel="noopener" aria-label="Share on Threads"><i class="fa-brands fa-threads"></i></a>
+            </div>
+                </li>
+                <li class="related-card">
+                    <a href="../start-of-something-better/">
+                        <img src="../start-of-something-better/start-of-something-better.webp" loading="lazy" alt="When it feels like you&#39;ve reached the end, remember it may just be the start of something even better.">
+                        <span>When it feels like you&#39;ve reached the end, remember it may just be the start of something even better.</span>
+                    </a>
+                    <div class="share-buttons quote-share" aria-label="Share this quote">
+                <a class="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fstart-of-something-better%2F" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a class="share-x" href="https://twitter.com/intent/tweet?text=When%20it%20feels%20like%20you&#39;ve%20reached%20the%20end%2C%20remember%20it%20may%20just%20be%20the%20start%20of%20something%20even%20better.&amp;url=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fstart-of-something-better%2F" target="_blank" rel="noopener" aria-label="Share on X"><i class="fab fa-twitter"></i></a>
+                <a class="share-whatsapp" href="https://wa.me/?text=When%20it%20feels%20like%20you&#39;ve%20reached%20the%20end%2C%20remember%20it%20may%20just%20be%20the%20start%20of%20something%20even%20better.%20https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fstart-of-something-better%2F" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a class="share-pinterest" href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fstart-of-something-better%2F&amp;media=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fstart-of-something-better%2Fstart-of-something-better.webp&amp;description=When%20it%20feels%20like%20you&#39;ve%20reached%20the%20end%2C%20remember%20it%20may%20just%20be%20the%20start%20of%20something%20even%20better." target="_blank" rel="noopener" aria-label="Share on Pinterest"><i class="fab fa-pinterest"></i></a>
+                <a class="share-threads" href="https://www.threads.net/intent/post?text=When%20it%20feels%20like%20you&#39;ve%20reached%20the%20end%2C%20remember%20it%20may%20just%20be%20the%20start%20of%20something%20even%20better.%20https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fstart-of-something-better%2F" target="_blank" rel="noopener" aria-label="Share on Threads"><i class="fa-brands fa-threads"></i></a>
+            </div>
+                </li>
             </ul>
         </section>
+
+        <section class="post-panel faq-section">
+            <h2>FAQ</h2>
+            <details>
+                <summary>What is the meaning of this quote?</summary>
+                <p>Training my mind to think wiser, respond calmer, and react better each day. is a reminder to pause, reflect, and choose a hopeful mindset while moving through life with patience and self-respect.</p>
+            </details>
+            <details>
+                <summary>Can I share this Better Day Vibes quote?</summary>
+                <p>Yes. Use the social sharing icons near the quote to share it on Facebook, X, WhatsApp, Pinterest, or Threads.</p>
+            </details>
+            <details>
+                <summary>Where can I read more quotes like this?</summary>
+                <p>Explore the related quote cards on this page, visit the <a href="../../#popular-quotes">popular quotes</a>, or browse <a href="../../#recent-quotes">recent quotes</a>.</p>
+            </details>
+        </section>
+
+        <section class="post-panel newsletter-section">
+            <h2>Newsletter</h2>
+            <p>Get one motivational quote every morning.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Email" aria-label="Email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+
+        <nav class="post-panel post-nav" aria-label="Previous and next quotes">
+            <a href="../day-coming-ll-living-dreams/">← Previous Quote</a>
+            <a href="../when-your-intentions-are-genuine-you-dont-lose-people/">Next Quote →</a>
+        </nav>
     </main>
 
     <footer>
@@ -164,8 +492,11 @@
             <a href="../../privacy-policy.html">Privacy Policy</a>
             <span>|</span>
             <a href="../../terms-and-conditions.html">Terms & Conditions</a>
+            <span>|</span>
+            <a href="../../all-quotes.html">All Quotes</a>
         </div>
 
+        <p class="footer-follow">Follow on our social media</p>
         <div class="footer-social" aria-label="Better Day Vibes social links">
             <a href="https://www.instagram.com/betterdayvibe" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://www.facebook.com/betterdayvibe" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>

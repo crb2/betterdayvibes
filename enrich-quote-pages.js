@@ -127,6 +127,29 @@ function categoryLabel(category) {
         .join(" ");
 }
 
+function jsonEscape(value) {
+    return String(value || "")
+        .replace(/\\/g, "\\\\")
+        .replace(/"/g, "\\\"")
+        .replace(/\n/g, "\\n");
+}
+
+function keywordTags(post) {
+    const lower = `${post.category} ${post.quote}`.toLowerCase();
+    const tags = [categoryLabel(post.category)];
+
+    if (/motivat|keep|strong|strength|persever|success|dream|achiev/.test(lower)) tags.push("Motivation");
+    if (/hope|faith|god|pray|bless|work out/.test(lower)) tags.push("Hope");
+    if (/heal|pain|past|tear|forgive|recover|let go/.test(lower)) tags.push("Healing");
+    if (/growth|worth|value|boundar|mindset|self/.test(lower)) tags.push("Self Growth");
+    if (/life|chapter|story|time|choice/.test(lower)) tags.push("Life");
+    if (/mind|calm|worry|peace|positive|thought/.test(lower)) tags.push("Mindset");
+    if (/love|relationship|heart|friend|people|care/.test(lower)) tags.push("Love");
+    if (/happy|joy|gratitude|thank|appreciate/.test(lower)) tags.push("Happiness");
+
+    return [...new Set(tags)].slice(0, 6);
+}
+
 function getTheme(category, quote) {
     const lower = `${category} ${quote}`.toLowerCase();
 
@@ -197,7 +220,26 @@ function getRelated(posts, post, index) {
     return [...pool.slice(start), ...pool.slice(0, start)].slice(0, 4);
 }
 
-function buildPage(post, related) {
+function shareButtons(url, text, imageUrl) {
+    const encodedUrl = encodeURIComponent(url);
+    const encodedText = encodeURIComponent(text);
+    const encodedImage = encodeURIComponent(imageUrl);
+    const facebookUrl = escapeHtml(`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`);
+    const xUrl = escapeHtml(`https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`);
+    const whatsappUrl = escapeHtml(`https://wa.me/?text=${encodedText}%20${encodedUrl}`);
+    const pinterestUrl = escapeHtml(`https://pinterest.com/pin/create/button/?url=${encodedUrl}&media=${encodedImage}&description=${encodedText}`);
+    const threadsUrl = escapeHtml(`https://www.threads.net/intent/post?text=${encodedText}%20${encodedUrl}`);
+
+    return `<div class="share-buttons quote-share" aria-label="Share this quote">
+                <a class="share-facebook" href="${facebookUrl}" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a class="share-x" href="${xUrl}" target="_blank" rel="noopener" aria-label="Share on X"><i class="fab fa-twitter"></i></a>
+                <a class="share-whatsapp" href="${whatsappUrl}" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a class="share-pinterest" href="${pinterestUrl}" target="_blank" rel="noopener" aria-label="Share on Pinterest"><i class="fab fa-pinterest"></i></a>
+                <a class="share-threads" href="${threadsUrl}" target="_blank" rel="noopener" aria-label="Share on Threads"><i class="fa-brands fa-threads"></i></a>
+            </div>`;
+}
+
+function buildPage(post, related, previous, next) {
     const title = escapeHtml(post.title);
     const quote = escapeHtml(post.quote);
     const meaningParagraphs = buildMeaning(post)
@@ -205,11 +247,107 @@ function buildPage(post, related) {
         .join("\n");
     const image = escapeHtml(post.image);
     const canonical = `${SITE_URL}/photo/${post.slug}/`;
+    const imageUrl = `${SITE_URL}/photo/${post.slug}/${post.image}`;
     const description = escapeHtml(`${post.quote} Read a thoughtful reflection and related motivational quotes from Better Day Vibes.`);
+    const tags = keywordTags(post);
 
-    const relatedLinks = related
-        .map(item => `                <li><a href="../${escapeHtml(item.slug)}/">${escapeHtml(item.title)}</a></li>`)
+    const relatedCards = related
+        .map(item => {
+            const itemUrl = `${SITE_URL}/photo/${item.slug}/`;
+            const itemImageUrl = `${SITE_URL}/photo/${item.slug}/${item.image}`;
+
+            return `                <li class="related-card">
+                    <a href="../${escapeHtml(item.slug)}/">
+                        <img src="../${escapeHtml(item.slug)}/${escapeHtml(item.image)}" loading="lazy" alt="${escapeHtml(item.title)}">
+                        <span>${escapeHtml(item.title)}</span>
+                    </a>
+                    ${shareButtons(itemUrl, item.quote, itemImageUrl)}
+                </li>`;
+        })
         .join("\n");
+
+    const tagLinks = tags
+        .map(tag => `                <a href="../../#quotesContainer" data-filter="${escapeHtml(post.category)}">${escapeHtml(tag)}</a>`)
+        .join("\n");
+
+    const faqSchema = [
+        {
+            question: `What is the meaning of this quote?`,
+            answer: `${post.quote} is a reminder to pause, reflect, and choose a hopeful mindset while moving through life with patience and self-respect.`
+        },
+        {
+            question: `Can I share this Better Day Vibes quote?`,
+            answer: `Yes. You can share this quote using the social sharing buttons on this page.`
+        },
+        {
+            question: `Where can I find more related quotes?`,
+            answer: `You can explore related quote cards, popular quotes, recent quotes, and quote categories on Better Day Vibes.`
+        }
+    ];
+
+    const schema = `[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "${jsonEscape(post.title)}",
+    "description": "${jsonEscape(normalizeText(post.quote))}",
+    "image": "${jsonEscape(imageUrl)}",
+    "datePublished": "2026-07-04",
+    "dateModified": "2026-07-04",
+    "author": {
+      "@type": "Organization",
+      "name": "Better Day Vibes"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Better Day Vibes",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "${SITE_URL}/better-day-vibes-logo.jpg"
+      }
+    },
+    "mainEntityOfPage": "${canonical}",
+    "keywords": "${jsonEscape(tags.join(", "))}"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "${SITE_URL}/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "${jsonEscape(categoryLabel(post.category))}",
+        "item": "${SITE_URL}/#${jsonEscape(post.category)}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "${jsonEscape(post.title)}",
+        "item": "${canonical}"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+${faqSchema.map(item => `      {
+        "@type": "Question",
+        "name": "${jsonEscape(item.question)}",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "${jsonEscape(item.answer)}"
+        }
+      }`).join(",\n")}
+    ]
+  }
+]`;
 
     return `<!DOCTYPE html>
 <html lang="en">
@@ -229,9 +367,14 @@ function buildPage(post, related) {
     <meta property="og:image" content="${SITE_URL}/photo/${escapeHtml(post.slug)}/${image}">
     <meta property="og:image:alt" content="${title}">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@betterdayvibe">
+    <meta name="twitter:creator" content="@betterdayvibe">
     <meta name="twitter:title" content="${title} | Better Day Vibes">
     <meta name="twitter:description" content="${description}">
     <meta name="twitter:image" content="${SITE_URL}/photo/${escapeHtml(post.slug)}/${image}">
+    <script type="application/ld+json">
+${schema}
+    </script>
 
     <link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png">
@@ -266,6 +409,33 @@ function buildPage(post, related) {
             text-align: center;
         }
 
+        .post-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px 16px;
+            margin: 0 auto 18px;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .breadcrumb {
+            max-width: 760px;
+            margin: 0 auto 18px;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .breadcrumb a {
+            color: #fbbf24;
+            text-decoration: none;
+        }
+
+        .quote-share {
+            justify-content: center;
+            margin: -10px 0 28px;
+        }
+
         .post-description {
             max-width: 760px;
             margin: 0 auto;
@@ -294,18 +464,129 @@ function buildPage(post, related) {
             padding: 0;
             margin: 0;
             display: grid;
-            gap: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 14px;
         }
 
-        .related-quotes a {
-            color: #fbbf24;
+        .related-card {
+            display: block;
+            overflow: hidden;
+            background: #111827;
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 8px;
+        }
+
+        .related-card a {
+            display: block;
+            color: #f8fafc;
             text-decoration: none;
             font-weight: 600;
+        }
+
+        .related-card img {
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            display: block;
+        }
+
+        .related-card span {
+            display: block;
+            padding: 12px;
+            line-height: 1.45;
+        }
+
+        .related-card .quote-share {
+            justify-content: center;
+            margin: 0;
+            padding: 0 10px 14px;
+        }
+
+        .related-card .share-buttons a {
+            width: 34px;
+            height: 34px;
+        }
+
+        .post-panel {
+            margin-top: 28px;
+            padding-top: 22px;
+            border-top: 1px solid rgba(255, 255, 255, 0.14);
+        }
+
+        .post-panel h2 {
+            margin: 0 0 12px;
+            font-size: 24px;
+        }
+
+        .post-panel p,
+        .post-panel li {
+            color: #d1d5db;
+            line-height: 1.7;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag-list a {
+            color: #0f172a;
+            background: #fbbf24;
+            border-radius: 999px;
+            padding: 8px 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .post-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .post-nav a {
+            color: #fbbf24;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            min-width: 0;
+            padding: 12px 14px;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            background: #111827;
+            color: #fff;
+            font-family: inherit;
+        }
+
+        .newsletter-form button {
+            border: 0;
+            border-radius: 8px;
+            padding: 12px 16px;
+            background: #fbbf24;
+            color: #0f172a;
+            font-weight: 800;
+            font-family: inherit;
         }
 
         @media (max-width: 640px) {
             .post-container {
                 padding: 18px;
+            }
+
+            .post-nav,
+            .newsletter-form {
+                flex-direction: column;
             }
         }
     </style>
@@ -342,24 +623,76 @@ function buildPage(post, related) {
             <li><a href="../../#categories">All Categories</a></li>
             <li><a href="../../#recent-quotes">Recent Quotes</a></li>
             <li><a href="../../#popular-quotes">Popular Quotes</a></li>
+            <li><a href="../../all-quotes.html">All Quotes</a></li>
             <li><a href="../../contact.html">Contact</a></li>
         </ul>
     </aside>
 
     <main class="post-container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../">Home</a> / <a href="../../#quotesContainer">${escapeHtml(categoryLabel(post.category))}</a> / <span>${title}</span>
+        </nav>
+        <div class="post-meta">
+            <span>Published: July 4, 2026</span>
+            <span>Updated: July 4, 2026</span>
+            <span>Reading time: 3 min</span>
+        </div>
         <img class="post-image" src="${image}" alt="${title}">
         <p class="post-quote">${quote}</p>
+        ${shareButtons(canonical, post.quote, imageUrl)}
 
         <section class="post-description">
 ${meaningParagraphs}
         </section>
 
+        <section class="post-panel about-bdv">
+            <h2>About Better Day Vibes</h2>
+            <p>Better Day Vibes shares motivational quotes, positive thoughts, and daily inspiration to encourage personal growth, resilience, gratitude, and mindfulness.</p>
+        </section>
+
+        <section class="post-panel tag-section">
+            <h2>Tags</h2>
+            <div class="tag-list">
+${tagLinks}
+            </div>
+        </section>
+
         <section class="related-quotes" id="related-quotes">
             <h2>Related Quotes</h2>
             <ul>
-${relatedLinks}
+${relatedCards}
             </ul>
         </section>
+
+        <section class="post-panel faq-section">
+            <h2>FAQ</h2>
+            <details>
+                <summary>What is the meaning of this quote?</summary>
+                <p>${quote} is a reminder to pause, reflect, and choose a hopeful mindset while moving through life with patience and self-respect.</p>
+            </details>
+            <details>
+                <summary>Can I share this Better Day Vibes quote?</summary>
+                <p>Yes. Use the social sharing icons near the quote to share it on Facebook, X, WhatsApp, Pinterest, or Threads.</p>
+            </details>
+            <details>
+                <summary>Where can I read more quotes like this?</summary>
+                <p>Explore the related quote cards on this page, visit the <a href="../../#popular-quotes">popular quotes</a>, or browse <a href="../../#recent-quotes">recent quotes</a>.</p>
+            </details>
+        </section>
+
+        <section class="post-panel newsletter-section">
+            <h2>Newsletter</h2>
+            <p>Get one motivational quote every morning.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Email" aria-label="Email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+
+        <nav class="post-panel post-nav" aria-label="Previous and next quotes">
+            <a href="../${escapeHtml(previous.slug)}/">← Previous Quote</a>
+            <a href="../${escapeHtml(next.slug)}/">Next Quote →</a>
+        </nav>
     </main>
 
     <footer>
@@ -371,8 +704,11 @@ ${relatedLinks}
             <a href="../../privacy-policy.html">Privacy Policy</a>
             <span>|</span>
             <a href="../../terms-and-conditions.html">Terms & Conditions</a>
+            <span>|</span>
+            <a href="../../all-quotes.html">All Quotes</a>
         </div>
 
+        <p class="footer-follow">Follow on our social media</p>
         <div class="footer-social" aria-label="Better Day Vibes social links">
             <a href="https://www.instagram.com/betterdayvibe" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://www.facebook.com/betterdayvibe" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
@@ -417,7 +753,9 @@ posts.forEach((post, index) => {
     if (!fs.existsSync(dir)) return;
 
     const related = getRelated(posts, post, index);
-    const page = buildPage(post, related);
+    const previous = posts[(index - 1 + posts.length) % posts.length];
+    const next = posts[(index + 1) % posts.length];
+    const page = buildPage(post, related, previous, next);
 
     fs.writeFileSync(path.join(dir, "index.html"), page, "utf8");
     fs.writeFileSync(path.join(dir, `${post.slug}.html`), page, "utf8");
