@@ -28,6 +28,13 @@ function normalizeText(value) {
         .trim();
 }
 
+function resolveConflictMarkers(html) {
+    return String(html || "").replace(
+        /^<<<<<<<[^\r\n]*\r?\n([\s\S]*?)^=======\r?\n[\s\S]*?^>>>>>>>[^\r\n]*(?:\r?\n)?/gm,
+        "$1"
+    );
+}
+
 function getAttribute(tag, name) {
     const pattern = new RegExp(`${name}\\s*=\\s*(["'])([\\s\\S]*?)\\1`, "i");
     return tag.match(pattern)?.[2] || "";
@@ -67,9 +74,8 @@ function cardMarkup(card) {
     const pinterestUrl = escapeHtml(`https://pinterest.com/pin/create/button/?url=${pageUrl}&media=${imageUrl}&description=${text}`);
 
     return `            <article class="mini-quote-card">
-                <a href="${escapeHtml(card.href)}">
+                <a class="mini-image-link" href="${escapeHtml(card.href)}">
                     <img src="${escapeHtml(card.image)}" loading="lazy" alt="${escapeHtml(card.title)}">
-                    <span>${escapeHtml(card.title)}</span>
                 </a>
                 <div class="share-buttons" aria-label="Share this quote">
                     <a class="share-facebook" href="${facebookUrl}" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -77,6 +83,9 @@ function cardMarkup(card) {
                     <a class="share-whatsapp" href="${whatsappUrl}" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     <a class="share-pinterest" href="${pinterestUrl}" target="_blank" rel="noopener" aria-label="Share on Pinterest"><i class="fab fa-pinterest"></i></a>
                 </div>
+                <a class="mini-title-link" href="${escapeHtml(card.href)}">
+                    <span>${escapeHtml(card.title)}</span>
+                </a>
             </article>`;
 }
 
@@ -227,7 +236,7 @@ function buildHomeSections(cards) {
 }
 
 function updateHomepage() {
-    let html = fs.readFileSync(INDEX_FILE, "utf8");
+    let html = resolveConflictMarkers(fs.readFileSync(INDEX_FILE, "utf8"));
     const cards = getCards(html);
 
     html = updateHead(html);
