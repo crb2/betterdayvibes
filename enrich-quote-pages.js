@@ -42,6 +42,13 @@ function normalizeText(value) {
         .trim();
 }
 
+function resolveConflictMarkers(html) {
+    return String(html || "").replace(
+        /^<<<<<<<[^\r\n]*\r?\n([\s\S]*?)^=======\r?\n[\s\S]*?^>>>>>>>[^\r\n]*(?:\r?\n)?/gm,
+        "$1"
+    );
+}
+
 function getAttribute(tag, name) {
     const pattern = new RegExp(`${name}\\s*=\\s*(["'])([\\s\\S]*?)\\1`, "i");
     return tag.match(pattern)?.[2] || "";
@@ -257,11 +264,13 @@ function buildPage(post, related, previous, next) {
             const itemImageUrl = `${SITE_URL}/photo/${item.slug}/${item.image}`;
 
             return `                <li class="related-card">
-                    <a href="../${escapeHtml(item.slug)}/">
+                    <a class="related-image-link" href="../${escapeHtml(item.slug)}/">
                         <img src="../${escapeHtml(item.slug)}/${escapeHtml(item.image)}" loading="lazy" alt="${escapeHtml(item.title)}">
-                        <span>${escapeHtml(item.title)}</span>
                     </a>
                     ${shareButtons(itemUrl, item.quote, itemImageUrl)}
+                    <a class="related-title-link" href="../${escapeHtml(item.slug)}/">
+                        <span>${escapeHtml(item.title)}</span>
+                    </a>
                 </li>`;
         })
         .join("\n");
@@ -433,7 +442,7 @@ ${schema}
 
         .quote-share {
             justify-content: center;
-            margin: -10px 0 28px;
+            margin: -10px 0 18px;
         }
 
         .post-description {
@@ -499,12 +508,17 @@ ${schema}
         .related-card .quote-share {
             justify-content: center;
             margin: 0;
-            padding: 0 10px 14px;
+            padding: 10px 10px 0;
         }
 
         .related-card .share-buttons a {
             width: 34px;
             height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #ffffff;
         }
 
         .post-panel {
@@ -638,8 +652,8 @@ ${schema}
             <span>Reading time: 3 min</span>
         </div>
         <img class="post-image" src="${image}" alt="${title}">
-        <p class="post-quote">${quote}</p>
         ${shareButtons(canonical, post.quote, imageUrl)}
+        <p class="post-quote">${quote}</p>
 
         <section class="post-description">
 ${meaningParagraphs}
@@ -745,7 +759,7 @@ ${relatedCards}
 `;
 }
 
-const html = fs.readFileSync(INDEX_FILE, "utf8");
+const html = resolveConflictMarkers(fs.readFileSync(INDEX_FILE, "utf8"));
 const posts = getCards(html);
 
 posts.forEach((post, index) => {

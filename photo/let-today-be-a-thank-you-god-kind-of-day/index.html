@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -160,7 +160,7 @@
 
         .quote-share {
             justify-content: center;
-            margin: -10px 0 28px;
+            margin: -10px 0 18px;
         }
 
         .post-description {
@@ -226,12 +226,17 @@
         .related-card .quote-share {
             justify-content: center;
             margin: 0;
-            padding: 0 10px 14px;
+            padding: 10px 10px 0;
         }
 
         .related-card .share-buttons a {
             width: 34px;
             height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #ffffff;
         }
 
         .post-panel {
@@ -340,52 +345,20 @@
         </nav>
     </header>
 
-        <aside id="sidebar" class="sidebar">
+    <aside id="sidebar" class="sidebar">
         <button id="closeBtn" class="close-btn">
             &#10005;
         </button>
-        <h3 id="categories">Categories</h3>
+        <h3>Categories</h3>
 
         <ul>
-<<<<<<< HEAD
             <li><a href="../../#categories">All Categories</a></li>
             <li><a href="../../#recent-quotes">Recent Quotes</a></li>
             <li><a href="../../#popular-quotes">Popular Quotes</a></li>
             <li><a href="../../all-quotes.html">All Quotes</a></li>
-=======
-            <li><a href="../../?category=all#quotesContainer">Category: All Posts</a></li>
-            <li><a href="../../?category=gratitude#quotesContainer">Gratitude</a></li>
-            <li><a href="../../?category=positivity#quotesContainer">Positivity</a></li>
-            <li><a href="../../?category=healing#quotesContainer">Healing</a></li>
-            <li><a href="../../?category=relationships#quotesContainer">Relationships</a></li>
-            <li><a href="../../?category=self-growth#quotesContainer">Self-Growth</a></li>
-            <li><a href="../../?category=faith-hope#quotesContainer">Faith & Hope</a></li>
-            <li><a href="../../?category=faith-blessings#quotesContainer">Faith Blessings</a></li>
-            <li><a href="../../?category=manifestation-positive-thinking#quotesContainer">Manifestation</a></li>
-            <li><a href="../../?category=mental-health-self-care#quotesContainer">Mental Health</a></li>
-            <li><a href="../../?category=mindfulness#quotesContainer">Mindfulness</a></li>
-            <li><a href="../../?category=patience-trust#quotesContainer">Patience & Trust</a></li>
-            <li><a href="../../?category=positive-mindset-mental-strength#quotesContainer">Positive Mindset</a></li>
-            <li><a href="../../?category=purpose-passion#quotesContainer">Purpose & Passion</a></li>
-            <li><a href="../../?category=new-beginnings#quotesContainer">New-Beginnings</a></li>
-            <li><a href="../../?category=perseverance#quotesContainer">Perseverance</a></li>
-            <li><a href="../../?category=aging#quotesContainer">Aging</a></li>
-            <li><a href="../../?category=motivation#quotesContainer">Motivation</a></li>
->>>>>>> 7f6f03cacf84483e9ed397971eb9fb602740440e
             <li><a href="../../contact.html">Contact</a></li>
-        </ul>    </aside>
-    <section class="search-section">
-        <form class="search-wrapper page-search-form" data-search-root="../../" role="search">
-            <input type="text" id="searchInput" placeholder="Search motivational quotes..." autocomplete="off">
-            <button type="button" id="clearSearch" class="clear-search" aria-label="Clear search">
-                &#10005;
-            </button>
-            <div id="searchSuggestions" class="search-suggestions"></div>
-        </form>
-    </section>
-
-    <div class="current-category" id="currentCategory">
-        Category: Faith & Hope</div>
+        </ul>
+    </aside>
 
     <main class="post-container">
         <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -397,7 +370,6 @@
             <span>Reading time: 3 min</span>
         </div>
         <img class="post-image" src="let-today-be-a-thank-you-god-kind-of-day.webp" alt="Let today be a Thank You, God kind of day">
-        <p class="post-quote">Let today be a Thank You, God kind of day.</p>
         <div class="share-buttons quote-share" aria-label="Share this quote">
                 <a class="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Flet-today-be-a-thank-you-god-kind-of-day%2F" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
                 <a class="share-x" href="https://twitter.com/intent/tweet?text=Let%20today%20be%20a%20Thank%20You%2C%20God%20kind%20of%20day.&amp;url=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Flet-today-be-a-thank-you-god-kind-of-day%2F" target="_blank" rel="noopener" aria-label="Share on X"><i class="fab fa-twitter"></i></a>
@@ -405,6 +377,7 @@
                 <a class="share-pinterest" href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Flet-today-be-a-thank-you-god-kind-of-day%2F&amp;media=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Flet-today-be-a-thank-you-god-kind-of-day%2Flet-today-be-a-thank-you-god-kind-of-day.webp&amp;description=Let%20today%20be%20a%20Thank%20You%2C%20God%20kind%20of%20day." target="_blank" rel="noopener" aria-label="Share on Pinterest"><i class="fab fa-pinterest"></i></a>
                 <a class="share-threads" href="https://www.threads.net/intent/post?text=Let%20today%20be%20a%20Thank%20You%2C%20God%20kind%20of%20day.%20https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Flet-today-be-a-thank-you-god-kind-of-day%2F" target="_blank" rel="noopener" aria-label="Share on Threads"><i class="fa-brands fa-threads"></i></a>
             </div>
+        <p class="post-quote">Let today be a Thank You, God kind of day.</p>
 
         <section class="post-description">
             <p>This quote is a gentle reminder about gratitude and faith. It encourages you to slow down, recognize what is already supporting you, and keep hope close, especially on the days when life feels noisy, uncertain, or emotionally heavy. A meaningful quote does not have to solve everything at once. Sometimes it simply gives you a calmer way to look at the moment in front of you. When you pause with these words, you give yourself room to breathe before reacting, room to understand what you really feel, and room to choose a response that protects your peace.</p>
@@ -431,22 +404,8 @@
             <h2>Related Quotes</h2>
             <ul>
                 <li class="related-card">
-                    <a href="../always-remember-that-everything-happens-for-a-reason/">
-                        <img src="../always-remember-that-everything-happens-for-a-reason/always-remember-that-everything-happens-for-a-reason.webp" loading="lazy" alt="Always remember that everything happens for a reason. It may not make sense right now, but in time, everything will fall into place.">
-                        <span>Always remember that everything happens for a reason. It may not make sense right now, but in time, everything will fall into place.</span>
-                    </a>
-                    <div class="share-buttons quote-share" aria-label="Share this quote">
-                <a class="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Falways-remember-that-everything-happens-for-a-reason%2F" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a class="share-x" href="https://twitter.com/intent/tweet?text=Always%20remember%20that%20everything%20happens%20for%20a%20reason.%20It%20may%20not%20make%20sense%20right%20now%2C%20but%20in%20time%2C%20everything%20will%20fall%20into%20place.&amp;url=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Falways-remember-that-everything-happens-for-a-reason%2F" target="_blank" rel="noopener" aria-label="Share on X"><i class="fab fa-twitter"></i></a>
-                <a class="share-whatsapp" href="https://wa.me/?text=Always%20remember%20that%20everything%20happens%20for%20a%20reason.%20It%20may%20not%20make%20sense%20right%20now%2C%20but%20in%20time%2C%20everything%20will%20fall%20into%20place.%20https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Falways-remember-that-everything-happens-for-a-reason%2F" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a class="share-pinterest" href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Falways-remember-that-everything-happens-for-a-reason%2F&amp;media=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Falways-remember-that-everything-happens-for-a-reason%2Falways-remember-that-everything-happens-for-a-reason.webp&amp;description=Always%20remember%20that%20everything%20happens%20for%20a%20reason.%20It%20may%20not%20make%20sense%20right%20now%2C%20but%20in%20time%2C%20everything%20will%20fall%20into%20place." target="_blank" rel="noopener" aria-label="Share on Pinterest"><i class="fab fa-pinterest"></i></a>
-                <a class="share-threads" href="https://www.threads.net/intent/post?text=Always%20remember%20that%20everything%20happens%20for%20a%20reason.%20It%20may%20not%20make%20sense%20right%20now%2C%20but%20in%20time%2C%20everything%20will%20fall%20into%20place.%20https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Falways-remember-that-everything-happens-for-a-reason%2F" target="_blank" rel="noopener" aria-label="Share on Threads"><i class="fa-brands fa-threads"></i></a>
-            </div>
-                </li>
-                <li class="related-card">
-                    <a href="../even-in-the-dark-there-is-a-light-inside-you/">
+                    <a class="related-image-link" href="../even-in-the-dark-there-is-a-light-inside-you/">
                         <img src="../even-in-the-dark-there-is-a-light-inside-you/even-in-the-dark-there-is-a-light-inside-you.webp" loading="lazy" alt="Even in the dark, there&#39;s a light inside you that will never go out">
-                        <span>Even in the dark, there&#39;s a light inside you that will never go out</span>
                     </a>
                     <div class="share-buttons quote-share" aria-label="Share this quote">
                 <a class="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Feven-in-the-dark-there-is-a-light-inside-you%2F" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -455,11 +414,13 @@
                 <a class="share-pinterest" href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Feven-in-the-dark-there-is-a-light-inside-you%2F&amp;media=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Feven-in-the-dark-there-is-a-light-inside-you%2Feven-in-the-dark-there-is-a-light-inside-you.webp&amp;description=Even%20in%20the%20dark%2C%20there&#39;s%20a%20light%20inside%20you%20that%20will%20never%20go%20out." target="_blank" rel="noopener" aria-label="Share on Pinterest"><i class="fab fa-pinterest"></i></a>
                 <a class="share-threads" href="https://www.threads.net/intent/post?text=Even%20in%20the%20dark%2C%20there&#39;s%20a%20light%20inside%20you%20that%20will%20never%20go%20out.%20https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Feven-in-the-dark-there-is-a-light-inside-you%2F" target="_blank" rel="noopener" aria-label="Share on Threads"><i class="fa-brands fa-threads"></i></a>
             </div>
+                    <a class="related-title-link" href="../even-in-the-dark-there-is-a-light-inside-you/">
+                        <span>Even in the dark, there&#39;s a light inside you that will never go out</span>
+                    </a>
                 </li>
                 <li class="related-card">
-                    <a href="../every-ending-start-life-ve/">
+                    <a class="related-image-link" href="../every-ending-start-life-ve/">
                         <img src="../every-ending-start-life-ve/every-ending-start-life-ve.webp" loading="lazy" alt="Every ending can be the start of the life you&#39;ve been hoping and praying for.">
-                        <span>Every ending can be the start of the life you&#39;ve been hoping and praying for.</span>
                     </a>
                     <div class="share-buttons quote-share" aria-label="Share this quote">
                 <a class="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fevery-ending-start-life-ve%2F" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -468,11 +429,13 @@
                 <a class="share-pinterest" href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fevery-ending-start-life-ve%2F&amp;media=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fevery-ending-start-life-ve%2Fevery-ending-start-life-ve.webp&amp;description=Every%20ending%20can%20be%20the%20start%20of%20the%20life%20you&#39;ve%20been%20hoping%20and%20praying%20for." target="_blank" rel="noopener" aria-label="Share on Pinterest"><i class="fab fa-pinterest"></i></a>
                 <a class="share-threads" href="https://www.threads.net/intent/post?text=Every%20ending%20can%20be%20the%20start%20of%20the%20life%20you&#39;ve%20been%20hoping%20and%20praying%20for.%20https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fevery-ending-start-life-ve%2F" target="_blank" rel="noopener" aria-label="Share on Threads"><i class="fa-brands fa-threads"></i></a>
             </div>
+                    <a class="related-title-link" href="../every-ending-start-life-ve/">
+                        <span>Every ending can be the start of the life you&#39;ve been hoping and praying for.</span>
+                    </a>
                 </li>
                 <li class="related-card">
-                    <a href="../healthy-relationship-drain-spirit-bring/">
+                    <a class="related-image-link" href="../healthy-relationship-drain-spirit-bring/">
                         <img src="../healthy-relationship-drain-spirit-bring/healthy-relationship-drain-spirit-bring.webp" loading="lazy" alt="A healthy relationship won&#39;t drain your spirit; it will bring God&#39;s peace into your heart">
-                        <span>A healthy relationship won&#39;t drain your spirit; it will bring God&#39;s peace into your heart</span>
                     </a>
                     <div class="share-buttons quote-share" aria-label="Share this quote">
                 <a class="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fhealthy-relationship-drain-spirit-bring%2F" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -481,6 +444,24 @@
                 <a class="share-pinterest" href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fhealthy-relationship-drain-spirit-bring%2F&amp;media=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fhealthy-relationship-drain-spirit-bring%2Fhealthy-relationship-drain-spirit-bring.webp&amp;description=A%20healthy%20relationship%20won&#39;t%20drain%20your%20spirit%3B%20it%20will%20bring%20God&#39;s%20peace%20into%20your%20heart." target="_blank" rel="noopener" aria-label="Share on Pinterest"><i class="fab fa-pinterest"></i></a>
                 <a class="share-threads" href="https://www.threads.net/intent/post?text=A%20healthy%20relationship%20won&#39;t%20drain%20your%20spirit%3B%20it%20will%20bring%20God&#39;s%20peace%20into%20your%20heart.%20https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fhealthy-relationship-drain-spirit-bring%2F" target="_blank" rel="noopener" aria-label="Share on Threads"><i class="fa-brands fa-threads"></i></a>
             </div>
+                    <a class="related-title-link" href="../healthy-relationship-drain-spirit-bring/">
+                        <span>A healthy relationship won&#39;t drain your spirit; it will bring God&#39;s peace into your heart</span>
+                    </a>
+                </li>
+                <li class="related-card">
+                    <a class="related-image-link" href="../faith-god-control-timing-perfect/">
+                        <img src="../faith-god-control-timing-perfect/faith-god-control-timing-perfect.webp" loading="lazy" alt="Have faith that God is in control and that His timing is perfect">
+                    </a>
+                    <div class="share-buttons quote-share" aria-label="Share this quote">
+                <a class="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Ffaith-god-control-timing-perfect%2F" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a class="share-x" href="https://twitter.com/intent/tweet?text=Have%20faith%20that%20God%20is%20in%20control%20and%20that%20His%20timing%20is%20perfect.&amp;url=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Ffaith-god-control-timing-perfect%2F" target="_blank" rel="noopener" aria-label="Share on X"><i class="fab fa-twitter"></i></a>
+                <a class="share-whatsapp" href="https://wa.me/?text=Have%20faith%20that%20God%20is%20in%20control%20and%20that%20His%20timing%20is%20perfect.%20https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Ffaith-god-control-timing-perfect%2F" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a class="share-pinterest" href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Ffaith-god-control-timing-perfect%2F&amp;media=https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Ffaith-god-control-timing-perfect%2Ffaith-god-control-timing-perfect.webp&amp;description=Have%20faith%20that%20God%20is%20in%20control%20and%20that%20His%20timing%20is%20perfect." target="_blank" rel="noopener" aria-label="Share on Pinterest"><i class="fab fa-pinterest"></i></a>
+                <a class="share-threads" href="https://www.threads.net/intent/post?text=Have%20faith%20that%20God%20is%20in%20control%20and%20that%20His%20timing%20is%20perfect.%20https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Ffaith-god-control-timing-perfect%2F" target="_blank" rel="noopener" aria-label="Share on Threads"><i class="fa-brands fa-threads"></i></a>
+            </div>
+                    <a class="related-title-link" href="../faith-god-control-timing-perfect/">
+                        <span>Have faith that God is in control and that His timing is perfect</span>
+                    </a>
                 </li>
             </ul>
         </section>
@@ -541,70 +522,25 @@
         <p>&copy; 2026 Better Day Vibes. All Rights Reserved.</p>
     </footer>
 
-        <script>
+    <script>
         const menuBtn = document.getElementById("menuBtn");
         const sidebar = document.getElementById("sidebar");
         const closeBtn = document.getElementById("closeBtn");
-        const searchForm = document.querySelector(".page-search-form");
-        const searchInput = document.getElementById("searchInput");
-        const clearSearch = document.getElementById("clearSearch");
 
-        if (menuBtn && sidebar) {
-            menuBtn.addEventListener("click", () => {
-                sidebar.classList.toggle("active");
-            });
-        }
+        menuBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("active");
+        });
 
-        if (closeBtn && sidebar) {
-            closeBtn.addEventListener("click", () => {
-                sidebar.classList.remove("active");
-            });
-        }
+        closeBtn.addEventListener("click", () => {
+            sidebar.classList.remove("active");
+        });
 
         document.addEventListener("click", event => {
-            if (sidebar && menuBtn && !sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+            if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
                 sidebar.classList.remove("active");
             }
         });
-
-        if (searchForm && searchInput) {
-            const goToSearch = () => {
-                const root = searchForm.dataset.searchRoot || "./";
-                const term = searchInput.value.trim();
-                const url = new URL(root, window.location.href);
-
-                if (term) {
-                    url.searchParams.set("search", term);
-                } else {
-                    url.searchParams.set("category", "all");
-                }
-
-                url.hash = "quotesContainer";
-                window.location.href = url.toString();
-            };
-
-            searchForm.addEventListener("submit", event => {
-                event.preventDefault();
-                goToSearch();
-            });
-
-            searchInput.addEventListener("input", () => {
-                if (clearSearch) {
-                    clearSearch.style.display = searchInput.value ? "block" : "none";
-                }
-            });
-
-            if (clearSearch) {
-                clearSearch.addEventListener("click", () => {
-                    searchInput.value = "";
-                    clearSearch.style.display = "none";
-                    goToSearch();
-                });
-            }
-        }
     </script>
 </body>
 
 </html>
-
-
