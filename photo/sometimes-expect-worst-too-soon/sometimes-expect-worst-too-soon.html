@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -340,20 +340,52 @@
         </nav>
     </header>
 
-    <aside id="sidebar" class="sidebar">
+        <aside id="sidebar" class="sidebar">
         <button id="closeBtn" class="close-btn">
             &#10005;
         </button>
-        <h3>Categories</h3>
+        <h3 id="categories">Categories</h3>
 
         <ul>
+<<<<<<< HEAD
             <li><a href="../../#categories">All Categories</a></li>
             <li><a href="../../#recent-quotes">Recent Quotes</a></li>
             <li><a href="../../#popular-quotes">Popular Quotes</a></li>
             <li><a href="../../all-quotes.html">All Quotes</a></li>
+=======
+            <li><a href="../../?category=all#quotesContainer">Category: All Posts</a></li>
+            <li><a href="../../?category=gratitude#quotesContainer">Gratitude</a></li>
+            <li><a href="../../?category=positivity#quotesContainer">Positivity</a></li>
+            <li><a href="../../?category=healing#quotesContainer">Healing</a></li>
+            <li><a href="../../?category=relationships#quotesContainer">Relationships</a></li>
+            <li><a href="../../?category=self-growth#quotesContainer">Self-Growth</a></li>
+            <li><a href="../../?category=faith-hope#quotesContainer">Faith & Hope</a></li>
+            <li><a href="../../?category=faith-blessings#quotesContainer">Faith Blessings</a></li>
+            <li><a href="../../?category=manifestation-positive-thinking#quotesContainer">Manifestation</a></li>
+            <li><a href="../../?category=mental-health-self-care#quotesContainer">Mental Health</a></li>
+            <li><a href="../../?category=mindfulness#quotesContainer">Mindfulness</a></li>
+            <li><a href="../../?category=patience-trust#quotesContainer">Patience & Trust</a></li>
+            <li><a href="../../?category=positive-mindset-mental-strength#quotesContainer">Positive Mindset</a></li>
+            <li><a href="../../?category=purpose-passion#quotesContainer">Purpose & Passion</a></li>
+            <li><a href="../../?category=new-beginnings#quotesContainer">New-Beginnings</a></li>
+            <li><a href="../../?category=perseverance#quotesContainer">Perseverance</a></li>
+            <li><a href="../../?category=aging#quotesContainer">Aging</a></li>
+            <li><a href="../../?category=motivation#quotesContainer">Motivation</a></li>
+>>>>>>> 7f6f03cacf84483e9ed397971eb9fb602740440e
             <li><a href="../../contact.html">Contact</a></li>
-        </ul>
-    </aside>
+        </ul>    </aside>
+    <section class="search-section">
+        <form class="search-wrapper page-search-form" data-search-root="../../" role="search">
+            <input type="text" id="searchInput" placeholder="Search motivational quotes..." autocomplete="off">
+            <button type="button" id="clearSearch" class="clear-search" aria-label="Clear search">
+                &#10005;
+            </button>
+            <div id="searchSuggestions" class="search-suggestions"></div>
+        </form>
+    </section>
+
+    <div class="current-category" id="currentCategory">
+        Category: Motivation</div>
 
     <main class="post-container">
         <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -397,6 +429,7 @@
         <section class="related-quotes" id="related-quotes">
             <h2>Related Quotes</h2>
             <ul>
+<<<<<<< HEAD
                 <li class="related-card">
                     <a href="../real-care-means-understanding-even/">
                         <img src="../real-care-means-understanding-even/real-care-means-understanding-even.webp" loading="lazy" alt="Real care means understanding you, even when you&#39;re silent">
@@ -449,6 +482,12 @@
                 <a class="share-threads" href="https://www.threads.net/intent/post?text=The%20weight%20you%20carry%20isn%E2%80%99t%20meant%20to%20last%20forever.%20Give%20yourself%20permission%20to%20let%20it%20go.%20https%3A%2F%2Fbetterdayvibes.life%2Fphoto%2Fweight-carry-meant-last-forever%2F" target="_blank" rel="noopener" aria-label="Share on Threads"><i class="fa-brands fa-threads"></i></a>
             </div>
                 </li>
+=======
+                <li><a href="../real-care-means-understanding-even/">Real care means understanding you, even when you&#39;re silent</a></li>
+                <li><a href="../fact-havent-given-up-shows/">The fact that you haven&#39;t given up shows how strong you truly are</a></li>
+                <li><a href="../the-struggle-is-real-but-so-is-your-strength-to-overcome-it/">The struggle is real, but so is your strength to overcome it</a></li>
+                <li><a href="../weight-carry-meant-last-forever/">The weight you carry isnâ€™t meant to last forever. Give yourself permission to let it go</a></li>
+>>>>>>> 7f6f03cacf84483e9ed397971eb9fb602740440e
             </ul>
         </section>
 
@@ -508,25 +547,70 @@
         <p>&copy; 2026 Better Day Vibes. All Rights Reserved.</p>
     </footer>
 
-    <script>
+        <script>
         const menuBtn = document.getElementById("menuBtn");
         const sidebar = document.getElementById("sidebar");
         const closeBtn = document.getElementById("closeBtn");
+        const searchForm = document.querySelector(".page-search-form");
+        const searchInput = document.getElementById("searchInput");
+        const clearSearch = document.getElementById("clearSearch");
 
-        menuBtn.addEventListener("click", () => {
-            sidebar.classList.toggle("active");
-        });
+        if (menuBtn && sidebar) {
+            menuBtn.addEventListener("click", () => {
+                sidebar.classList.toggle("active");
+            });
+        }
 
-        closeBtn.addEventListener("click", () => {
-            sidebar.classList.remove("active");
-        });
+        if (closeBtn && sidebar) {
+            closeBtn.addEventListener("click", () => {
+                sidebar.classList.remove("active");
+            });
+        }
 
         document.addEventListener("click", event => {
-            if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+            if (sidebar && menuBtn && !sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
                 sidebar.classList.remove("active");
             }
         });
+
+        if (searchForm && searchInput) {
+            const goToSearch = () => {
+                const root = searchForm.dataset.searchRoot || "./";
+                const term = searchInput.value.trim();
+                const url = new URL(root, window.location.href);
+
+                if (term) {
+                    url.searchParams.set("search", term);
+                } else {
+                    url.searchParams.set("category", "all");
+                }
+
+                url.hash = "quotesContainer";
+                window.location.href = url.toString();
+            };
+
+            searchForm.addEventListener("submit", event => {
+                event.preventDefault();
+                goToSearch();
+            });
+
+            searchInput.addEventListener("input", () => {
+                if (clearSearch) {
+                    clearSearch.style.display = searchInput.value ? "block" : "none";
+                }
+            });
+
+            if (clearSearch) {
+                clearSearch.addEventListener("click", () => {
+                    searchInput.value = "";
+                    clearSearch.style.display = "none";
+                    goToSearch();
+                });
+            }
+        }
     </script>
 </body>
 
 </html>
+
+

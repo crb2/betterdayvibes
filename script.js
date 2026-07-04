@@ -19,6 +19,9 @@ if (window.location.pathname.endsWith("/index.html")) {
 let activeCategory = "all";
 let visibleCardLimit = 10;
 const cardsPerLoad = 10;
+const initialParams = new URLSearchParams(window.location.search);
+const initialSearch = initialParams.get("search") || "";
+const initialCategory = initialParams.get("category") || "";
 
 const aliases = {
     positive: "positivity",
@@ -39,6 +42,15 @@ const aliases = {
     faith: "faith-hope",
     hope: "faith-hope"
 };
+
+if (initialCategory) {
+    activeCategory = initialCategory.toLowerCase().trim();
+}
+
+if (initialSearch) {
+    searchInput.value = initialSearch;
+    document.getElementById("clearSearch").style.display = "block";
+}
 
 quoteLink.addEventListener("click", (e) => {
     e.preventDefault();
@@ -158,7 +170,7 @@ function updatePosts() {
     } else {
 
         currentCategory.textContent =
-            "All Posts";
+            "Category: All Posts";
 
     }
 }
@@ -213,14 +225,6 @@ updatePosts();
 
 const suggestions =
     document.getElementById("searchSuggestions");
-
-const trendingKeywords = [
-    "positivity",
-    "gratitude",
-    "healing",
-    "self-growth",
-    "kindness"
-];
 
 function getRecentSearches() {
     return JSON.parse(
@@ -292,10 +296,7 @@ function showSuggestions() {
 
     suggestions.innerHTML = "";
 
-    if (
-        recent.length === 0 &&
-        trendingKeywords.length === 0
-    ) {
+    if (recent.length === 0) {
         suggestions.style.display = "none";
         return;
     }
@@ -366,40 +367,6 @@ function showSuggestions() {
         });
 
     }
-
-    const trendingTitle =
-        document.createElement("div");
-
-    trendingTitle.className =
-        "suggestion-title";
-
-    trendingTitle.textContent =
-        "Trending Searches";
-
-    suggestions.appendChild(trendingTitle);
-
-    trendingKeywords.forEach(term => {
-
-        const item =
-            document.createElement("div");
-
-        item.className =
-            "suggestion-item";
-
-        item.textContent =
-            term;
-
-        item.addEventListener(
-            "mousedown",
-            (e) => {
-                e.preventDefault();
-                selectSuggestion(term);
-            }
-        );
-
-        suggestions.appendChild(item);
-
-    });
 
     suggestions.style.display =
         "block";
