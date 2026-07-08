@@ -54,7 +54,11 @@ if (initialSearch) {
 
 quoteLink.addEventListener("click", (e) => {
     e.preventDefault();
-    quoteSection.classList.toggle("show");
+    quoteSection.classList.add("show");
+    quoteSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
 });
 
 menuBtn.addEventListener("click", () => {
@@ -170,7 +174,7 @@ function updatePosts() {
     } else {
 
         currentCategory.textContent =
-            "Category: All Posts";
+            "All Posts";
 
     }
 }

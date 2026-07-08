@@ -150,6 +150,22 @@ function faqMarkup() {
             <summary>Can I share these quotes?</summary>
             <p>Yes. Use the social share icons under each quote card to share your favorite quote.</p>
         </details>
+        <details>
+            <summary>How often are new quotes added?</summary>
+            <p>New inspirational quotes are added regularly so you can keep finding fresh motivation, encouragement, and positive reminders.</p>
+        </details>
+        <details>
+            <summary>Can I browse all quotes in one place?</summary>
+            <p>Yes. Open the All Quotes page from the footer to explore the full quote collection by title and topic.</p>
+        </details>
+        <details>
+            <summary>Can I request a quote topic?</summary>
+            <p>Yes. Use the contact page or social links to suggest quote topics, feedback, or collaboration ideas.</p>
+        </details>
+        <details>
+            <summary>Are these quotes good for social media captions?</summary>
+            <p>Yes. Many quotes are written to be easy to share as captions, status updates, story posts, and daily reminders.</p>
+        </details>
     </section>`;
 }
 
@@ -217,7 +233,7 @@ function addAllQuotesFooterLink(html, prefix = "") {
 
 function buildHomeSections(cards) {
     const sections = [
-        sectionMarkup("recent-quotes", "Latest Quotes", pick(cards, { offset: Math.max(cards.length - 4, 0) })),
+        sectionMarkup("recent-quotes", "Recent Quotes", pick(cards, { offset: Math.max(cards.length - 4, 0) })),
         sectionMarkup("popular-quotes", "Popular Quotes", pick(cards, {
             slugs: [
                 "keep-being-authentic",

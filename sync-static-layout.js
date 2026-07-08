@@ -35,7 +35,6 @@ function header() {
             <li><a href="./#categories">Categories</a></li>
             <li><a href="./#recent-quotes">Recent Quotes</a></li>
             <li><a href="./#popular-quotes">Popular Quotes</a></li>
-            <li><a href="contact.html">Contact</a></li>
         </ul>
     </aside>`;
 }
