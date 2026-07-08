@@ -246,7 +246,6 @@ function buildHomeSections(cards) {
         sectionMarkup("healing-quotes", "Healing Quotes", pick(cards, { category: "healing" })),
         sectionMarkup("success-quotes", "Success Quotes", pick(cards, { search: "success|achieve|dream|purpose|growth|strength" })),
         sectionMarkup("related-quotes", "Related Quotes", pick(cards, { offset: 8 })),
-        sectionMarkup("random-quote", "Random Quote", pick(cards, { offset: 12 }).slice(0, 1)),
         sectionMarkup("trending-this-week", "Trending This Week", pick(cards, { search: "hope|joy|mindset|gratitude|peace" }))
     ];
 
@@ -264,7 +263,7 @@ function updateHomepage() {
                 <h2>Quote Of The Day</h2>
 
                 <p>
-                    Never give up on something that brings joy to your heart. You can take a break, move at your own pace, and still keep going.
+                    Your story isn't over yet. The most meaningful chapters are still waiting to be written.
                 </p>
             </section>`
     );

@@ -61,6 +61,16 @@ quoteLink.addEventListener("click", (e) => {
     });
 });
 
+if (window.location.hash === "#quoteSection") {
+    quoteSection.classList.add("show");
+    window.requestAnimationFrame(() => {
+        quoteSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    });
+}
+
 menuBtn.addEventListener("click", () => {
     sidebar.classList.toggle("active");
 });

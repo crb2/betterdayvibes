@@ -699,6 +699,8 @@ ${schema}
         }
 
         .related-card .quote-share {
+            display: flex;
+            gap: 8px;
             justify-content: flex-start;
             margin: 0;
             padding: 10px 10px 0;
@@ -712,6 +714,26 @@ ${schema}
             justify-content: center;
             border-radius: 50%;
             color: #ffffff;
+        }
+
+        .related-card .share-facebook {
+            background: #1877f2;
+        }
+
+        .related-card .share-x {
+            background: #000000;
+        }
+
+        .related-card .share-whatsapp {
+            background: #25d366;
+        }
+
+        .related-card .share-pinterest {
+            background: #e60023;
+        }
+
+        .related-card .share-threads {
+            background: #111111;
         }
 
         .post-panel {

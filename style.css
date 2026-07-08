@@ -297,6 +297,7 @@ nav a:hover {
 }
 
 .quote-day {
+    scroll-margin-top: 96px;
     max-height: 0;
     opacity: 0;
     overflow: hidden;
@@ -590,11 +591,6 @@ nav a:hover {
     justify-content: center;
     border-radius: 50%;
     color: #ffffff;
-}
-
-#random-quote .mini-quote-grid {
-    grid-template-columns: minmax(190px, 260px);
-    justify-content: start;
 }
 
 .newsletter-block p,
