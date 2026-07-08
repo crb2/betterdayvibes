@@ -207,6 +207,177 @@ function getTheme(category, quote) {
     };
 }
 
+function pickVariant(items, seed) {
+    return items[Math.abs(seed) % items.length];
+}
+
+function seedFor(post) {
+    return post.slug.split("").reduce((total, char) => total + char.charCodeAt(0), 0);
+}
+
+function sentenceCase(value) {
+    const text = String(value || "").trim();
+    return text ? text.charAt(0).toUpperCase() + text.slice(1) : "";
+}
+
+function detectFocus(post) {
+    const lower = `${post.category} ${post.quote} ${post.slug}`.toLowerCase();
+
+    if (/dream|pray|prayer|faith|god|bless|receive|meant/.test(lower)) {
+        return {
+            name: "faith during the waiting season",
+            everyday: "when a goal is taking longer than expected, when prayers feel unanswered, or when you are trying to stay hopeful while life is still unfinished",
+            example: "You might be applying for a better job, rebuilding after a hard season, saving for something important, or quietly working on a dream that no one else can fully see yet.",
+            practice: "write down one sign of progress you can see today, even if it is small, and pair it with one faithful action you can take before the day ends",
+            question: "What would I keep doing today if I truly believed my patient effort still mattered?",
+            action: "Choose one next step that supports the future you have been praying for."
+        };
+    }
+
+    if (/relationship|love|friend|people|partner|care|heart|hug|loyal|honest/.test(lower)) {
+        return {
+            name: "healthier relationships",
+            everyday: "when you are deciding who deserves your time, how much access someone should have to your heart, or whether a connection brings peace or pressure",
+            example: "It may show up in a friendship where you always initiate, a relationship where you feel unseen, or a family conversation where you need to stay kind without abandoning your own needs.",
+            practice: "notice one relationship that leaves you lighter and one that leaves you drained, then choose a boundary or conversation that honors what you notice",
+            question: "Do my closest connections help me become more honest, peaceful, and grounded?",
+            action: "Give more energy to the people who make respect feel natural, not negotiated."
+        };
+    }
+
+    if (/heal|pain|past|tear|forgive|hurt|let go|heavy|burden|recover/.test(lower)) {
+        return {
+            name: "emotional healing",
+            everyday: "when memories still sting, when your energy feels low, or when you are learning how to move forward without pretending nothing happened",
+            example: "You may be healing from disappointment, a breakup, grief, burnout, or a version of yourself that survived by staying quiet for too long.",
+            practice: "name what still hurts without judging yourself for it, then choose one gentle act of care that makes today a little easier to carry",
+            question: "What part of me needs patience instead of pressure right now?",
+            action: "Let one small act of care prove that healing does not have to be rushed."
+        };
+    }
+
+    if (/worth|value|enough|confidence|self|boundary|standards|shine|deserve/.test(lower)) {
+        return {
+            name: "self-worth and confidence",
+            everyday: "when you are tempted to measure yourself by approval, productivity, comparison, or how perfectly you handled a difficult moment",
+            example: "It can matter before an interview, after a mistake, while setting a boundary, or when you catch yourself shrinking so other people feel more comfortable.",
+            practice: "write one sentence that separates your worth from your performance, then make one choice that treats that sentence as true",
+            question: "Where am I asking permission to be valuable when I already am?",
+            action: "Act from self-respect before you wait for someone else to validate it."
+        };
+    }
+
+    if (/mind|calm|worry|stress|peace|negative|positive|thought|mental/.test(lower)) {
+        return {
+            name: "a calmer mindset",
+            everyday: "when your thoughts are moving faster than the situation requires, or when stress makes every problem feel permanent",
+            example: "This can happen during a busy workday, before a difficult conversation, while scrolling through other people's lives, or late at night when worries get louder.",
+            practice: "pause for sixty seconds, breathe slowly, and write the next controllable step instead of trying to solve the entire future at once",
+            question: "What is actually mine to handle today, and what can I release for now?",
+            action: "Respond to the next moment from calm, not from panic."
+        };
+    }
+
+    if (/gratitude|thank|appreciate|blessed|grateful|woke|morning/.test(lower)) {
+        return {
+            name: "gratitude in ordinary moments",
+            everyday: "when life feels routine, when you forget how many quiet gifts are already present, or when comparison makes your blessings look smaller than they are",
+            example: "It may be the roof over your head, a message from someone who cares, your ability to try again, or the simple fact that you woke up with another chance.",
+            practice: "list three specific things you would miss if they disappeared tomorrow, then show appreciation through one small action",
+            question: "What blessing have I started treating as ordinary?",
+            action: "Let gratitude change the tone of one ordinary part of your day."
+        };
+    }
+
+    return {
+        name: "steady motivation",
+        everyday: "when you need encouragement to keep going, make a better choice, or believe that one hard moment does not define the whole story",
+        example: "It can apply to rebuilding a routine, starting over after disappointment, staying patient with slow progress, or choosing hope even when motivation feels quiet.",
+        practice: "choose one small promise you can keep today and complete it before looking for a bigger sign of progress",
+        question: "What is the next small choice that would make tomorrow feel a little lighter?",
+        action: "Take one honest step, then let that step become evidence that you are still moving."
+    };
+}
+
+function buildArticle(post, index) {
+    const theme = getTheme(post.category, post.quote);
+    const focus = detectFocus(post);
+    const seed = seedFor(post) + index;
+    const title = post.title.replace(/\.$/, "");
+    const opening = pickVariant([
+        `The quote "${post.quote}" speaks to ${focus.name}.`,
+        `"${post.quote}" is more than a short line of encouragement; it is a reminder about ${focus.name}.`,
+        `At its heart, "${post.quote}" points toward ${focus.name}.`
+    ], seed);
+
+    const meaning = [
+        `${opening} The message is not asking you to ignore reality or pretend that every day feels easy. It asks you to look at your situation with more patience, honesty, and courage. When a quote like this lands at the right time, it can interrupt the anxious story running in your mind and replace it with a steadier one. It says that your current feelings are real, but they are not the whole truth. There is still room for wisdom, growth, support, and a better response than the one fear might choose first.`,
+        `The deeper meaning of ${title} is connected to ${theme.noun}. It encourages you to ${theme.action}. That matters because many people wait for life to feel completely clear before they make a healthy choice. In reality, clarity often comes after the choice. You choose the calmer response, the kinder boundary, the faithful step, or the grateful perspective first, and then your heart slowly catches up. This quote becomes useful when it moves from something you read into something you practice in a real moment.`
+    ];
+
+    const examples = [
+        `In everyday life, this message can show up ${focus.everyday}. ${focus.example} In those moments, the quote gives you language for what your wiser self already knows. It reminds you to stop measuring the entire future by the mood of one difficult day. A delayed answer, a quiet season, a hard conversation, or a tired heart does not mean you are failing. It may simply mean you are being invited to move more carefully and choose what supports your peace instead of what feeds your fear.`,
+        `A practical example is the moment between feeling triggered and deciding what to do next. You may want to overthink, withdraw, chase reassurance, compare yourself, or give up because progress is not visible yet. This is where the quote becomes a small pause button. Instead of reacting from the most wounded part of you, you can ask what the next respectful choice looks like. Sometimes that choice is sending the message. Sometimes it is not sending the message. Sometimes it is resting, praying, planning, apologizing, forgiving yourself, or returning to the work with a softer heart.`
+    ];
+
+    const steps = [
+        `Name the real situation without exaggerating it. Write what happened, what you feel, and what you actually know.`,
+        `Choose one response that matches the person you are becoming, not just the emotion you are feeling.`,
+        `Use the quote as a reminder before a specific habit: morning prayer, journaling, walking, working, studying, or preparing for sleep.`,
+        sentenceCase(focus.practice),
+        focus.action
+    ];
+
+    const practice = [
+        `A simple way to practice this quote is to turn it into a short check-in. Ask yourself, "What is this trying to teach me today?" Then answer honestly. Do not look for a perfect answer. Look for the answer that helps you take care of your mind, your relationships, and your next step. If the quote is about hope, let it help you keep going. If it is about healing, let it give you permission to be gentle with yourself. If it is about self-worth, let it remind you not to bargain with your value. The goal is not to force a positive mood. The goal is to create a wiser direction.`,
+        `You can also use the quote as a journaling prompt. Write the line at the top of a page, then describe where it meets your real life right now. What part feels true? What part feels difficult to believe? What would change if you acted as if the message were trustworthy for just one day? This kind of reflection makes the page more than inspiration. It turns the quote into a mirror, helping you see the pattern, pressure, or possibility that deserves your attention.`
+    ];
+
+    const reflection = [
+        focus.question,
+        `What habit, relationship, thought, or fear makes it hardest for me to live this message?`,
+        `What is one choice I can make today that would support ${focus.name}?`,
+        `If someone I loved needed this quote, what would I gently tell them?`
+    ];
+
+    const closing = [
+        `Let this quote meet you where you are, not where you think you should be. You do not have to turn your whole life around in one dramatic moment. Most better days are built quietly: one honest thought, one healthier boundary, one grateful pause, one brave conversation, one decision not to give up on yourself. Come back to this message whenever you need a reminder that your story is still active and your next chapter can still be shaped with care.`,
+        `If ${title} resonates with you, save it for a day when your heart needs a steadier voice. Share it with someone who may be walking through a similar season. Most of all, let it become practical. Let it change how you speak to yourself today. Let it guide one action, one pause, or one decision. That is how a quote becomes more than words: it becomes a small piece of wisdom you can carry into the ordinary parts of life.`
+    ];
+
+    return {
+        readingMinutes: Math.max(4, Math.ceil([...meaning, ...examples, ...practice, ...closing].join(" ").split(/\s+/).length / 210)),
+        description: `${post.quote} Explore the meaning of this quote with practical examples, reflection prompts, and gentle guidance for ${focus.name}.`,
+        faqAnswer: `${post.quote} is a reminder about ${focus.name}. It encourages you to ${theme.action} while responding to real life with patience, self-respect, and hope.`,
+        sections: [
+            { heading: "What This Quote Means", paragraphs: meaning },
+            { heading: "How It Can Show Up In Real Life", paragraphs: examples },
+            { heading: "Practical Ways To Use This Quote", list: steps },
+            { heading: "A Simple Reflection Practice", paragraphs: practice },
+            { heading: "Questions To Ask Yourself", list: reflection },
+            { heading: "Final Encouragement", paragraphs: closing }
+        ]
+    };
+}
+
+function articleMarkup(article) {
+    return article.sections
+        .map(section => {
+            const paragraphs = (section.paragraphs || [])
+                .map(paragraph => `            <p>${escapeHtml(paragraph)}</p>`)
+                .join("\n");
+            const list = (section.list || [])
+                .map(item => `                <li>${escapeHtml(item)}</li>`)
+                .join("\n");
+
+            return `            <section class="article-section">
+                <h2>${escapeHtml(section.heading)}</h2>
+${paragraphs}${list ? `\n                <ul>\n${list}\n                </ul>` : ""}
+            </section>`;
+        })
+        .join("\n\n");
+}
+
 function buildMeaning(post) {
     const theme = getTheme(post.category, post.quote);
 
@@ -246,16 +417,15 @@ function shareButtons(url, text, imageUrl) {
             </div>`;
 }
 
-function buildPage(post, related, previous, next) {
+function buildPage(post, related, previous, next, index) {
     const title = escapeHtml(post.title);
     const quote = escapeHtml(post.quote);
-    const meaningParagraphs = buildMeaning(post)
-        .map(paragraph => `            <p>${escapeHtml(paragraph)}</p>`)
-        .join("\n");
+    const article = buildArticle(post, index);
+    const articleSections = articleMarkup(article);
     const image = escapeHtml(post.image);
     const canonical = `${SITE_URL}/photo/${post.slug}/`;
     const imageUrl = `${SITE_URL}/photo/${post.slug}/${post.image}`;
-    const description = escapeHtml(`${post.quote} Read a thoughtful reflection and related motivational quotes from Better Day Vibes.`);
+    const description = escapeHtml(article.description);
     const tags = keywordTags(post);
 
     const relatedCards = related
@@ -282,7 +452,7 @@ function buildPage(post, related, previous, next) {
     const faqSchema = [
         {
             question: `What is the meaning of this quote?`,
-            answer: `${post.quote} is a reminder to pause, reflect, and choose a hopeful mindset while moving through life with patience and self-respect.`
+            answer: article.faqAnswer
         },
         {
             question: `Can I share this Better Day Vibes quote?`,
@@ -302,7 +472,7 @@ function buildPage(post, related, previous, next) {
     "description": "${jsonEscape(normalizeText(post.quote))}",
     "image": "${jsonEscape(imageUrl)}",
     "datePublished": "2026-07-04",
-    "dateModified": "2026-07-04",
+    "dateModified": "2026-07-08",
     "author": {
       "@type": "Organization",
       "name": "Better Day Vibes"
@@ -455,6 +625,29 @@ ${schema}
             line-height: 1.75;
             color: #e5e7eb;
             margin: 0 0 18px;
+        }
+
+        .article-section {
+            margin: 0 0 30px;
+        }
+
+        .article-section h2 {
+            margin: 0 0 14px;
+            color: #fbbf24;
+            font-size: 25px;
+            line-height: 1.3;
+        }
+
+        .article-section ul {
+            margin: 0 0 18px 20px;
+            padding: 0;
+        }
+
+        .article-section li {
+            color: #e5e7eb;
+            font-size: 17px;
+            line-height: 1.75;
+            margin: 0 0 10px;
         }
 
         .related-quotes {
@@ -648,16 +841,16 @@ ${schema}
         </nav>
         <div class="post-meta">
             <span>Published: July 4, 2026</span>
-            <span>Updated: July 4, 2026</span>
-            <span>Reading time: 3 min</span>
+            <span>Updated: July 8, 2026</span>
+            <span>Reading time: ${article.readingMinutes} min</span>
         </div>
         <img class="post-image" src="${image}" alt="${title}">
         ${shareButtons(canonical, post.quote, imageUrl)}
         <p class="post-quote">${quote}</p>
 
-        <section class="post-description">
-${meaningParagraphs}
-        </section>
+        <article class="post-description">
+${articleSections}
+        </article>
 
         <section class="post-panel about-bdv">
             <h2>About Better Day Vibes</h2>
@@ -682,7 +875,7 @@ ${relatedCards}
             <h2>FAQ</h2>
             <details>
                 <summary>What is the meaning of this quote?</summary>
-                <p>${quote} is a reminder to pause, reflect, and choose a hopeful mindset while moving through life with patience and self-respect.</p>
+                <p>${escapeHtml(article.faqAnswer)}</p>
             </details>
             <details>
                 <summary>Can I share this Better Day Vibes quote?</summary>
@@ -704,8 +897,8 @@ ${relatedCards}
         </section>
 
         <nav class="post-panel post-nav" aria-label="Previous and next quotes">
-            <a href="../${escapeHtml(previous.slug)}/">← Previous Quote</a>
-            <a href="../${escapeHtml(next.slug)}/">Next Quote →</a>
+            <a href="../${escapeHtml(previous.slug)}/">&larr; Previous Quote</a>
+            <a href="../${escapeHtml(next.slug)}/">Next Quote &rarr;</a>
         </nav>
     </main>
 
@@ -769,7 +962,7 @@ posts.forEach((post, index) => {
     const related = getRelated(posts, post, index);
     const previous = posts[(index - 1 + posts.length) % posts.length];
     const next = posts[(index + 1) % posts.length];
-    const page = buildPage(post, related, previous, next);
+    const page = buildPage(post, related, previous, next, index);
 
     fs.writeFileSync(path.join(dir, "index.html"), page, "utf8");
     fs.writeFileSync(path.join(dir, `${post.slug}.html`), page, "utf8");
