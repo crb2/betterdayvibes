@@ -434,6 +434,10 @@ nav a:hover {
     background: #e60023;
 }
 
+.share-threads {
+    background: #111111;
+}
+
 .share-link {
     background: #64748b;
 }
@@ -574,7 +578,7 @@ nav a:hover {
 }
 
 .mini-quote-card .share-buttons {
-    justify-content: center;
+    justify-content: flex-start;
     padding: 10px 10px 0;
 }
 
@@ -586,6 +590,11 @@ nav a:hover {
     justify-content: center;
     border-radius: 50%;
     color: #ffffff;
+}
+
+#random-quote .mini-quote-grid {
+    grid-template-columns: minmax(190px, 260px);
+    justify-content: start;
 }
 
 .newsletter-block p,

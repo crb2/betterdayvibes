@@ -699,7 +699,7 @@ ${schema}
         }
 
         .related-card .quote-share {
-            justify-content: center;
+            justify-content: flex-start;
             margin: 0;
             padding: 10px 10px 0;
         }

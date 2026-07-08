@@ -72,6 +72,7 @@ function cardMarkup(card) {
     const xUrl = escapeHtml(`https://twitter.com/intent/tweet?text=${text}&url=${pageUrl}`);
     const whatsappUrl = escapeHtml(`https://wa.me/?text=${text}%20${pageUrl}`);
     const pinterestUrl = escapeHtml(`https://pinterest.com/pin/create/button/?url=${pageUrl}&media=${imageUrl}&description=${text}`);
+    const threadsUrl = escapeHtml(`https://www.threads.net/intent/post?text=${text}%20${pageUrl}`);
 
     return `            <article class="mini-quote-card">
                 <a class="mini-image-link" href="${escapeHtml(card.href)}">
@@ -82,6 +83,7 @@ function cardMarkup(card) {
                     <a class="share-x" href="${xUrl}" target="_blank" rel="noopener" aria-label="Share on X"><i class="fab fa-twitter"></i></a>
                     <a class="share-whatsapp" href="${whatsappUrl}" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     <a class="share-pinterest" href="${pinterestUrl}" target="_blank" rel="noopener" aria-label="Share on Pinterest"><i class="fab fa-pinterest"></i></a>
+                    <a class="share-threads" href="${threadsUrl}" target="_blank" rel="noopener" aria-label="Share on Threads"><i class="fa-brands fa-threads"></i></a>
                 </div>
                 <a class="mini-title-link" href="${escapeHtml(card.href)}">
                     <span>${escapeHtml(card.title)}</span>
