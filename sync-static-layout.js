@@ -85,7 +85,8 @@ function menuScript() {
                 sidebar.classList.remove("active");
             }
         });
-    </script>`;
+    </script>
+    <script src="js/site-actions.js"></script>`;
 }
 
 function ensureFontAwesome(html) {

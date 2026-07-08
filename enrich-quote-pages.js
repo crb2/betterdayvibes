@@ -967,6 +967,7 @@ ${relatedCards}
             }
         });
     </script>
+    <script src="../../js/site-actions.js"></script>
 </body>
 
 </html>

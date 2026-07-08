@@ -372,6 +372,7 @@ ${categorySections}
         </div>
         <p>&copy; 2026 Better Day Vibes. All Rights Reserved.</p>
     </footer>
+    <script src="js/site-actions.js"></script>
 </body>
 
 </html>
@@ -397,6 +398,9 @@ function updateStaticPages() {
         }
         html = addFooterText(html);
         html = addAllQuotesFooterLink(html);
+        if (!html.includes("js/site-actions.js")) {
+            html = html.replace("</body>", `    <script src="js/site-actions.js"></script>\n</body>`);
+        }
         fs.writeFileSync(file, html, "utf8");
     }
 }

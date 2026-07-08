@@ -361,12 +361,53 @@ nav a:hover {
     justify-content: center;
 }
 
+.category-toolbar {
+    width: 84%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
 .current-category {
     width: 84%;
     margin: 0 auto 20px;
     font-size: 18px;
     font-weight: 600;
     color: #fbbf24;
+}
+
+.category-toolbar .current-category {
+    width: auto;
+    margin: 0;
+}
+
+.shuffle-toggle {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(251, 191, 36, 0.4);
+    border-radius: 50%;
+    background: #111827;
+    color: #fbbf24;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.25s ease;
+    flex: 0 0 auto;
+}
+
+.shuffle-toggle.active {
+    background: #fbbf24;
+    color: #0f172a;
+    border-color: #fbbf24;
+}
+
+.shuffle-toggle:hover,
+.shuffle-toggle:focus-visible {
+    transform: translateY(-2px);
+    outline: none;
 }
 
 .quote-card:hover {

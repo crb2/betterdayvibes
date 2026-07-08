@@ -7,6 +7,7 @@ const quoteSection = document.getElementById("quoteSection");
 const noResults = document.getElementById("noResults");
 const currentCategory = document.getElementById("currentCategory");
 const quotesContainer = document.getElementById("quotesContainer");
+const shuffleToggle = document.getElementById("shuffleToggle");
 
 if (window.location.pathname.endsWith("/index.html")) {
     window.history.replaceState(
@@ -22,6 +23,8 @@ const cardsPerLoad = 10;
 const initialParams = new URLSearchParams(window.location.search);
 const initialSearch = initialParams.get("search") || "";
 const initialCategory = initialParams.get("category") || "";
+const shufflePreferenceKey = "betterDayVibesShuffleQuotes";
+let shuffleEnabled = localStorage.getItem(shufflePreferenceKey) !== "off";
 
 const aliases = {
     positive: "positivity",
@@ -234,8 +237,67 @@ function shuffleQuoteCards() {
 
 }
 
-shuffleQuoteCards();
+function restoreQuoteCardsOrder() {
+
+    const cards =
+        Array.from(document.querySelectorAll(".quote-card"));
+
+    const loadTrigger =
+        document.getElementById("load-trigger");
+
+    cards
+        .sort((a, b) => Number(a.dataset.originalIndex) - Number(b.dataset.originalIndex))
+        .forEach(card => {
+            quotesContainer.insertBefore(card, loadTrigger);
+        });
+
+}
+
+function updateShuffleToggle() {
+
+    if (!shuffleToggle) return;
+
+    shuffleToggle.classList.toggle("active", shuffleEnabled);
+    shuffleToggle.setAttribute("aria-pressed", String(shuffleEnabled));
+    shuffleToggle.setAttribute(
+        "aria-label",
+        shuffleEnabled ? "Shuffle quotes on" : "Shuffle quotes off"
+    );
+    shuffleToggle.title =
+        shuffleEnabled ? "Shuffle quotes on" : "Shuffle quotes off";
+
+}
+
+Array.from(document.querySelectorAll(".quote-card")).forEach((card, index) => {
+    card.dataset.originalIndex = String(index);
+});
+
+if (shuffleEnabled) {
+    shuffleQuoteCards();
+}
+
+updateShuffleToggle();
 updatePosts();
+
+if (shuffleToggle) {
+    shuffleToggle.addEventListener("click", () => {
+        shuffleEnabled = !shuffleEnabled;
+        localStorage.setItem(
+            shufflePreferenceKey,
+            shuffleEnabled ? "on" : "off"
+        );
+
+        if (shuffleEnabled) {
+            shuffleQuoteCards();
+        } else {
+            restoreQuoteCardsOrder();
+        }
+
+        visibleCardLimit = cardsPerLoad;
+        updateShuffleToggle();
+        updatePosts();
+    });
+}
 
 const suggestions =
     document.getElementById("searchSuggestions");
