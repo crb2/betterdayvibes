@@ -152,14 +152,29 @@
                 <div class="current-category" id="currentCategory">
                     All Posts
                 </div>
-                <label class="sort-control" for="sortSelect">
-                    <span>Sort by</span>
+                <div class="sort-control">
+                    <span id="sortLabel">Sort by</span>
                     <select id="sortSelect" aria-label="Sort quotes">
                         <option value="new" selected>New</option>
                         <option value="popular">Popularity</option>
                         <option value="old">Old</option>
                     </select>
-                </label>
+                    <div class="custom-select" data-custom-select>
+                        <button class="custom-select-button" id="sortSelectButton" type="button" aria-haspopup="listbox"
+                            aria-expanded="false" aria-labelledby="sortLabel sortSelectValue">
+                            <span id="sortSelectValue">New</span>
+                            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="custom-select-menu" role="listbox" aria-labelledby="sortLabel">
+                            <button class="custom-select-option active" type="button" role="option" aria-selected="true"
+                                data-value="new">New</button>
+                            <button class="custom-select-option" type="button" role="option" aria-selected="false"
+                                data-value="popular">Popularity</button>
+                            <button class="custom-select-option" type="button" role="option" aria-selected="false"
+                                data-value="old">Old</button>
+                        </div>
+                    </div>
+                </div>
                 <button class="shuffle-toggle active" id="shuffleToggle" type="button" aria-pressed="true" aria-label="Shuffle quotes on">
                     <i class="fa-solid fa-shuffle" aria-hidden="true"></i>
                 </button>
@@ -7118,10 +7133,12 @@
 
 
         <aside id="sidebar" class="sidebar">
-            <button id="closeBtn" class="close-btn">
-                &times;
-            </button>
-            <h3 id="categories">Categories</h3>
+            <div class="sidebar-header">
+                <h3 id="categories">Categories</h3>
+                <button id="closeBtn" class="close-btn" type="button" aria-label="Close categories">
+                    &times;
+                </button>
+            </div>
 
             <ul>
                 <li><a href="#" data-filter="all">All Posts</a></li>

@@ -9,6 +9,10 @@ const currentCategory = document.getElementById("currentCategory");
 const quotesContainer = document.getElementById("quotesContainer");
 const shuffleToggle = document.getElementById("shuffleToggle");
 const sortSelect = document.getElementById("sortSelect");
+const customSelect = document.querySelector("[data-custom-select]");
+const customSelectButton = document.getElementById("sortSelectButton");
+const customSelectValue = document.getElementById("sortSelectValue");
+const customSelectOptions = document.querySelectorAll(".custom-select-option");
 
 if (window.location.pathname.endsWith("/index.html")) {
     window.history.replaceState(
@@ -59,11 +63,14 @@ if (initialSearch) {
 
 quoteLink.addEventListener("click", (e) => {
     e.preventDefault();
-    quoteSection.classList.add("show");
-    quoteSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
+    quoteSection.classList.toggle("show");
+
+    if (quoteSection.classList.contains("show")) {
+        quoteSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
 });
 
 if (window.location.hash === "#quoteSection") {
@@ -337,9 +344,68 @@ if (shuffleToggle) {
     });
 }
 
+function closeCustomSelect() {
+
+    if (!customSelect || !customSelectButton) return;
+
+    customSelect.classList.remove("open");
+    customSelectButton.setAttribute("aria-expanded", "false");
+
+}
+
+function updateCustomSelect(value) {
+
+    if (!customSelectValue || !customSelectOptions.length) return;
+
+    customSelectOptions.forEach(option => {
+        const isSelected = option.dataset.value === value;
+
+        option.classList.toggle("active", isSelected);
+        option.setAttribute("aria-selected", String(isSelected));
+
+        if (isSelected) {
+            customSelectValue.textContent = option.textContent;
+        }
+    });
+
+}
+
+if (customSelect && customSelectButton) {
+    customSelectButton.addEventListener("click", () => {
+        const isOpen = customSelect.classList.toggle("open");
+
+        customSelectButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    customSelectOptions.forEach(option => {
+        option.addEventListener("click", () => {
+            if (!sortSelect) return;
+
+            sortSelect.value = option.dataset.value;
+            sortSelect.dispatchEvent(new Event("change"));
+            closeCustomSelect();
+        });
+    });
+
+    document.addEventListener("click", (event) => {
+        if (!customSelect.contains(event.target)) {
+            closeCustomSelect();
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            closeCustomSelect();
+            customSelectButton.focus();
+        }
+    });
+}
+
+updateCustomSelect(activeSort);
 if (sortSelect) {
     sortSelect.addEventListener("change", () => {
         activeSort = sortSelect.value;
+        updateCustomSelect(activeSort);
         shuffleEnabled = false;
         localStorage.setItem(shufflePreferenceKey, "off");
         sortQuoteCards();
