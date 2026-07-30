@@ -8,6 +8,7 @@ const noResults = document.getElementById("noResults");
 const currentCategory = document.getElementById("currentCategory");
 const quotesContainer = document.getElementById("quotesContainer");
 const shuffleToggle = document.getElementById("shuffleToggle");
+const sortSelect = document.getElementById("sortSelect");
 
 if (window.location.pathname.endsWith("/index.html")) {
     window.history.replaceState(
@@ -24,7 +25,8 @@ const initialParams = new URLSearchParams(window.location.search);
 const initialSearch = initialParams.get("search") || "";
 const initialCategory = initialParams.get("category") || "";
 const shufflePreferenceKey = "betterDayVibesShuffleQuotes";
-let shuffleEnabled = localStorage.getItem(shufflePreferenceKey) !== "off";
+let shuffleEnabled = localStorage.getItem(shufflePreferenceKey) === "on";
+let activeSort = sortSelect ? sortSelect.value : "new";
 
 const aliases = {
     positive: "positivity",
@@ -237,7 +239,22 @@ function shuffleQuoteCards() {
 
 }
 
-function restoreQuoteCardsOrder() {
+function getPopularQuoteRank(card) {
+
+    const slug = card.dataset.slug || "";
+    const popularLinks = Array.from(
+        document.querySelectorAll("#popular-quotes a[href^='photo/']")
+    );
+    const popularSlugs = popularLinks
+        .map(link => link.getAttribute("href").match(/^photo\/([^/]+)\/?/)?.[1])
+        .filter(Boolean);
+    const rank = popularSlugs.indexOf(slug);
+
+    return rank === -1 ? popularSlugs.length + Number(card.dataset.originalIndex) : rank;
+
+}
+
+function sortQuoteCards() {
 
     const cards =
         Array.from(document.querySelectorAll(".quote-card"));
@@ -246,10 +263,29 @@ function restoreQuoteCardsOrder() {
         document.getElementById("load-trigger");
 
     cards
-        .sort((a, b) => Number(a.dataset.originalIndex) - Number(b.dataset.originalIndex))
+        .sort((a, b) => {
+            const firstIndex = Number(a.dataset.originalIndex);
+            const secondIndex = Number(b.dataset.originalIndex);
+
+            if (activeSort === "new") {
+                return secondIndex - firstIndex;
+            }
+
+            if (activeSort === "popular") {
+                return getPopularQuoteRank(a) - getPopularQuoteRank(b);
+            }
+
+            return firstIndex - secondIndex;
+        })
         .forEach(card => {
             quotesContainer.insertBefore(card, loadTrigger);
         });
+
+}
+
+function restoreQuoteCardsOrder() {
+
+    sortQuoteCards();
 
 }
 
@@ -274,6 +310,8 @@ Array.from(document.querySelectorAll(".quote-card")).forEach((card, index) => {
 
 if (shuffleEnabled) {
     shuffleQuoteCards();
+} else {
+    sortQuoteCards();
 }
 
 updateShuffleToggle();
@@ -293,6 +331,18 @@ if (shuffleToggle) {
             restoreQuoteCardsOrder();
         }
 
+        visibleCardLimit = cardsPerLoad;
+        updateShuffleToggle();
+        updatePosts();
+    });
+}
+
+if (sortSelect) {
+    sortSelect.addEventListener("change", () => {
+        activeSort = sortSelect.value;
+        shuffleEnabled = false;
+        localStorage.setItem(shufflePreferenceKey, "off");
+        sortQuoteCards();
         visibleCardLimit = cardsPerLoad;
         updateShuffleToggle();
         updatePosts();
