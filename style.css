@@ -817,6 +817,17 @@ nav a:hover {
 .faq-block details p {
     margin-top: 10px;
 }
+.faq-section details {
+    margin-bottom: 14px;
+}
+
+.faq-section details:last-child {
+    margin-bottom: 0;
+}
+
+.faq-section details p {
+    margin-top: 8px;
+}
 
 .sitemap-main {
     max-width: 1180px;
