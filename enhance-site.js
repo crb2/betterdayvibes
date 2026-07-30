@@ -86,7 +86,7 @@ function cardMarkup(card) {
                     <a class="share-threads" href="${threadsUrl}" target="_blank" rel="noopener" aria-label="Share on Threads"><i class="fa-brands fa-threads"></i></a>
                 </div>
                 <a class="mini-title-link" href="${escapeHtml(card.href)}">
-                    <span>${escapeHtml(card.title)}</span>
+                    <span>${escapeHtml(card.quote || card.title)}</span>
                 </a>
             </article>`;
 }
