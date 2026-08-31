@@ -15,18 +15,18 @@
     --border-focus: #666666;
     --border-quote: #666666;
 
-    --text-primary: rgba(255, 255, 255, 0.90);
-    --text-secondary: rgba(255, 255, 255, 0.78);
-    --text-muted: rgba(255, 255, 255, 0.68);
-    --text-placeholder: rgba(255, 255, 255, 0.62);
-    --text-heading: rgba(255, 255, 255, 0.96);
+    --text-primary: #f0f0f0;
+    --text-secondary: #cccccc;
+    --text-muted: #a8a8a8;
+    --text-placeholder: #888888;
+    --text-heading: #f0f0f0;
 
     --btn-primary-bg: #ffffff;
     --btn-primary-text: #121212;
     --btn-primary-hover: #e5e5e5;
 
     --btn-secondary-bg: #262626;
-    --btn-secondary-text: #ffffff;
+    --btn-secondary-text: #f0f0f0;
     --btn-secondary-border: #383838;
     --btn-secondary-hover: #333333;
 
@@ -53,11 +53,11 @@
     --border-focus: #8e8e93;
     --border-quote: #8e8e93;
 
-    --text-primary: rgba(18, 18, 18, 0.90);
-    --text-secondary: rgba(18, 18, 18, 0.78);
-    --text-muted: rgba(18, 18, 18, 0.68);
-    --text-placeholder: rgba(18, 18, 18, 0.55);
-    --text-heading: rgba(18, 18, 18, 0.96);
+    --text-primary: #121212;
+    --text-secondary: #333333;
+    --text-muted: #555555;
+    --text-placeholder: #777777;
+    --text-heading: #121212;
 
     --btn-primary-bg: #121212;
     --btn-primary-text: #ffffff;
@@ -124,7 +124,6 @@ a:visited {
 
 a:hover {
     color: var(--text-primary);
-    opacity: 0.9;
 }
 
 a:focus-visible {
@@ -220,7 +219,7 @@ img {
 }
 
 .logo a:hover span {
-    opacity: 0.85;
+    color: var(--text-primary);
 }
 
 .header-controls {
@@ -235,7 +234,7 @@ img {
 .theme-toggle-btn {
     background: none;
     border: none;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -290,7 +289,7 @@ img {
 .menu-btn {
     background: none;
     border: none;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -352,7 +351,7 @@ img {
 .close-btn {
     background: rgba(128, 128, 128, 0.1);
     border: 1px solid var(--border-subtle);
-    color: var(--text-muted);
+    color: var(--text-primary);
     width: 32px;
     height: 32px;
     border-radius: 6px;
@@ -385,7 +384,7 @@ img {
 
 .sidebar a,
 .sidebar a:visited {
-    color: var(--text-secondary);
+    color: var(--text-primary);
     text-decoration: none;
     font-size: 0.92rem;
     font-weight: 500;
@@ -495,7 +494,7 @@ img {
     padding: 10px 16px;
     cursor: pointer;
     font-size: 14px;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     transition: background-color 0.15s ease, color 0.15s ease;
 }
 
@@ -614,7 +613,7 @@ img {
 .quote-day p {
     font-size: 1.1rem;
     line-height: 1.7;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     max-width: 680px;
     margin: 0 auto;
 }
@@ -664,7 +663,7 @@ img {
 
 .quote-content p {
     line-height: 1.7;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     font-size: 15px;
     min-height: 90px;
     margin-bottom: 16px;
@@ -687,7 +686,7 @@ img {
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     background: var(--bg-input);
     border: 1px solid var(--border-subtle);
     font-size: 14px;
@@ -735,7 +734,7 @@ img {
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
     border-radius: 10px;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     font-size: 0.95rem;
     font-weight: 500;
     line-height: 1.5;
@@ -791,14 +790,14 @@ img {
 .about p {
     line-height: 1.8;
     margin-bottom: 16px;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     font-size: 15px;
 }
 
 .about ul {
     margin: 0 0 20px 24px;
     line-height: 1.8;
-    color: var(--text-secondary);
+    color: var(--text-primary);
 }
 
 .about li {
@@ -842,7 +841,7 @@ footer {
 
 .footer-links a,
 .footer-links a:visited {
-    color: var(--text-muted);
+    color: var(--text-primary);
     text-decoration: none;
     font-size: 14px;
     transition: color 0.2s ease;
@@ -871,7 +870,7 @@ footer {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     background: var(--bg-input);
     border: 1px solid var(--border-subtle);
     border-radius: 50%;
@@ -888,7 +887,7 @@ footer {
 }
 
 footer p {
-    color: var(--text-muted);
+    color: var(--text-primary);
     font-size: 13px;
     margin-top: 4px;
 }

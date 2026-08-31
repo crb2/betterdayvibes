@@ -238,7 +238,7 @@ function generateQuotePageHtml(item, allQuotes) {
             border-radius: 50%;
             background: var(--bg-input);
             border: 1px solid var(--border-subtle);
-            color: var(--text-secondary);
+            color: var(--text-primary);
             text-decoration: none;
             font-size: 14px;
             transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
@@ -269,7 +269,7 @@ function generateQuotePageHtml(item, allQuotes) {
         .post-description p {
             font-size: 15px;
             line-height: 1.8;
-            color: var(--text-secondary);
+            color: var(--text-primary);
             margin: 0 0 18px;
         }
 
@@ -292,7 +292,7 @@ function generateQuotePageHtml(item, allQuotes) {
         }
 
         .takeaway-card p {
-            color: var(--text-secondary);
+            color: var(--text-primary);
             font-size: 15px;
             font-weight: 500;
             margin: 0;
@@ -322,7 +322,7 @@ function generateQuotePageHtml(item, allQuotes) {
 
         .related-quotes a,
         .related-quotes a:visited {
-            color: var(--text-secondary);
+            color: var(--text-primary);
             text-decoration: none;
             font-weight: 500;
             font-size: 15px;
