@@ -1,27 +1,41 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NL09B94R1T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-NL09B94R1T');
+    </script>
+    <script>
+        (function () {
+            var saved = localStorage.getItem("themePreference") || "dark";
+            document.documentElement.setAttribute("data-theme", saved);
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0f172a">
+    <meta name="theme-color" content="#121212">
     <title>About Us - Better Day Vibes</title>
-    <!-- Favicon -->
+    <meta name="description" content="Learn about Better Day Vibes, our mission to inspire positive mental wellness, and how we curate and write meaningful reflections for daily life.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://betterdayvibes.life/about.html">
+    <meta property="og:title" content="About Us - Better Day Vibes">
+    <meta property="og:description" content="Discover our mission to spread daily inspiration, healing reflections, and practical wisdom.">
+    <meta property="og:url" content="https://betterdayvibes.life/about.html">
+    <meta property="og:type" content="website">
+
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon.png">
     <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/android-chrome-512x512.png">
-
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="canonical" href="https://betterdayvibes.life/about.html">
-    <meta property="og:site_name" content="Better Day Vibes">
-    <meta name="twitter:site" content="@betterdayvibe">
 </head>
 
 <body>
@@ -33,92 +47,105 @@
             </a>
         </div>
 
-        <nav>
-            <a href="./">Home</a>
-            <a href="./#recent-quotes">Recent Quotes</a>
-            <a href="./#popular-quotes">Popular Quotes</a>
-            <a href="./#related-quotes">Related Quotes</a>
+        <div class="header-search">
+            <form action="./" method="GET" class="search-wrapper">
+                <input type="text" name="search" id="searchInput" placeholder="Search motivational quotes..." aria-label="Search motivational quotes">
+                <button type="button" id="clearSearch" class="clear-search" aria-label="Clear search input">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </form>
+        </div>
 
-            <button id="menuBtn" class="menu-btn">
-                &#9776;
+        <div class="header-controls">
+            <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Switch to light mode" title="Switch to light mode">
+                <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                </svg>
+                <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
             </button>
-        </nav>
+
+            <button id="menuBtn" class="menu-btn" aria-label="Open navigation menu">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
     </header>
 
-        <aside id="sidebar" class="sidebar">
-        <button id="closeBtn" class="close-btn">
-            &#10005;
-        </button>
-        <h3 id="categories">Categories</h3>
+    <aside id="sidebar" class="sidebar" aria-label="Categories menu">
+        <div class="sidebar-header">
+            <h3>Categories</h3>
+            <button id="closeBtn" class="close-btn" aria-label="Close categories menu">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <ul>
-            <li><a href="./?category=all#quotesContainer">All Posts</a></li>
+            <li><a href="./#categories">All Categories</a></li>
             <li><a href="./?category=gratitude#quotesContainer">Gratitude</a></li>
             <li><a href="./?category=positivity#quotesContainer">Positivity</a></li>
             <li><a href="./?category=healing#quotesContainer">Healing</a></li>
             <li><a href="./?category=relationships#quotesContainer">Relationships</a></li>
             <li><a href="./?category=self-growth#quotesContainer">Self-Growth</a></li>
-            <li><a href="./?category=faith-hope#quotesContainer">Faith & Hope</a></li>
-            <li><a href="./?category=faith-blessings#quotesContainer">Faith Blessings</a></li>
-            <li><a href="./?category=manifestation-positive-thinking#quotesContainer">Manifestation</a></li>
-            <li><a href="./?category=mental-health-self-care#quotesContainer">Mental Health</a></li>
-            <li><a href="./?category=mindfulness#quotesContainer">Mindfulness</a></li>
-            <li><a href="./?category=patience-trust#quotesContainer">Patience & Trust</a></li>
-            <li><a href="./?category=positive-mindset-mental-strength#quotesContainer">Positive Mindset</a></li>
-            <li><a href="./?category=purpose-passion#quotesContainer">Purpose & Passion</a></li>
-            <li><a href="./?category=new-beginnings#quotesContainer">New-Beginnings</a></li>
-            <li><a href="./?category=perseverance#quotesContainer">Perseverance</a></li>
-            <li><a href="./?category=aging#quotesContainer">Aging</a></li>
-            <li><a href="./?category=motivation#quotesContainer">Motivation</a></li>
-        </ul>    </aside>
-    <section class="search-section">
-        <form class="search-wrapper page-search-form" data-search-root="./" role="search">
-            <input type="text" id="searchInput" placeholder="Search motivational quotes..." autocomplete="off">
-            <button type="button" id="clearSearch" class="clear-search" aria-label="Clear search">
-                &#10005;
-            </button>
-            <div id="searchSuggestions" class="search-suggestions"></div>
-        </form>
-    </section>
-
-    <div class="current-category" id="currentCategory">
-        All Posts
-    </div>
+            <li><a href="./?category=faith-hope#quotesContainer">Faith &amp; Hope</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </aside>
 
     <div class="about-wrapper">
-        <section class="about">
-            <h1>About Us</h1>
+        <main class="about">
+            <h1>About Better Day Vibes</h1>
 
             <p>
-                Welcome to Better Day Vibes, a place dedicated to spreading positivity,
-                inspiration, and motivation through meaningful quotes and uplifting content.
+                Welcome to <strong>Better Day Vibes</strong> (<a href="https://betterdayvibes.life">https://betterdayvibes.life</a>), an online publication and community dedicated to cultivating positive mental wellness, emotional resilience, intentional gratitude, and personal growth.
             </p>
 
+            <h2>Our Mission</h2>
             <p>
-                Our mission is simple: to help brighten your day with encouraging words
-                that inspire personal growth, gratitude, healing, hope, and stronger
-                relationships.
+                In a fast-paced and often stressful digital world, our mission is simple yet vital: to provide a calm, uplifting digital sanctuary where visitors can find genuine encouragement, clarity, and perspective. We believe that words possess immense power—to heal heavy hearts, inspire courageous choices, and re-anchor our focus on what truly matters.
             </p>
 
+            <h2>What We Do &amp; Our Editorial Value</h2>
             <p>
-                We believe that a few positive words can make a difference, whether you
-                are facing challenges, pursuing your goals, or simply looking for daily
-                encouragement.
+                Better Day Vibes goes far beyond simply sharing inspirational images. We believe that an inspiring quote is only as valuable as the real-world wisdom it unlocks. For every quote in our collection, our editorial team produces in-depth, original reflections designed to help you navigate everyday challenges:
             </p>
+            <ul>
+                <li><strong>Core Meaning:</strong> Unpacking the deeper psychological and philosophical principles behind each message.</li>
+                <li><strong>Real-Life Significance:</strong> Exploring why the message matters in contemporary relationships, career decisions, boundaries, and emotional healing.</li>
+                <li><strong>Practical Application:</strong> Offering tangible reflection prompts and action steps to integrate the lesson into your daily routine.</li>
+                <li><strong>Key Takeaways:</strong> Providing clear, empowering closing insights that you can carry with you throughout your day.</li>
+            </ul>
 
+            <h2>Our Core Values</h2>
             <p>
-                On Better Day Vibes, you'll discover motivational quotes organized into
-                categories such as Gratitude, Positivity, Healing, Relationships,
-                Self-Growth, and Faith & Hope, making it easy to find inspiration that
-                speaks to your current journey.
+                Our editorial approach is anchored in five foundational pillars:
             </p>
+            <ul>
+                <li><strong>Authenticity:</strong> We advocate for real, grounded positivity. We do not promote toxic positivity or deny genuine emotional sorrow; rather, we honor the healing journey and celebrate steady, quiet progress.</li>
+                <li><strong>Integrity in Attribution:</strong> We respect intellectual history and authorship. Where a quote has a known originator or historical source, we cite it accurately. When a saying is traditional or anonymous wisdom, we state so transparently without fabricating claims.</li>
+                <li><strong>Compassionate Growth:</strong> We believe that true strength comes from setting healthy boundaries, embracing self-respect, and extending empathy to others.</li>
+                <li><strong>Gratitude &amp; Mindfulness:</strong> We encourage daily practices of thankfulness that transform how we view our present moments.</li>
+            </ul>
 
+            <h2>Join Our Community</h2>
             <p>
-                Thank you for visiting Better Day Vibes. We hope our content helps you
-                stay inspired, stay hopeful, and create a better dayâ€”every day.
+                Whether you are navigating a difficult life transition, working toward personal goals, or simply seeking a daily dose of encouragement, Better Day Vibes is here to support your journey. Explore our categorized collections, save quotes that speak to your heart, and share meaningful reflections with those you love.
             </p>
-
-        </section>
+            <p>
+                Thank you for being part of the Better Day Vibes family. We hope our reflections help you cultivate peace, embrace growth, and create a better day—every day.
+            </p>
+        </main>
     </div>
 
     <footer>
@@ -129,12 +156,8 @@
             <span>|</span>
             <a href="privacy-policy.html">Privacy Policy</a>
             <span>|</span>
-            <a href="terms-and-conditions.html">Terms & Conditions</a>
-            <span>|</span>
-            <a href="all-quotes.html">All Quotes</a>
+            <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
         </div>
-
-        <p class="footer-follow">Follow on our social media</p>
 
         <div class="footer-social" aria-label="Better Day Vibes social links">
             <a href="https://www.instagram.com/betterdayvibe" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -144,16 +167,26 @@
             <a href="https://x.com/betterdayvibe" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
         </div>
 
-        <p>&copy; 2026 Better Day Vibes. All Rights Reserved.</p>
+        <p>&copy; 2026 Better Day Vibes v1.0.1. All Rights Reserved.</p>
     </footer>
 
-        <script>
+    <!-- Floating Scroll Navigation Button -->
+    <button id="scrollNavBtn" class="scroll-nav-btn" aria-label="Scroll to bottom" title="Scroll to bottom" aria-hidden="true">
+        <svg class="scroll-icon scroll-icon-down" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+        </svg>
+        <svg class="scroll-icon scroll-icon-up" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+    </button>
+
+    <script src="theme.js"></script>
+    <script>
         const menuBtn = document.getElementById("menuBtn");
         const sidebar = document.getElementById("sidebar");
         const closeBtn = document.getElementById("closeBtn");
-        const searchForm = document.querySelector(".page-search-form");
-        const searchInput = document.getElementById("searchInput");
-        const clearSearch = document.getElementById("clearSearch");
 
         if (menuBtn && sidebar) {
             menuBtn.addEventListener("click", () => {
@@ -172,45 +205,7 @@
                 sidebar.classList.remove("active");
             }
         });
-
-        if (searchForm && searchInput) {
-            const goToSearch = () => {
-                const root = searchForm.dataset.searchRoot || "./";
-                const term = searchInput.value.trim();
-                const url = new URL(root, window.location.href);
-
-                if (term) {
-                    url.searchParams.set("search", term);
-                } else {
-                    url.searchParams.set("category", "all");
-                }
-
-                url.hash = "quotesContainer";
-                window.location.href = url.toString();
-            };
-
-            searchForm.addEventListener("submit", event => {
-                event.preventDefault();
-                goToSearch();
-            });
-
-            searchInput.addEventListener("input", () => {
-                if (clearSearch) {
-                    clearSearch.style.display = searchInput.value ? "block" : "none";
-                }
-            });
-
-            if (clearSearch) {
-                clearSearch.addEventListener("click", () => {
-                    searchInput.value = "";
-                    clearSearch.style.display = "none";
-                    goToSearch();
-                });
-            }
-        }
     </script>
-
-    <script src="js/site-actions.js"></script>
 </body>
 
 </html>

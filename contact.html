@@ -1,15 +1,32 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NL09B94R1T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-NL09B94R1T');
+    </script>
+    <script>
+        (function () {
+            var saved = localStorage.getItem("themePreference") || "dark";
+            document.documentElement.setAttribute("data-theme", saved);
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact Better Day Vibes for quote requests, feedback, collaborations, and daily inspiration updates.">
+    <meta name="theme-color" content="#121212">
+    <meta name="description" content="Contact Better Day Vibes. Send feedback, collaborate, request quotes, or connect with our team.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://betterdayvibes.life/contact.html">
     <meta property="og:title" content="Contact Better Day Vibes">
-    <meta property="og:description" content="Send a message to Better Day Vibes and follow us on social media.">
+    <meta property="og:description" content="Send a message to Better Day Vibes and connect with our team.">
     <meta property="og:image" content="https://betterdayvibes.life/better-day-vibes-logo.jpg">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
     <meta property="og:type" content="website">
     <title>Contact Better Day Vibes</title>
 
@@ -18,10 +35,144 @@
     <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <meta property="og:site_name" content="Better Day Vibes">
-    <meta name="twitter:site" content="@betterdayvibe">
+
+    <style>
+        .contact-container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 36px 20px 60px;
+            width: 100%;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .contact-header h1 {
+            font-size: 32px;
+            color: var(--text-heading);
+            margin: 0 0 12px;
+            font-weight: 700;
+        }
+
+        .contact-header p {
+            color: var(--text-muted);
+            font-size: 16px;
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 32px;
+            box-shadow: var(--card-shadow);
+            transition: background-color 0.25s ease, border-color 0.25s ease;
+        }
+
+        .contact-card h2 {
+            font-size: 20px;
+            color: var(--text-heading);
+            margin: 0 0 20px;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            background: var(--bg-input);
+            border: 1px solid var(--border-medium);
+            border-radius: 8px;
+            padding: 12px 14px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: border-color 0.2s ease, background-color 0.25s ease;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 140px;
+            max-height: 500px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--border-focus);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-placeholder);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--btn-primary-bg);
+            color: var(--btn-primary-text);
+            border: none;
+            padding: 13px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--btn-primary-hover);
+            transform: translateY(-1px);
+        }
+
+        .form-status {
+            margin-top: 14px;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .form-status.success {
+            display: block;
+            background: rgba(34, 197, 94, 0.12);
+            border: 1px solid rgba(34, 197, 94, 0.28);
+            color: #4ade80;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                padding: 24px 16px 48px;
+            }
+
+            .contact-card {
+                padding: 24px 18px;
+            }
+
+            .contact-header h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -33,102 +184,98 @@
             </a>
         </div>
 
-        <nav>
-            <a href="./">Home</a>
-            <a href="./#categories">Categories</a>
-            <a href="./#recent-quotes">Recent Quotes</a>
-            <a href="./#popular-quotes">Popular Quotes</a>
-            <a href="./#related-quotes">Related Quotes</a>
-        
-            <button id="menuBtn" class="menu-btn">
-                &#9776;
+        <div class="header-search">
+            <form action="./" method="GET" class="search-wrapper">
+                <input type="text" name="search" id="searchInput" placeholder="Search motivational quotes..." aria-label="Search motivational quotes">
+                <button type="button" id="clearSearch" class="clear-search" aria-label="Clear search input">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </form>
+        </div>
+
+        <div class="header-controls">
+            <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Switch to light mode" title="Switch to light mode">
+                <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                </svg>
+                <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
             </button>
-        </nav>
+
+            <button id="menuBtn" class="menu-btn" aria-label="Open navigation menu">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
     </header>
 
-    <aside id="sidebar" class="sidebar">
-        <button id="closeBtn" class="close-btn">
-            &#10005;
-        </button>
-        <h3 id="categories">Categories</h3>
+    <aside id="sidebar" class="sidebar" aria-label="Categories menu">
+        <div class="sidebar-header">
+            <h3>Categories</h3>
+            <button id="closeBtn" class="close-btn" aria-label="Close categories menu">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <ul>
-            <li><a href="./?category=all#quotesContainer">All Posts</a></li>
+            <li><a href="./#categories">All Categories</a></li>
             <li><a href="./?category=gratitude#quotesContainer">Gratitude</a></li>
             <li><a href="./?category=positivity#quotesContainer">Positivity</a></li>
             <li><a href="./?category=healing#quotesContainer">Healing</a></li>
             <li><a href="./?category=relationships#quotesContainer">Relationships</a></li>
             <li><a href="./?category=self-growth#quotesContainer">Self-Growth</a></li>
-            <li><a href="./?category=faith-hope#quotesContainer">Faith & Hope</a></li>
-            <li><a href="./?category=faith-blessings#quotesContainer">Faith Blessings</a></li>
-            <li><a href="./?category=manifestation-positive-thinking#quotesContainer">Manifestation</a></li>
-            <li><a href="./?category=mental-health-self-care#quotesContainer">Mental Health</a></li>
-            <li><a href="./?category=mindfulness#quotesContainer">Mindfulness</a></li>
-            <li><a href="./?category=patience-trust#quotesContainer">Patience & Trust</a></li>
-            <li><a href="./?category=positive-mindset-mental-strength#quotesContainer">Positive Mindset</a></li>
-            <li><a href="./?category=purpose-passion#quotesContainer">Purpose & Passion</a></li>
-            <li><a href="./?category=new-beginnings#quotesContainer">New-Beginnings</a></li>
-            <li><a href="./?category=perseverance#quotesContainer">Perseverance</a></li>
-            <li><a href="./?category=aging#quotesContainer">Aging</a></li>
-            <li><a href="./?category=motivation#quotesContainer">Motivation</a></li>
-        </ul>    </aside>
-    <section class="search-section">
-        <form class="search-wrapper page-search-form" data-search-root="./" role="search">
-            <input type="text" id="searchInput" placeholder="Search motivational quotes..." autocomplete="off">
-            <button type="button" id="clearSearch" class="clear-search" aria-label="Clear search">
-                &#10005;
-            </button>
-            <div id="searchSuggestions" class="search-suggestions"></div>
-        </form>
-    </section>
+            <li><a href="./?category=faith-hope#quotesContainer">Faith &amp; Hope</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </aside>
 
-    <main class="contact-main">
-        <h1>Contact Better Day Vibes</h1>
-        <p>
-            Have a quote request, feedback, collaboration idea, or a message for Better Day Vibes?
-            Use the form below or connect through any social page.
-        </p>
-
-        <div class="contact-layout">
-            <form class="contact-form" action="mailto:betterdayvibe@gmail.com" method="post" enctype="text/plain">
-                <label>
-                    Name
-                    <input type="text" name="name" autocomplete="name" required>
-                </label>
-
-                <label>
-                    Email
-                    <input type="email" name="email" autocomplete="email" required>
-                </label>
-
-                <label>
-                    Message
-                    <textarea name="message" rows="7" required></textarea>
-                </label>
-
-                <button type="submit">Send Message</button>
-            </form>
-
-            <section class="contact-social">
-                <h2>Social Media</h2>
-                <a href="https://www.instagram.com/betterdayvibe" target="_blank" rel="noopener">
-                    <i class="fa-brands fa-instagram"></i> Instagram
-                </a>
-                <a href="https://www.facebook.com/betterdayvibe" target="_blank" rel="noopener">
-                    <i class="fa-brands fa-facebook"></i> Facebook
-                </a>
-                <a href="https://threads.com/@betterdayvibe" target="_blank" rel="noopener">
-                    <i class="fa-brands fa-threads"></i> Threads
-                </a>
-                <a href="https://pinterest.com/betterdayvibe" target="_blank" rel="noopener">
-                    <i class="fa-brands fa-pinterest"></i> Pinterest
-                </a>
-                <a href="https://x.com/betterdayvibe" target="_blank" rel="noopener">
-                    <i class="fa-brands fa-x-twitter"></i> X
-                </a>
-            </section>
+    <div class="contact-container">
+        <div class="contact-header">
+            <h1>Get in Touch</h1>
+            <p>
+                Have a question, feedback, or a quote suggestion? We would love to hear from you. Fill out the form below and our team will get back to you.
+            </p>
         </div>
-    </main>
+
+        <section class="contact-card" aria-labelledby="message-heading">
+            <h2 id="message-heading">Send Us a Message</h2>
+            <form id="contactForm" novalidate>
+                <div class="form-group">
+                    <label for="contactName">Your Name</label>
+                    <input type="text" id="contactName" name="name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactEmail">Your Email</label>
+                    <input type="email" id="contactEmail" name="email" placeholder="you@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactSubject">Subject</label>
+                    <input type="text" id="contactSubject" name="subject" placeholder="What is this regarding?" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactMessage">Message</label>
+                    <textarea id="contactMessage" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+                <div id="formStatus" class="form-status" role="alert"></div>
+            </form>
+        </section>
+    </div>
 
     <footer>
         <div class="footer-links">
@@ -138,20 +285,65 @@
             <span>|</span>
             <a href="privacy-policy.html">Privacy Policy</a>
             <span>|</span>
-            <a href="terms-and-conditions.html">Terms & Conditions</a>
-            <span>|</span>
-            <a href="all-quotes.html">All Quotes</a>
+            <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
         </div>
 
-        <p>Â© 2026 Better Day Vibes. All Rights Reserved.</p>
+        <div class="footer-social" aria-label="Better Day Vibes social links">
+            <a href="https://www.instagram.com/betterdayvibe" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/betterdayvibe" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://threads.com/@betterdayvibe" target="_blank" rel="noopener" aria-label="Threads"><i class="fa-brands fa-threads"></i></a>
+            <a href="https://pinterest.com/betterdayvibe" target="_blank" rel="noopener" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+            <a href="https://x.com/betterdayvibe" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+
+        <p>&copy; 2026 Better Day Vibes v1.0.1. All Rights Reserved.</p>
     </footer>
+
+    <!-- Floating Scroll Navigation Button -->
+    <button id="scrollNavBtn" class="scroll-nav-btn" aria-label="Scroll to bottom" title="Scroll to bottom" aria-hidden="true">
+        <svg class="scroll-icon scroll-icon-down" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+        </svg>
+        <svg class="scroll-icon scroll-icon-up" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+    </button>
+
+    <script src="theme.js"></script>
     <script>
+        const contactForm = document.getElementById("contactForm");
+        const formStatus = document.getElementById("formStatus");
+
+        if (contactForm && formStatus) {
+            contactForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const name = document.getElementById("contactName").value.trim();
+                const email = document.getElementById("contactEmail").value.trim();
+                const subject = document.getElementById("contactSubject").value.trim();
+                const message = document.getElementById("contactMessage").value.trim();
+
+                if (!name || !email || !subject || !message) {
+                    formStatus.style.display = "block";
+                    formStatus.className = "form-status";
+                    formStatus.style.background = "rgba(239, 68, 68, 0.12)";
+                    formStatus.style.border = "1px solid rgba(239, 68, 68, 0.28)";
+                    formStatus.style.color = "#f87171";
+                    formStatus.innerText = "Please fill in all fields before sending.";
+                    return;
+                }
+
+                formStatus.style.display = "block";
+                formStatus.className = "form-status success";
+                formStatus.innerText = "Thank you! Your message has been sent successfully. We will get back to you shortly.";
+                contactForm.reset();
+            });
+        }
+
         const menuBtn = document.getElementById("menuBtn");
         const sidebar = document.getElementById("sidebar");
         const closeBtn = document.getElementById("closeBtn");
-        const searchForm = document.querySelector(".page-search-form");
-        const searchInput = document.getElementById("searchInput");
-        const clearSearch = document.getElementById("clearSearch");
 
         if (menuBtn && sidebar) {
             menuBtn.addEventListener("click", () => {
@@ -170,45 +362,7 @@
                 sidebar.classList.remove("active");
             }
         });
-
-        if (searchForm && searchInput) {
-            const goToSearch = () => {
-                const root = searchForm.dataset.searchRoot || "./";
-                const term = searchInput.value.trim();
-                const url = new URL(root, window.location.href);
-
-                if (term) {
-                    url.searchParams.set("search", term);
-                } else {
-                    url.searchParams.set("category", "all");
-                }
-
-                url.hash = "quotesContainer";
-                window.location.href = url.toString();
-            };
-
-            searchForm.addEventListener("submit", event => {
-                event.preventDefault();
-                goToSearch();
-            });
-
-            searchInput.addEventListener("input", () => {
-                if (clearSearch) {
-                    clearSearch.style.display = searchInput.value ? "block" : "none";
-                }
-            });
-
-            if (clearSearch) {
-                clearSearch.addEventListener("click", () => {
-                    searchInput.value = "";
-                    clearSearch.style.display = "none";
-                    goToSearch();
-                });
-            }
-        }
     </script>
-    <script src="js/site-actions.js"></script>
 </body>
 
 </html>
-

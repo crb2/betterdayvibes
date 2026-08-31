@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://betterdayvibes.life/sitemap.xml
+Sitemap: https://betterdayvibes.life/rss.xml
