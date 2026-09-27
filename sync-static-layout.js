@@ -145,23 +145,11 @@ function ensureGstatic(html) {
     );
 }
 
-function ensureAdSenseScript(html) {
-    if (html.includes("ca-pub-1514260178834754")) {
-        return html;
-    }
-
-    const script = `    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1514260178834754"
-        crossorigin="anonymous"></script>\n`;
-
-    return html.replace(/<meta charset="UTF-8">/i, `${script}    <meta charset="UTF-8">`);
-}
-
 for (const page of PAGES) {
     const file = path.join(ROOT_DIR, page);
     let html = fs.readFileSync(file, "utf8");
 
     html = ensureThemeHeadScript(html);
-    html = ensureAdSenseScript(html);
     html = ensureFontAwesome(html);
     html = ensureGstatic(html);
     
