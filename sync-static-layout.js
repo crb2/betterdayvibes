@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT_DIR = __dirname;
-const PAGES = ["about.html", "privacy-policy.html", "terms-and-conditions.html", "contact.html"];
+const PAGES = ["about.html", "privacy-policy.html", "terms-and-conditions.html"];
 
 function header() {
     return `<header>
@@ -67,7 +67,6 @@ function sidebar() {
             <li><a href="./?category=relationships#quotesContainer">Relationships</a></li>
             <li><a href="./?category=self-growth#quotesContainer">Self-Growth</a></li>
             <li><a href="./?category=faith-hope#quotesContainer">Faith &amp; Hope</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
         </ul>
     </aside>`;
 }
@@ -76,8 +75,6 @@ function footer() {
     return `<footer>
         <div class="footer-links">
             <a href="about.html">About Us</a>
-            <span>|</span>
-            <a href="contact.html">Contact</a>
             <span>|</span>
             <a href="privacy-policy.html">Privacy Policy</a>
             <span>|</span>
@@ -92,7 +89,7 @@ function footer() {
             <a href="https://x.com/betterdayvibe" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
         </div>
 
-        <p>&copy; 2026 Better Day Vibes v1.0.1. All Rights Reserved.</p>
+        <p>&copy; 2026 Better Day Vibes v1.0.3. All Rights Reserved.</p>
     </footer>
 
     <!-- Floating Scroll Navigation Button -->

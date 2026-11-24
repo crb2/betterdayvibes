@@ -82,6 +82,7 @@ document.addEventListener("click", (e) => {
 function filterCategory(category) {
     activeCategory = category;
     visibleCardLimit = cardsPerLoad;
+    hasUserScrolled = false;
     if (searchInput) searchInput.value = "";
     if (clearBtn) clearBtn.style.display = "none";
     if (sidebar) sidebar.classList.remove("active");
@@ -120,6 +121,10 @@ function updatePosts() {
         if (index < visibleCardLimit) {
             card.style.display = "";
             card.classList.remove("hidden");
+            const img = card.querySelector("img");
+            if (img && img.dataset.src && !img.getAttribute("src")) {
+                img.src = img.dataset.src;
+            }
         } else {
             card.style.display = "none";
             card.classList.add("hidden");
@@ -148,6 +153,7 @@ function updatePosts() {
 if (searchInput) {
     searchInput.addEventListener("input", () => {
         visibleCardLimit = cardsPerLoad;
+        hasUserScrolled = false;
         if (clearBtn) clearBtn.style.display = searchInput.value ? "flex" : "none";
         updatePosts();
     });
@@ -157,6 +163,7 @@ if (clearBtn) {
     clearBtn.addEventListener("click", () => {
         if (searchInput) searchInput.value = "";
         clearBtn.style.display = "none";
+        hasUserScrolled = false;
         updatePosts();
     });
 }
@@ -220,6 +227,7 @@ function selectSuggestion(term) {
 
     saveSearch(term);
     if (suggestions) suggestions.style.display = "none";
+    hasUserScrolled = false;
     updatePosts();
     if (searchInput) searchInput.blur();
 }
@@ -285,21 +293,47 @@ document.addEventListener("click", (e) => {
     }
 });
 
+let hasUserScrolled = false;
+let isLoadingMore = false;
+
+window.addEventListener("scroll", () => {
+    if (!hasUserScrolled) {
+        hasUserScrolled = true;
+        if (trigger) {
+            const rect = trigger.getBoundingClientRect();
+            if (rect.top <= window.innerHeight + 250) {
+                loadMoreCards();
+            }
+        }
+    }
+}, { passive: true });
+
 const trigger = document.getElementById("load-trigger");
 if (trigger) {
     const observer = new IntersectionObserver(entries => {
         if (entries[0].isIntersecting) {
-            loadMoreCards();
+            if (hasUserScrolled || window.scrollY > 20) {
+                loadMoreCards();
+            }
         }
     }, {
-        rootMargin: "500px"
+        rootMargin: "250px"
     });
     observer.observe(trigger);
 }
 
 function loadMoreCards() {
+    if (isLoadingMore) return;
+    const cards = document.querySelectorAll(".quote-card");
+    if (visibleCardLimit >= cards.length) return;
+
+    isLoadingMore = true;
     visibleCardLimit += cardsPerLoad;
     updatePosts();
+
+    setTimeout(() => {
+        isLoadingMore = false;
+    }, 150);
 }
 
 // Social share links
@@ -311,7 +345,7 @@ document.querySelectorAll(".quote-card").forEach(card => {
     const pinterest = card.querySelector(".share-pinterest");
 
     const image = card.querySelector("img");
-    const slug = card.dataset.slug || image?.getAttribute("src")?.split("/")?.filter(Boolean)?.slice(-2, -1)[0];
+    const slug = card.dataset.slug || (image?.getAttribute("data-src") || image?.getAttribute("src"))?.split("/")?.filter(Boolean)?.slice(-2, -1)[0];
 
     if (!slug) return;
 

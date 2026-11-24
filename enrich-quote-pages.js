@@ -415,7 +415,6 @@ function generateQuotePageHtml(item, allQuotes) {
             <li><a href="../../?category=relationships#quotesContainer">Relationships</a></li>
             <li><a href="../../?category=self-growth#quotesContainer">Self-Growth</a></li>
             <li><a href="../../?category=faith-hope#quotesContainer">Faith &amp; Hope</a></li>
-            <li><a href="../../contact.html">Contact Us</a></li>
         </ul>
     </aside>
 
@@ -470,8 +469,6 @@ ${relatedLinksHtml}
         <div class="footer-links">
             <a href="../../about.html">About Us</a>
             <span>|</span>
-            <a href="../../contact.html">Contact</a>
-            <span>|</span>
             <a href="../../privacy-policy.html">Privacy Policy</a>
             <span>|</span>
             <a href="../../terms-and-conditions.html">Terms &amp; Conditions</a>
@@ -485,7 +482,7 @@ ${relatedLinksHtml}
             <a href="https://x.com/betterdayvibe" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
         </div>
 
-        <p>&copy; 2026 Better Day Vibes v1.0.1. All Rights Reserved.</p>
+        <p>&copy; 2026 Better Day Vibes v1.0.3. All Rights Reserved.</p>
     </footer>
 
     <!-- Floating Scroll Navigation Button -->
