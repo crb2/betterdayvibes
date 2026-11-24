@@ -119,7 +119,8 @@
             }
 
             const atTop = currentScrollY <= TOP_THRESHOLD;
-            const atBottom = windowHeight + currentScrollY >= scrollHeight - BOTTOM_THRESHOLD;
+            const hasMoreContent = !!document.querySelector(".quote-card.hidden");
+            const atBottom = !hasMoreContent && (windowHeight + currentScrollY >= scrollHeight - BOTTOM_THRESHOLD);
 
             if (atTop) {
                 hideButton();
@@ -161,6 +162,21 @@
             if (currentDirection === "up" || btn.classList.contains("scroll-up")) {
                 window.scrollTo({ top: 0, behavior: "smooth" });
             } else {
+                if (typeof window.loadAllQuoteCards === "function") {
+                    window.loadAllQuoteCards();
+                } else {
+                    const hiddenCards = document.querySelectorAll(".quote-card.hidden");
+                    if (hiddenCards.length > 0) {
+                        hiddenCards.forEach(function (card) {
+                            card.style.display = "";
+                            card.classList.remove("hidden");
+                            const img = card.querySelector("img");
+                            if (img && img.dataset.src && !img.getAttribute("src")) {
+                                img.src = img.dataset.src;
+                            }
+                        });
+                    }
+                }
                 window.scrollTo({
                     top: document.documentElement.scrollHeight || document.body.scrollHeight,
                     behavior: "smooth"

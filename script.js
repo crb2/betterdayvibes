@@ -336,6 +336,12 @@ function loadMoreCards() {
     }, 150);
 }
 
+window.loadAllQuoteCards = function () {
+    const cards = document.querySelectorAll(".quote-card");
+    visibleCardLimit = cards.length;
+    updatePosts();
+};
+
 // Social share links
 document.querySelectorAll(".quote-card").forEach(card => {
     const quote = card.querySelector("p")?.innerText || "";
